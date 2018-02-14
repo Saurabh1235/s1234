@@ -1,0 +1,151 @@
+      ******************************************************************
+      * DCLGEN TABLE(TBORCOL)                                          *
+      *        LIBRARY(PBEN.DB2.DCLGEN(TBORCOL))                       *
+      *        ACTION(REPLACE)                                         *
+      *        LANGUAGE(COBOL)                                         *
+      *        APOST                                                   *
+      * ... IS THE DCLGEN COMMAND THAT MADE THE FOLLOWING STATEMENTS   *
+      ******************************************************************
+           EXEC SQL DECLARE TBORCOL TABLE
+           ( TCOLCUSER                      CHAR(8) NOT NULL,
+             TCOLDCREAT                     DATE NOT NULL,
+             TCOLDMOD                       DATE NOT NULL,
+             TCOLNTERM                      CHAR(4) NOT NULL,
+             TCOLNOID                       DECIMAL(5, 0) NOT NULL,
+             TCOLLBASEUSER                  CHAR(8) NOT NULL,
+             TCOLBINDP                      DECIMAL(3, 0) NOT NULL,
+             TCOLLNOMPREN                   CHAR(28) NOT NULL,
+             TCOLLINITUSER                  CHAR(3) NOT NULL,
+             TCOLNTELUSER                   CHAR(15) NOT NULL,
+             TCOLCSOCAPPART                 CHAR(2) NOT NULL,
+             TCOLCNIVEAUHIER                DECIMAL(3, 0) NOT NULL,
+             TCOLCFONCSOMM                  CHAR(4) NOT NULL,
+             TCOLLAFFICHECH                 CHAR(6) NOT NULL,
+             TCOLCEFFZCONF                  CHAR(1) NOT NULL,
+             TCOLNOIDELEG                   DECIMAL(5, 0) NOT NULL,
+             TCOLDDELEGDEB                  DATE NOT NULL,
+             TCOLDDELEGFIN                  DATE NOT NULL,
+             TCOLCTYPDELEG                  CHAR(2) NOT NULL,
+             TCOLDSURVDEB                   DATE NOT NULL,
+             TCOLDSURVFIN                   DATE NOT NULL,
+             TCOLCSURVDOS                   CHAR(10) NOT NULL,
+             TCOLCSURVECOUTE                CHAR(10) NOT NULL,
+             TCOLCCOMPTER                   DECIMAL(3, 0) NOT NULL,
+             TCOLCCOMPZON                   DECIMAL(3, 0) NOT NULL,
+             TCOLNAFFECAGC1                 DECIMAL(3, 0) NOT NULL,
+             TCOLNAFFECAGC2                 DECIMAL(3, 0) NOT NULL,
+             TCOLNAFFECAGC3                 DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC1                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC2                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC3                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC4                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC5                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC6                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC7                  DECIMAL(3, 0) NOT NULL,
+             TCOLNDEPAAGC8                  DECIMAL(3, 0) NOT NULL,
+             TCOLNCONFAGC                   DECIMAL(3, 0) NOT NULL,
+             TCOLCSTAT                      CHAR(1) NOT NULL,
+             TCOLCCLAST                     CHAR(1) NOT NULL,
+             TCOLCCOMPSOC1                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC2                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC3                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC4                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC5                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC6                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC7                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC8                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC9                  CHAR(3) NOT NULL,
+             TCOLCCOMPSOC10                 CHAR(3) NOT NULL,
+             TCOLCCOMPSOC11                 CHAR(3) NOT NULL,
+             TCOLNCONFSOC                   DECIMAL(3, 0) NOT NULL,
+             TCOLCVISITOTALE                CHAR(1) NOT NULL,
+             TCOLCPOLEACTIV                 CHAR(2) NOT NULL,
+             TCOLCBAC                       CHAR(1) NOT NULL,
+             TCOLCCOMMERC                   DECIMAL(3, 0) NOT NULL,
+             TCOLCOCTROI                    DECIMAL(3, 0) NOT NULL,
+             TCOLCFINCT                     DECIMAL(3, 0) NOT NULL,
+             TCOLCAPV                       DECIMAL(3, 0) NOT NULL,
+             TCOLCSSR                       DECIMAL(3, 0) NOT NULL,
+             TCOLCCTX                       DECIMAL(3, 0) NOT NULL,
+             TCOLCCTRGAL                    DECIMAL(3, 0) NOT NULL,
+             TCOLCCPTCLI                    DECIMAL(3, 0) NOT NULL,
+             TCOLCCOMPTA                    DECIMAL(3, 0) NOT NULL,
+             TCOLCCOMPTARIB                 DECIMAL(3, 0) NOT NULL,
+             TCOLCHELP                      DECIMAL(3, 0) NOT NULL,
+             TCOLCSECURITE                  DECIMAL(3, 0) NOT NULL,
+             TCOLNIMP                       CHAR(4) NOT NULL
+           ) END-EXEC.
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE TBORCOL                            *
+      ******************************************************************
+       01  DCLTBORCOL.
+           10 TCOLCUSER            PIC X(8).
+           10 TCOLDCREAT           PIC X(10).
+           10 TCOLDMOD             PIC X(10).
+           10 TCOLNTERM            PIC X(4).
+           10 TCOLNOID             PIC S9(5)V USAGE COMP-3.
+           10 TCOLLBASEUSER        PIC X(8).
+           10 TCOLBINDP            PIC S9(3)V USAGE COMP-3.
+           10 TCOLLNOMPREN         PIC X(28).
+           10 TCOLLINITUSER        PIC X(3).
+           10 TCOLNTELUSER         PIC X(15).
+           10 TCOLCSOCAPPART       PIC X(2).
+           10 TCOLCNIVEAUHIER      PIC S9(3)V USAGE COMP-3.
+           10 TCOLCFONCSOMM        PIC X(4).
+           10 TCOLLAFFICHECH       PIC X(6).
+           10 TCOLCEFFZCONF        PIC X(1).
+           10 TCOLNOIDELEG         PIC S9(5)V USAGE COMP-3.
+           10 TCOLDDELEGDEB        PIC X(10).
+           10 TCOLDDELEGFIN        PIC X(10).
+           10 TCOLCTYPDELEG        PIC X(2).
+           10 TCOLDSURVDEB         PIC X(10).
+           10 TCOLDSURVFIN         PIC X(10).
+           10 TCOLCSURVDOS         PIC X(10).
+           10 TCOLCSURVECOUTE      PIC X(10).
+           10 TCOLCCOMPTER         PIC S9(3)V USAGE COMP-3.
+           10 TCOLCCOMPZON         PIC S9(3)V USAGE COMP-3.
+           10 TCOLNAFFECAGC1       PIC S9(3)V USAGE COMP-3.
+           10 TCOLNAFFECAGC2       PIC S9(3)V USAGE COMP-3.
+           10 TCOLNAFFECAGC3       PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC1        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC2        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC3        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC4        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC5        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC6        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC7        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNDEPAAGC8        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNCONFAGC         PIC S9(3)V USAGE COMP-3.
+           10 TCOLCSTAT            PIC X(1).
+           10 TCOLCCLAST           PIC X(1).
+           10 TCOLCCOMPSOC1        PIC X(3).
+           10 TCOLCCOMPSOC2        PIC X(3).
+           10 TCOLCCOMPSOC3        PIC X(3).
+           10 TCOLCCOMPSOC4        PIC X(3).
+           10 TCOLCCOMPSOC5        PIC X(3).
+           10 TCOLCCOMPSOC6        PIC X(3).
+           10 TCOLCCOMPSOC7        PIC X(3).
+           10 TCOLCCOMPSOC8        PIC X(3).
+           10 TCOLCCOMPSOC9        PIC X(3).
+           10 TCOLCCOMPSOC10       PIC X(3).
+           10 TCOLCCOMPSOC11       PIC X(3).
+           10 TCOLNCONFSOC         PIC S9(3)V USAGE COMP-3.
+           10 TCOLCVISITOTALE      PIC X(1).
+           10 TCOLCPOLEACTIV       PIC X(2).
+           10 TCOLCBAC             PIC X(1).
+           10 TCOLCCOMMERC         PIC S9(3)V USAGE COMP-3.
+           10 TCOLCOCTROI          PIC S9(3)V USAGE COMP-3.
+           10 TCOLCFINCT           PIC S9(3)V USAGE COMP-3.
+           10 TCOLCAPV             PIC S9(3)V USAGE COMP-3.
+           10 TCOLCSSR             PIC S9(3)V USAGE COMP-3.
+           10 TCOLCCTX             PIC S9(3)V USAGE COMP-3.
+           10 TCOLCCTRGAL          PIC S9(3)V USAGE COMP-3.
+           10 TCOLCCPTCLI          PIC S9(3)V USAGE COMP-3.
+           10 TCOLCCOMPTA          PIC S9(3)V USAGE COMP-3.
+           10 TCOLCCOMPTARIB       PIC S9(3)V USAGE COMP-3.
+           10 TCOLCHELP            PIC S9(3)V USAGE COMP-3.
+           10 TCOLCSECURITE        PIC S9(3)V USAGE COMP-3.
+           10 TCOLNIMP             PIC X(4).
+      ******************************************************************
+      * THE NUMBER OF COLUMNS DESCRIBED BY THIS DECLARATION IS 67      *
+      ******************************************************************

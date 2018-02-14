@@ -1,0 +1,18 @@
+      ******************************************************************
+      ***VALIDATION ECRAN IDEN 01                                    ***
+      ******************************************************************
+
+       01  SDT-SD-ADR201                                            .
+
+           06 FILLER                         PIC X(00001)           .
+
+      ***CODE PAYS BENELUX                                           ***
+
+           06 SDT-RB-CPAYSBEN-G                                     .
+             11 SDT-RB-CPAYSBEN-M            PIC  X(02)
+                  OCCURS 2.
+           06 SDT-RB-CPAYSBEN-R           REDEFINES
+                  SDT-RB-CPAYSBEN-G                                 .
+             11 SDT-RB-CPAYSBEN              PIC  X(02)             .
+             11 FILLER                       PIC X(00002)           .
+

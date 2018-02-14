@@ -1,0 +1,43 @@
+      ******************************************************************
+      * DCLGEN TABLE(TBADRES)                                          *
+      *        LIBRARY(PBEN.DB2.DCLGEN(TBADRES))                       *
+      *        ACTION(REPLACE)                                         *
+      *        LANGUAGE(COBOL)                                         *
+      *        APOST                                                   *
+      * ... IS THE DCLGEN COMMAND THAT MADE THE FOLLOWING STATEMENTS   *
+      ******************************************************************
+           EXEC SQL DECLARE TBADRES TABLE
+           ( TADRNFOY                       DECIMAL(11, 0) NOT NULL,
+             TADRCTYPE                      CHAR(2) NOT NULL,
+             TADRDCREAT                     DATE NOT NULL,
+             TADRDMOD                       DATE NOT NULL,
+             TADRLVBEA                      CHAR(32) NOT NULL,
+             TADRLADRE                      CHAR(32) NOT NULL,
+             TADRCPTT                       CHAR(5) NOT NULL,
+             TADRLVILL                      CHAR(32) NOT NULL,
+             TADRLLOCACH                    CHAR(26) NOT NULL,
+             TADRCPAYS                      DECIMAL(3, 0) NOT NULL,
+             TADRLPAYS                      CHAR(25) NOT NULL,
+             TADRCTDM                       CHAR(1) NOT NULL,
+             TADRBCHAD                      DECIMAL(3, 0) NOT NULL
+           ) END-EXEC.
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE TBADRES                            *
+      ******************************************************************
+       01  DCLTBADRES.
+           10 TADRNFOY             PIC S9(11)V USAGE COMP-3.
+           10 TADRCTYPE            PIC X(2).
+           10 TADRDCREAT           PIC X(10).
+           10 TADRDMOD             PIC X(10).
+           10 TADRLVBEA            PIC X(32).
+           10 TADRLADRE            PIC X(32).
+           10 TADRCPTT             PIC X(5).
+           10 TADRLVILL            PIC X(32).
+           10 TADRLLOCACH          PIC X(26).
+           10 TADRCPAYS            PIC S9(3)V USAGE COMP-3.
+           10 TADRLPAYS            PIC X(25).
+           10 TADRCTDM             PIC X(1).
+           10 TADRBCHAD            PIC S9(3)V USAGE COMP-3.
+      ******************************************************************
+      * THE NUMBER OF COLUMNS DESCRIBED BY THIS DECLARATION IS 13      *
+      ******************************************************************

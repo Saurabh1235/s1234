@@ -1,0 +1,103 @@
+      *----------------------------------------------------------------*00010004
+      *  DC STANDARDS DEFINITION                                       *00020006
+      *----------------------------------------------------------------*00030004
+      *                                                                *00040004
+      *   VALREF : REFERENCE VALUES FOR TESTS ON FIELDS                *00050006
+      *                                                                *00060004
+      *   - INPUT :   . INPUT TYPE                                     *00070006
+      *               . CURSOR PRESENCE                                *00080006
+      *               . CODE HELP                                      *00090006
+      *                                                                *00100004
+      *   - OUTPUT :  . ATTRIBUTE ALIGNMENT                            *00110006
+      *               . COLOR ALIGNMENT                                *00120006
+      *               . PROGRAM SYMBOLS ALIGNMENT                      *00130006
+      *               . HILIGHT ALIGNMENT                              *00140006
+      *               . VALIDATION ATTRIBUTE ALIGNMENT                 *00150006
+      *               . CURSOR ALIGNMENT                               *00160006
+      *                                                                *00170004
+      *----------------------------------------------------------------*00180004
+       01  STDC-VALREF.                                                 00190004
+      *                                                                 00200004
+      *----REFERENCE VALUES FOR TESTS AFTER "RECEIVE"                   00210006
+      *                                                                 00220004
+           05  VRFC-INPUT.                                              00230004
+      *--------INPUT TYPE                                               00240006
+               10  VRFC-TYPE-SAISIE.                                    00250004
+                   15  MODIF          PIC X  VALUE 'M'.                 00260004
+                   15  CLEAR          PIC X  VALUE 'C'.                 00270004
+                   15  NOMODIF        PIC X  VALUE ' '.                 00280004
+                   15  IDEM           PIC X  VALUE 'I'.                 00290004
+      *--------CURSOR PRESENCE                                          00300006
+               10  VRFC-CURSEUR-IN.                                     00310004
+                   15  CURSEUR-IN     PIC X  VALUE 'O'.                 00320004
+                   15  NOCURSEUR-IN   PIC X  VALUE ' '.                 00330004
+      *--------CODE HELP                                                00340006
+               10  VRFC-CODIF.                                          00350004
+                   15  AIDE-CODIF     PIC X  VALUE 'O'.                 00360004
+                   15  NOAIDE-CODIF   PIC X  VALUE ' '.                 00370004
+      *                                                                 00380004
+      *----REFERENCE VALUES FOR ALIGNMENT BEFORE "SEND"                 00390006
+      *                                                                 00400004
+           05  VRFC-OUTPUT.                                             00410004
+               10  VRFC-BASE.                                           00420004
+                   15  VAL-BASE       PIC X  VALUE ' '.                 00430004
+      *--------ATTRIBUTE                                                00440006
+               10  VRFC-ATTRIBUT.                                       00450004
+                   15  ATTRIBUT-INI   PIC X  VALUE ' '.                 00460004
+                   15  PROT           PIC X  VALUE 'A'.                 00470004
+                   15  PROT-NRM       PIC X  VALUE 'I'.                 00480004
+                   15  PROT-BRT       PIC X  VALUE 'B'.                 00490004
+                   15  PROT-DRK       PIC X  VALUE 'C'.                 00500004
+                   15  UNPR           PIC X  VALUE 'D'.                 00510004
+                   15  UNPR-NRM       PIC X  VALUE 'J'.                 00520004
+                   15  UNPR-BRT       PIC X  VALUE 'E'.                 00530004
+                   15  UNPR-DRK       PIC X  VALUE 'F'.                 00540004
+                   15  NRM            PIC X  VALUE 'K'.                 00550004
+                   15  BRT            PIC X  VALUE 'G'.                 00560004
+                   15  DRK            PIC X  VALUE 'H'.                 00570004
+                   15  PROT-MDT       PIC X  VALUE 'L'.                 00580004
+                   15  PROT-NRM-MDT   PIC X  VALUE 'M'.                 00590004
+                   15  PROT-BRT-MDT   PIC X  VALUE 'N'.                 00600004
+                   15  PROT-DRK-MDT   PIC X  VALUE 'O'.                 00610004
+                   15  UNPR-MDT       PIC X  VALUE 'P'.                 00620004
+                   15  UNPR-NRM-MDT   PIC X  VALUE 'Q'.                 00630004
+                   15  UNPR-BRT-MDT   PIC X  VALUE 'R'.                 00640004
+                   15  UNPR-DRK-MDT   PIC X  VALUE 'S'.                 00650004
+                   15  NRM-MDT        PIC X  VALUE 'T'.                 00660004
+                   15  BRT-MDT        PIC X  VALUE 'U'.                 00670004
+                   15  DRK-MDT        PIC X  VALUE 'V'.                 00680004
+                   15  MDT            PIC X  VALUE 'W'.                 00690004
+      *--------COLOR                                                    00700006
+               10  VRFC-COULEUR.                                        00710004
+                   15  COULEUR-INI    PIC X  VALUE ' '.                 00720004
+                   15  BLEU           PIC X  VALUE '1'.                 00730004
+                   15  ROUGE          PIC X  VALUE '2'.                 00740004
+                   15  ROSE           PIC X  VALUE '3'.                 00750004
+                   15  VERT           PIC X  VALUE '4'.                 00760004
+                   15  TURQUOISE      PIC X  VALUE '5'.                 00770004
+                   15  JAUNE          PIC X  VALUE '6'.                 00780004
+                   15  NEUTRE         PIC X  VALUE '7'.                 00790004
+      *--------PROGRAM SYMBOLS                                          00800006
+               10  VRFC-SYMBPRG.                                        00810004
+                   15  SYMBPRG-INI    PIC X  VALUE ' '.                 00820004
+      *--------HILIGHT                                                  00830004
+               10  VRFC-HILIGHT.                                        00840004
+                   15  HILIGHT-INI    PIC X  VALUE ' '.                 00850004
+                   15  REVERSE        PIC X  VALUE 'R'.                 00860004
+                   15  UNDERLINE      PIC X  VALUE 'U'.                 00870004
+                   15  BLINK          PIC X  VALUE 'B'.                 00880004
+      *--------VALIDATION                                               00890004
+               10  VRFC-VALIDATION.                                     00900004
+                   15  VALIDATION-INI PIC X  VALUE ' '.                 00910004
+                   15  TRIG           PIC X  VALUE '1'.                 00920004
+                   15  ENT            PIC X  VALUE '2'.                 00930004
+                   15  ENT-TRIG       PIC X  VALUE '3'.                 00940004
+                   15  FILL           PIC X  VALUE '4'.                 00950004
+                   15  FILL-TRIG      PIC X  VALUE '5'.                 00960004
+                   15  FILL-ENT       PIC X  VALUE '6'.                 00970004
+                   15  FILL-TRIG-ENT  PIC X  VALUE '7'.                 00980004
+      *--------CURSOR                                                   00990006
+               10  VRFC-CURSEUR-OUT.                                    01000004
+                   15  CURSEUR        PIC X  VALUE 'O'.                 01010004
+                   15  NOCURSEUR      PIC X  VALUE ' '.                 01020004
+      *                                                                 01030004

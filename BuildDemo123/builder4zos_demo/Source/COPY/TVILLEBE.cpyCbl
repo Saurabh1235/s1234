@@ -1,0 +1,24 @@
+      ******************************************************************
+      ***TABLE DES VILLES BENELUX                                    ***
+      ******************************************************************
+
+       01  SDT-SD-TVILLEBE                                          .
+
+      ***CODE POSTAL ALPHA                                           ***
+
+           06 SDT-RB-CPTT                    PIC  X(05)             .
+
+      ***LIBELLE VILLE 32C                                           ***
+
+           06 SDT-RB-VILLE                   PIC  X(32)             .
+
+      ***VILLE BENELUX NERLANDE                                      ***
+
+           06 SDT-RB-VILLEB-G                                       .
+             11 SDT-RB-VILLEB-M              PIC  X(32)
+                  OCCURS 2.
+           06 SDT-RB-VILLEB-R             REDEFINES
+                  SDT-RB-VILLEB-G                                   .
+             11 SDT-RB-VILLEB                PIC  X(32)             .
+             11 FILLER                       PIC X(00032)           .
+

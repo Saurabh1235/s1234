@@ -1,0 +1,139 @@
+           05  STDER-ERREUR.                                            00010000
+               10  STDER-DATE                        PIC S9(7)  COMP-3. 00020000
+               10  STDER-HEURE                       PIC S9(7)  COMP-3. 00030000
+               10  STDER-TACHE                       PIC S9(7)  COMP-3. 00040000
+               10  STDER-TYPE-ERREUR                 PIC X(4).          00050000
+               10  STDER-CODE-TRANS                  PIC X(4).          00060000
+               10  STDER-ENVIRONNEMENT               PIC X(8).          00070000
+               10  STDER-USER                        PIC X(8).          00080000
+               10  STDER-DATE-COMPILE                PIC X(20).         00090000
+               10  STDER-NOM-FONCTION                PIC X(4).          00100000
+               10  STDER-NOM-PROG                    PIC X(8).          00110000
+               10  STDER-NOM-MAPSET                  PIC X(8).          00120000
+               10  STDER-NOM-MAP                     PIC X(8).          00130000
+               10  STDER-LIB-ECRAN                   PIC X(40).         00140000
+               10  STDER-BOITE                       PIC X(08).         00150000
+               10  STDER-PARAG                       PIC X(32).         00160000
+               10  STDER-LIG-MTRA                    PIC X(76).         00170000
+               10  STDER-LS-MESS                     PIC X(78).         00180000
+               10  STDER-ABCODE.                                        00190000
+                   15  STDER-ABCODE-1                PIC XX.            00200000
+                   15  STDER-ABCODE-2                PIC XX.            00210000
+      **AD     10  FILLER                            PIC X(4).          00211005
+               10  FILLER                            PIC X(3).          00212004
+               10  STDER-HDLR                        PIC X(1).          00213004
+                   88  APPEL-HANDLER  VALUE '1'.                        00214004
+               10  STDER-TERM-PHYS                   PIC X(4).          00220000
+               10  STDER-IMPR                        PIC X(4).          00240000
+               10  STDER-TS-USER OCCURS 5            PIC X(4).          00250000
+               10  STDER-DUMP                        PIC X.             00260000
+               10  STDER-BACKOUT                     PIC X.             00270000
+               10  STDER-MESSAGE                     PIC X(32).         00280000
+               10  FILLER                            PIC X(46).         00290000
+               10  STDER-ABSTIME-DEBUT               PIC S9(15) COMP-3. 00300000
+               10  STDER-ABSTIME-FIN                 PIC S9(15) COMP-3. 00310000
+               10  STDER-EIB-BLOC.                                      00320000
+                   15  STDER-EIBTIME                 PIC S9(7)  COMP-3. 00330000
+                   15  STDER-EIBDATE                 PIC S9(7)  COMP-3. 00340000
+                   15  STDER-EIBTRNID                PIC X(4).          00350000
+                   15  STDER-EIBTASKN                PIC S9(7)  COMP-3. 00360000
+                   15  STDER-EIBTRMID                PIC X(4).          00370000
+                   15  STDER-DFHEIGDI                PIC S9(4)  COMP.   00380000
+                   15  STDER-EIBCPOSN                PIC S9(4)  COMP.   00390000
+                   15  STDER-EIBCALEN                PIC S9(4)  COMP.   00400000
+                   15  STDER-EIBAID                  PIC X.             00410000
+                   15  STDER-EIBFN                   PIC X(2).          00420000
+                   15  STDER-EIBRCODE                PIC X(6).          00430000
+                   15  STDER-EIBDS                   PIC X(8).          00440000
+                   15  STDER-EIBREQID                PIC X(8).          00450000
+                   15  STDER-EIBRSRCE                PIC X(8).          00460000
+                   15  STDER-EIBSYNC                 PIC X.             00470000
+                   15  STDER-EIBFREE                 PIC X.             00480000
+                   15  STDER-EIBRECV                 PIC X.             00490000
+                   15  STDER-EIBFIL01                PIC X.             00500000
+                   15  STDER-EIBATT                  PIC X.             00510000
+                   15  STDER-EIBEOC                  PIC X.             00520000
+                   15  STDER-EIBFMH                  PIC X.             00530000
+                   15  STDER-EIBCOMPL                PIC X.             00540000
+                   15  STDER-EIBSIG                  PIC X.             00550000
+                   15  STDER-EIBCONF                 PIC X.             00560000
+                   15  STDER-EIBERR                  PIC X.             00570000
+                   15  STDER-EIBERRCD                PIC X(4).          00580000
+                   15  STDER-EIBSYNRB                PIC X.             00590000
+                   15  STDER-EIBNODAT                PIC X.             00600000
+                   15  STDER-EIBRESP                 PIC S9(8) COMP.    00610000
+                   15  STDER-EIBRESP2                PIC S9(8) COMP.    00620000
+                   15  STDER-EIBRLDBK                PIC X.             00630000
+                   15  FILLER                        PIC X(15).         00640000
+               10  STDER-DONNEE                      PIC X(1000).       00650000
+               10  STDER-DB2 REDEFINES STDER-DONNEE.                    00660000
+                   15  STDER-DB2-SQLCODE             PIC S9(3)  COMP-3. 00670000
+                   15  STDER-DB2-SQLCA               PIC X(136).        00680000
+                   15  STDER-DB2-TABLE               PIC X(18).         00690000
+                   15  STDER-DB2-CLE                 PIC X(234).        00700000
+                   15  FILLER                        PIC X(610).        00710000
+               10  STDER-DL1 REDEFINES STDER-DONNEE.                    00720000
+                   15  STDER-DL1-ZONE.                                  00730000
+                       20  STDER-DL1-DIBSTAT         PIC XX.            00740000
+                       20  STDER-DL1-NOMSEGM         PIC X(8).          00750000
+                       20  STDER-DL1-NOMPCB          PIC X(12).         00760000
+                       20  STDER-DL1-RGPCB           PIC XX.            00770000
+                       20  STDER-DL1-MESSAGE         PIC X(20).         00780000
+                       20  STDER-DL1-NOMRAC          PIC X(8).          00790000
+                       20  STDER-DL1-CODEOP          PIC XX.            00800000
+                       20  STDER-DL1-CLERACLIB       PIC X(20).         00810000
+                       20  STDER-DL1-CLERACVAL       PIC X(50).         00820000
+                       20  STDER-DL1-CLESEGLIB       PIC X(20).         00830000
+                       20  STDER-DL1-CLESEGVAL       PIC X(50).         00840000
+                   15  STDER-DL1-NOMPSB              PIC X(8).          00850000
+                   15  FILLER                        PIC X(798).        00860000
+               10  STDER-ARMIDE REDEFINES STDER-DONNEE.                 00870000
+                   15  STDER-ARMI-FONCTION           PIC XX.            00880000
+                   15  STDER-ARMI-MODE-TRAITMT       PIC XX.            00890000
+                   15  STDER-ARMI-IDOBJET.                              00900000
+                       20  STDER-ARMI-TYPE-OBJ       PIC XX.            00910000
+                       20  STDER-ARMI-SITE-OBJ       PIC X(4).          00920000
+                       20  STDER-ARMI-NOM-OBJ        PIC X(8).          00930000
+                       20  STDER-ARMI-VERSION        PIC X.             00940000
+                   15  STDER-ARMI-DATE-REFERENCE     PIC X(8).          00950000
+                   15  STDER-ARMI-MEX.                                  00960000
+                       20  STDER-ARMI-MEX-DATE       PIC X(8).          00970000
+                       20  STDER-ARMI-MEX-HEURE      PIC X(4).          00980000
+                   15  STDER-ARMI-IDSDT.                                00990000
+                       20  STDER-ARMI-SITE-SDT       PIC X(4).          01000000
+                       20  STDER-ARMI-NOM-SDT        PIC X(8).          01010000
+                   15  FILLER                        PIC X.             01020000
+                   15  STDER-ARMI-IDVUE.                                01030000
+                       20  STDER-ARMI-SITEVUE        PIC X(4).          01040000
+                       20  STDER-ARMI-COOBJVUE       PIC X(8).          01050000
+                   15  FILLER                        PIC X.             01060000
+                   15  STDER-ARMI-VALEUR-MINI        PIC X(30).         01070000
+                   15  STDER-ARMI-VALEUR-MAXI        PIC X(30).         01080000
+                   15  STDER-ARMI-CSYSTEME           PIC XX.            01090000
+                   15  STDER-ARMI-CSOUS-SYSTEME.                        01100000
+                       20  STDER-ARMI-CODESS         PIC X OCCURS 10.   01110000
+                   15  STDER-ARMI-NBPOSTES           PIC X(4).          01120000
+                   15  STDER-ARMI-TAILLEPOSTE        PIC X(4).          01130000
+                   15  STDER-ARMI-CODERETOUR         PIC 99.            01140000
+                       88  STDER-ARMI-ACCES-OK          VALUE ZERO .    01150000
+                       88  STDER-ARMI-PROBLEME          VALUE 1 THRU 9. 01160000
+                       88  STDER-ARMI-FIN-PTE           VALUE 48.       01170000
+                       88  STDER-ARMI-FIN-DE-LISTE      VALUE 92 94 97. 01180000
+                       88  STDER-ARMI-ENCORE-A-LIRE     VALUE 93 95.    01190000
+                   15  STDER-ARMI-CODERESULTAT       PIC 9.             01200000
+                       88  STDER-ARMI-PTE-STOPPEE       VALUE 0.        01210000
+                       88  STDER-ARMI-NON-TROUVE        VALUE 0.        01220000
+                       88  STDER-ARMI-TROUVE            VALUE 1.        01230000
+                   15  STDER-ARMI-MESSAGE            PIC X(60).         01240000
+                   15  STDER-ARMI-ACTEUR             PIC X(8).          01250000
+                   15  STDER-ARMI-BLOCAGE            PIC X.             01260000
+                       88  STDER-ARMI-ARRET-PTE         VALUE 'S'.      01270000
+                       88  STDER-ARMI-POURSUITE-PTE     VALUE 'W' ' '.  01280000
+                       88  STDER-ARMI-MAJ-AVANT-SUITE-PTE VALUE 'E' .   01290000
+                       88  STDER-ARMI-DERNIER-STEP-PTE  VALUE 'F' .     01300000
+                   15  STDER-ARMI-PREFIXE            PIC X(4).          01310000
+                   15  FILLER                        PIC X(27).         01320000
+                   15  STDER-ARMI-ZTECH              PIC X(8).          01330000
+                   15  STDER-ARMI-SDT                PIC X(444).        01340000
+                   15  FILLER                        PIC X(300).        01350000
+               10  STDER-COMENCH                     PIC X(300).        01360001

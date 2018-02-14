@@ -1,0 +1,365 @@
+       01  CWAZONE.
+           02  WJJMMAAAA      PIC X(8).
+           02  WJJMMAAAAR  REDEFINES   WJJMMAAAA  PIC 9(8).
+           02  WAAAAMMJJ.
+               03  WAAAA      PIC 9999.
+               03  FILLER  REDEFINES  WAAAA.                            930621NL
+                   05  CWA-SIECLE  PIC 99.                              930621NL
+                   05  FILLER      PIC 99.                              930621NL
+               03  WMM          PIC 99.
+               03  WJJ          PIC 99.
+           02  FWAAAA   REDEFINES  WAAAAMMJJ.
+               03  FILLER     PIC XX.
+               03  WAAMMJJ    PIC 9(6).
+           02  WAAAAMMJJR  REDEFINES  FWAAAA    PIC 9(8).
+           02  WJMA.
+               03  WJ     PIC 99.
+               03  WM     PIC 99.
+               03  WA     PIC 99.
+           02  WJMAR REDEFINES  WJMA  PIC 9(6).
+           02  WAMJP1AN.
+               03  WAP1AN      PIC 99.
+               03  WMP1AN      PIC 99.
+               03  WJP1AN      PIC 99.
+           02  WAMJP1ANR REDEFINES WAMJP1AN  PIC 9(6).
+           02  WAMJM1AN.
+               03  WAM1AN      PIC 99.
+               03  WMM1AN      PIC 99.
+               03  WJM1AN      PIC 99.
+           02  WAMJM1ANR REDEFINES WAMJM1AN  PIC 9(6).
+           02  WAMJM1MOI.
+               03  WAM1MOI     PIC 99.
+               03  WMM1MOI     PIC 99.
+               03  WJM1MOI     PIC 99.
+           02  WAMJM1MOIR REDEFINES WAMJM1MOI PIC 9(6).
+           02  WDECH0.
+               03  WAECH0      PIC 99.
+               03  WMECH0      PIC 99.
+               03  WJECH0      PIC 99.
+           02  WDECH0R   REDEFINES  WDECH0    PIC 9(6).
+           02  WDECH2.
+               03  WAECH2      PIC 99.
+               03  WMECH2      PIC 99.
+               03  WJECH2      PIC 99.
+           02  WDECH2R  REDEFINES  WDECH2    PIC 9(6).
+           02  WDP30.
+               03  WAP30       PIC 99.
+               03  WMP30       PIC 99.
+               03  WJP30       PIC 99.
+           02  WDP30R  REDEFINES   WDP30   PIC 9(6).
+           02  WDP50.
+               03  WAP50       PIC 99.
+               03  WMP50       PIC 99.
+               03  WJP50       PIC 99.
+           02  WDP50R  REDEFINES   WDP50   PIC 9(6).
+           02  WDP56.
+               03  WAP56       PIC 99.
+               03  WMP56       PIC 99.
+               03  WJP56       PIC 99.
+           02  WDP56R  REDEFINES   WDP56   PIC 9(6).
+           02  WDP4M.
+               03  WAP4M       PIC 99.
+               03  WMP4M       PIC 99.
+               03  WJP4M       PIC 99.
+           02  WDP4MR   REDEFINES  WDP4M   PIC 9(6).
+           02  WDM60.
+               03  WAM60       PIC 99.
+               03  WMM60       PIC 99.
+               03  WJM60       PIC 99.
+           02  WDM60R  REDEFINES  WDM60  PIC 9(6).
+           02  WDM3A.
+               03  WAM3A       PIC 99.
+               03  WMM3A       PIC 99.
+               03  WJM3A       PIC 99.
+           02  WDM3AR  REDEFINES  WDM3A  PIC 9(6).
+           02  WDSA5.
+               03  WASA5       PIC 99.
+               03  WMSA5       PIC 99.
+               03  WJSA5       PIC 99.
+           02  WDSA5R  REDEFINES  WDSA5  PIC 9(6).
+           02  WDECH10R.
+               03  WAECH10R        PIC 99.
+               03  WMECH10R        PIC 99.
+               03  WJECH10R        PIC 99.
+           02  WDECH10RR  REDEFINES  WDECH10R  PIC 9(6).
+           02  WDECH12R.
+               03  WAECH12R        PIC 99.
+               03  WMECH12R        PIC 99.
+               03  WJECH12R        PIC 99.
+           02  WDECH12RR  REDEFINES  WDECH12R  PIC 9(6).
+           02  WDECH20R.
+               03  WAECH20R        PIC 99.
+               03  WMECH20R        PIC 99.
+               03  WJECH20R        PIC 99.
+           02  WDECH20RR  REDEFINES  WDECH20R  PIC 9(6).
+           02  WDECH22R.
+               03  WAECH22R        PIC 99.
+               03  WMECH22R        PIC 99.
+               03  WJECH22R        PIC 99.
+           02  WDECH22RR  REDEFINES  WDECH22R  PIC 9(6).
+           02  WDECH30R.
+               03  WAECH30R        PIC 99.
+               03  WMECH30R        PIC 99.
+               03  WJECH30R        PIC 99.
+           02  WDECH30RR  REDEFINES  WDECH30R  PIC 9(6).
+           02  WDECH32R.
+               03  WAECH32R        PIC 99.
+               03  WMECH32R        PIC 99.
+               03  WJECH32R        PIC 99.
+           02  WDECH32RR  REDEFINES  WDECH32R  PIC 9(6).
+           02  WAMJP6MOI.
+               03  WAP6MOI  PIC 99.
+               03  WMP6MOI  PIC 99.
+               03  WJP6MOI PIC 99.
+           02  WAMJP6MOIR REDEFINES WAMJP6MOI PIC 9(6).
+           02  WAMJM3MOI.
+               03  WAM3MOI     PIC 99.
+               03  WMM3MOI     PIC 99.
+               03  WJM3MOI     PIC 99.
+           02  WAMJM3MOIR REDEFINES WAMJM3MOI PIC 9(6).
+           02  WDJFP.
+               03  WAJFP   PIC 99.
+               03  WMJFP   PIC 99.
+               03  WJJFP   PIC 99.
+           02  WDJFPR  REDEFINES WDJFP PIC 9(6).
+           02  WCBASC      PIC 9.
+           02  WNBENC      PIC 99.
+           02  WCPREF      PIC 99V99.
+           02  WCPSSR      PIC 99V99.
+           02  WCPCTX      PIC 9V99.
+           02  WBINAC      PIC 99.
+           02  WAMJP1MOI.
+               03  WAP1MOI     PIC  99.
+               03  WMP1MOI     PIC  99.
+               03  WJP1MOI     PIC  99.
+           02  WAMJP1MOIR  REDEFINES   WAMJP1MOI    PIC  9(6).
+           02  WAMJP2MOI.
+               03  WAP2MOI     PIC  99.
+               03  WMP2MOI     PIC  99.
+               03  WJP2MOI     PIC  99.
+           02  WAMJP2MOIR  REDEFINES   WAMJP2MOI    PIC  9(6).
+           02  WDTOMBECH.
+               03  WATECH      PIC 99.
+               03  WMTECH      PIC 99.
+               03  WJTECH      PIC 99.
+           02  WDTOMBECHR  REDEFINES  WDTOMBECH    PIC 9(6).
+           02  WDECHAP.
+               03  WAECHAP     PIC 99.
+               03  WMECHAP     PIC 99.
+               03  WJECHAP     PIC 99.
+           02  WDECHAPR    REDEFINES  WDECHAP     PIC 9(6).
+           02  WAMJM2MOI.
+               03  WAM2MOI     PIC 99.
+               03  WMM2MOI     PIC 99.
+               03  WJM2MOI     PIC 99.
+           02  WAMJM2MOIR  REDEFINES  WAMJM2MOI   PIC 9(6).
+           02  WTEGUS      PIC 99V99.
+           02  WAMJP45J.
+               03  WAP45J       PIC  99.
+               03  WMP45J       PIC  99.
+               03  WJP45J       PIC  99.
+           02  WAMJP45JR   REDEFINES   WAMJP45J    PIC 9(6).
+           02  WAMJJFIN.
+               03  WAJFIN        PIC  99.
+               03  WMJFIN        PIC  99.
+               03  WJJFIN        PIC  99.
+           02  WAMJJFIN9  REDEFINES  WAMJJFIN  PIC  9(6).
+           02  WAMJARC.
+               03  WAARC   PIC 99.
+               03  WMARC   PIC 99.
+               03  WJARC   PIC 99.
+           02  WAMJARCR  REDEFINES  WAMJARC    PIC  9(6).
+           02  WDTOMB05.
+               03  WATE05  PIC 99.
+               03  WMTE05  PIC 99.
+               03  WJTE05  PIC 99.
+           02  WDTOMB05R  REDEFINES  WDTOMB05  PIC  9(6).
+           02  WDTOMB20.
+               03  WATE20  PIC 99.
+               03  WMTE20  PIC 99.
+               03  WJTE20  PIC 99.
+           02  WDTOMB20R  REDEFINES  WDTOMB20  PIC  9(6).
+           02  WTXCEP      PIC 9V999999.
+           02  WDPRESQ05.
+               03  WAPQ05      PIC 99.
+               03  WMPQ05      PIC 99.
+               03  WJPQ05      PIC 99.
+           02  WDPRESQ05R  REDEFINES   WDPRESQ05   PIC 9(6).
+           02  WDPRESQ10.
+               03  WAPQ10      PIC 99.
+               03  WMPQ10      PIC 99.
+               03  WJPQ10      PIC 99.
+           02  WDPRESQ10R  REDEFINES   WDPRESQ10   PIC 9(6).
+           02  WDPRESQ20.
+               03  WAPQ20      PIC 99.
+               03  WMPQ20      PIC 99.
+               03  WJPQ20      PIC 99.
+           02  WDPRESQ20R  REDEFINES   WDPRESQ20   PIC 9(6).
+           02  WAMJP3MOI.
+               03  WAP3MOI     PIC 99.
+               03  WMP3MOI     PIC 99.
+               03  WJP3MOI     PIC 99.
+           02  WAMJP3MOIR  REDEFINES  WAMJP3MOI    PIC  9(6).
+           02  WDDERFPCP.
+               03  WADFPCP     PIC  99.
+               03  WMDFPCP     PIC  99.
+               03  WJDFPCP     PIC  99.
+           02  WDDERFPCPR  REDEFINES  WDDERFPCP  PIC  9(6).
+           02  WDDERFPCEP.
+               03  WADFPCEP    PIC 99.
+               03  WMDFPCEP    PIC 99.
+               03  WJDFPCEP    PIC 99.
+           02  WDDERFPCEPR  REDEFINES  WDDERFPCEP  PIC  9(6).
+          02  WDPROFPCP.
+               03  WAPFPCP     PIC  99.
+               03  WMPFPCP     PIC  99.
+               03  WJPFPCP     PIC  99.
+           02  WDPROFPCPR  REDEFINES  WDPROFPCP  PIC  9(6).
+           02  WSEQTOURN   PIC S9(5)  COMP-3.
+           02  WSCORLIMC   PIC S9(3)   COMP-3.
+           02  WDDJO  PIC S9(7)  COMP-3.
+           02  WCTDPR1    PIC  S9(5)  COMP-3.
+           02  WDEJP.
+               03  WAEJP       PIC  99.
+               03  WMEJP       PIC  99.
+               03  WJEJP       PIC  99.
+           02  WDEJPR      REDEFINES  WDEJP      PIC  9(6).
+           02  WDMIEXA.
+               03  WAMIEXA     PIC  99.
+               03  WMMIEXA     PIC  99.
+               03  WJMIEXA     PIC  99.
+           02  WDMIEXAR    REDEFINES  WDMIEXA    PIC  9(6).
+           02  WDMAEXA.
+               03  WAMAEXA     PIC  99.
+               03  WMMAEXA     PIC  99.
+               03  WJMAEXA     PIC  99.
+           02  WDMAEXAR    REDEFINES  WDMAEXA    PIC  9(6).
+           02  WDMIEXCP.
+               03  WAMIEXCP    PIC  99.
+               03  WMMIEXCP    PIC  99.
+               03  WJMIEXCP    PIC  99.
+           02  WDMIEXCPR   REDEFINES  WDMIEXCP   PIC  9(6).
+           02  WDMAEXCP.
+               03  WAMAEXCP    PIC  99.
+               03  WMMAEXCP    PIC  99.
+               03  WJMAEXCP    PIC  99.
+           02  WDMAEXCPR   REDEFINES  WDMAEXCP   PIC  9(6).
+           02  WDMIEXD.
+               03  WAMIEXD     PIC  99.
+               03  WMMIEXD     PIC  99.
+               03  WJMIEXD     PIC  99.
+           02  WDMIEXDR    REDEFINES  WDMIEXD    PIC  9(6).
+           02  WDMAEXD.
+               03  WAMAEXD     PIC  99.
+               03  WMMAEXD     PIC  99.
+               03  WJMAEXD     PIC  99.
+           02  WDMAEXDR    REDEFINES  WDMAEXD    PIC  9(6).
+           02  WDMIEXCEP.
+               03  WAMIEXCEP   PIC  99.
+               03  WMMIEXCEP   PIC  99.
+               03  WJMIEXCEP   PIC  99.
+           02  WDMIEXCEPR  REDEFINES  WDMIEXCEP  PIC  9(6).
+           02  WDMAEXCEP.
+               03  WAMAEXCEP   PIC  99.
+               03  WMMAEXCEP   PIC  99.
+               03  WJMAEXCEP   PIC  99.
+           02  WDMAEXCEPR  REDEFINES  WDMAEXCEP  PIC  9(6).
+           02  WDMIEXC.
+               03  WAMIEXC     PIC  99.
+               03  WMMIEXC     PIC  99.
+               03  WJMIEXC     PIC  99.
+           02  WDMIEXCR    REDEFINES  WDMIEXC    PIC  9(6).
+           02  WDMAEXC.
+               03  WAMAEXC     PIC  99.
+               03  WMMAEXC     PIC  99.
+               03  WJMAEXC     PIC  99.
+           02  WDMAEXCR    REDEFINES  WDMAEXC    PIC  9(6).
+           02  WDMIEXCF.
+               03  WAMIEXCF    PIC  99.
+               03  WMMIEXCF    PIC  99.
+               03  WJMIEXCF    PIC  99.
+           02  WDMIEXCFR   REDEFINES  WDMIEXCF   PIC  9(6).
+           02  WDMAEXCF.
+               03  WAMAEXCF    PIC  99.
+               03  WMMAEXCF    PIC  99.
+               03  WJMAEXCF    PIC  99.
+           02  WDMAEXCFR   REDEFINES  WDMAEXCF   PIC  9(6).
+           02  WDPRESQ06.
+               03  WAPQ06      PIC 99.
+               03  WMPQ06      PIC 99.
+               03  WJPQ06      PIC 99.
+           02  WDPRESQ06R  REDEFINES   WDPRESQ06   PIC 9(6).
+           02  WAMJP18MOI.
+               03  WAP18MOI    PIC 99.
+               03  WMP18MOI    PIC 99.
+               03  WJP18MOI    PIC 99.
+           02  WAMJP18MOIR REDEFINES   WAMJP18MOI  PIC 9(6).
+           02  WAMJP1JO.
+               03  WAP1JO      PIC 99.
+               03  WMP1JO      PIC 99.
+               03  WJP1JO      PIC 99.
+           02  WAMJP1JOR   REDEFINES   WAMJP1JO    PIC 9(6).
+           02  WAMJP2JO.
+               03  WAP2JO      PIC 99.
+               03  WMP2JO      PIC 99.
+               03  WJP2JO      PIC 99.
+           02  WAMJP2JOR   REDEFINES   WAMJP2JO    PIC 9(6).
+           02  WRALPHA   PIC X.
+           02  WAMJP3JO.
+               03  WAP3JO      PIC 99.
+               03  WMP3JO      PIC 99.
+               03  WJP3JO      PIC 99.
+           02  WAMJP3JOR   REDEFINES   WAMJP3JO    PIC 9(6).
+           02  WDATVAL.
+               03  WDATVALA    PIC 99.
+               03  WDATVALM    PIC 99.
+               03  WDATVALJ    PIC 99.
+           02  WDATVALR    REDEFINES   WDATVAL     PIC 9(6).
+           02  WNOJOM1     PIC S9(3)   COMP-3.
+           02  WNBJTM1     PIC S9(3)   COMP-3.
+           02  WAMJDJM.
+               03  WDJMA    PIC 99.
+               03  WDJMM    PIC 99.
+               03  WDJMJ    PIC 99.
+           02  WAMJDJMR    REDEFINES   WAMJDJM     PIC 9(6).
+           02  WAMJPPA.
+               03  WPPAA       PIC 99.
+               03  WPPAM       PIC 99.
+               03  WPPAJ       PIC 99.
+           02  WAMJPPAR    REDEFINES   WAMJPPA     PIC 9(6).
+           02  WDATCLAIR       PIC X(17).                               8911AR13
+           02  WRVEND          PIC X.                                   8911AR13
+           02  WAMJM2JO.                                                9012AR03
+               03  WAM2JO      PIC 99.                                  9012AR03
+               03  WMM2JO      PIC 99.                                  9012AR03
+               03  WJM2JO      PIC 99.                                  9012AR03
+           02  WAMJM2JOR   REDEFINES   WAMJM2JO    PIC 9(6).            9012AR03
+           02  WJJMMAAAADB2.                                            9012AR05
+               03  WJMADB2J    PIC 99.                                  9012AR05
+               03  WPDB2JM     PIC X.                                   9012AR05
+               03  WJMADB2M    PIC 99.                                  9012AR05
+               03  WPDB2MA     PIC X.                                   9012AR05
+               03  WJMADB2A    PIC 9999.                                9012AR05
+           02  WNBJOUVRE       PIC 99.                                  9210VB
+           02  WAAPIV          PIC 99.                                  AR941222
+      * DATE BILLING COFICA (SUIVANTE)
+           02  WAMJBILCO.                                               9704NL23
+               03  WABILCO     PIC 99.                                  9704NL23
+               03  WMBILCO     PIC 99.                                  9704NL23
+               03  WJBILCO     PIC 99.                                  9704NL23
+           02  WAMJBILCOR   REDEFINES   WAMJBILCO    PIC 9(6).          9704NL23
+      * DATE BILLING COFICA (PRECEDENTE)
+           02  WAMJBILCOP.                                              9711NL18
+               03  WABILCOP    PIC 99.                                  9711NL18
+               03  WMBILCOP    PIC 99.                                  9711NL18
+               03  WJBILCOP    PIC 99.                                  9711NL18
+           02  WAMJBILCOPR   REDEFINES   WAMJBILCOP    PIC 9(6).        9711NL18
+      * UPDATED BY CAMELOT 28.09.00
+      * MODIF CENTIMES INTRODUCTION DATE EURO
+      *0009JC    02  WESP163         PIC X(48).                         9711NL18
+      * UPDATED BY LUCDEL ON 2005.09.01 SUPPRESSION TEST DATE WDATEURO
+      *    02  WDATEURO        PIC 9(08).                               0008JC
+           02  FILLER          PIC X(08).                               0008JC
+      * END UPDATED BY LUCDEL
+           02  WESP163         PIC X(40).                               0008JC
+      *END OF MODIF

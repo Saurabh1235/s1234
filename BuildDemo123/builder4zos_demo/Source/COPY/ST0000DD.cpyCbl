@@ -1,0 +1,82 @@
+      *--------------------------------------------------------------*  00010012
+      *  STANDARD PARAMETERS FOR CICS ERRORS MANAGEMENT              *  00020017
+      *--------------------------------------------------------------*  00030012
+       01  STDER-DATA.                                                  00040012
+           05  STDER-ERRCICS-FLAG.                                      00050012
+               10  ACCEPT-ERR-OUI          VALUE '1'       PIC  X(01).  00060012
+               10  ACCEPT-ERR-NON          VALUE '0'       PIC  X(01).  00070012
+           05  STDER-EXEC-RETOUR                           PIC  X(12).  00080015
+               88  NORESP                  VALUE 'NORESP      '.        00090015
+               88  NOTFND                  VALUE 'NOTFND      '.        00100015
+               88  DUPREC                  VALUE 'DUPREC      '.        00110015
+               88  ENDFILE                 VALUE 'ENDFILE     '.        00120015
+               88  LENGERR                 VALUE 'LENGERR     '.        00130015
+               88  ITEMERR                 VALUE 'ITEMERR     '.        00140015
+               88  PGMIDERR                VALUE 'PGMIDERR    '.        00150015
+               88  ENDDATA                 VALUE 'ENDDATA     '.        00160015
+               88  MAPFAIL                 VALUE 'MAPFAIL     '.        00170015
+               88  INVMPSZ                 VALUE 'INVMPSZ     '.        00180015
+               88  QIDERR                  VALUE 'QIDERR      '.        00190015
+               88  ENQBUSY                 VALUE 'ENQBUSY     '.        00200015
+      *----TABLE FOR SEARCH OF EXCEPTIONAL CONDITIONS                   00210017
+      *                 AND OF ASSOCIATED RETURN CODES                  00220017
+      *                                                                 00230012
+      *----IF ADDITION OF A CONDITION IN THE TABLE, INCREMENT (+1)      00240017
+      *    THE STDER-HEX-CTR COUNTER AND MODIFY THE OCCURS.             00250017
+      *                                                                 00260012
+           05  STDER-HEX-COND.                                          00270012
+               10  STDER-HEX-CTR           VALUE +11   COMP PIC S9(04). 00280012
+               10  STDER-HEX-LIST.                                      00290012
+                   15  STDER-COND-13.                                   00300012
+                       20  STDER-HEX-13    VALUE +13   COMP PIC S9(04). 00310012
+                       20  ACCEPT-NOTFND               PIC  X(01).      00320012
+                       20  FILLER          VALUE 'NOTFND'   PIC  X(12). 00330012
+                   15  STDER-COND-14.                                   00340012
+                       20  STDER-HEX-14    VALUE +14   COMP PIC S9(04). 00350012
+                       20  ACCEPT-DUPREC                    PIC  X(01). 00360012
+                       20  FILLER          VALUE 'DUPREC'   PIC  X(12). 00370012
+                   15  STDER-COND-20.                                   00380012
+                       20  STDER-HEX-20    VALUE +20   COMP PIC S9(04). 00390012
+                       20  ACCEPT-ENDFILE                   PIC  X(01). 00400012
+                       20  FILLER          VALUE 'ENDFILE'  PIC  X(12). 00410012
+                   15  STDER-COND-22.                                   00420012
+                       20  STDER-HEX-22    VALUE +22   COMP PIC S9(04). 00430012
+                       20  ACCEPT-LENGERR                   PIC  X(01). 00440012
+                       20  FILLER          VALUE 'LENGERR'  PIC  X(12). 00450012
+                   15  STDER-COND-26.                                   00460012
+                       20  STDER-HEX-26    VALUE +26   COMP PIC S9(04). 00470012
+                       20  ACCEPT-ITEMERR                   PIC  X(01). 00480012
+                       20  FILLER          VALUE 'ITEMERR'  PIC  X(12). 00490012
+                   15  STDER-COND-27.                                   00500012
+                       20  STDER-HEX-27    VALUE +27   COMP PIC S9(04). 00510012
+                       20  ACCEPT-PGMIDERR                  PIC  X(01). 00520012
+                       20  FILLER          VALUE 'PGMIDERR' PIC  X(12). 00530012
+                   15  STDER-COND-29.                                   00540012
+                       20  STDER-HEX-29    VALUE +29   COMP PIC S9(04). 00550012
+                       20  ACCEPT-ENDDATA                   PIC  X(01). 00560012
+                       20  FILLER          VALUE 'ENDDATA'  PIC  X(12). 00570012
+                   15  STDER-COND-36.                                   00580012
+                       20  STDER-HEX-36    VALUE +36   COMP PIC S9(04). 00590012
+                       20  ACCEPT-MAPFAIL                   PIC  X(01). 00600012
+                       20  FILLER          VALUE 'MAPFAIL'  PIC  X(12). 00610012
+                   15  STDER-COND-38.                                   00620012
+                       20  STDER-HEX-38    VALUE +38   COMP PIC S9(04). 00630012
+                       20  ACCEPT-INVMPSZ                   PIC  X(01). 00640012
+                       20  FILLER          VALUE 'INVMPSZ'  PIC  X(12). 00650012
+                   15  STDER-COND-44.                                   00660012
+                       20  STDER-HEX-44    VALUE +44   COMP PIC S9(04). 00670012
+                       20  ACCEPT-QIDERR                    PIC  X(01). 00680012
+                       20  FILLER          VALUE 'QIDERR'   PIC  X(12). 00690012
+                   15  STDER-COND-55.                                   00700012
+                       20  STDER-HEX-1232  VALUE +55   COMP PIC S9(04). 00710012
+                       20  ACCEPT-ENQBUSY                   PIC  X(01). 00720012
+                       20  FILLER          VALUE 'ENQBUSY'  PIC  X(12). 00730012
+               10  STDER-HEX-TAB REDEFINES STDER-HEX-LIST.              00740012
+                   15  STDER-HEX-POSTE    OCCURS 11                     00750012
+                                          ASCENDING KEY STDER-HEX-CODE  00760012
+                                          INDEXED BY STDER-HEX-I.       00770012
+                       20  STDER-HEX-CODE              COMP PIC S9(04). 00780012
+                       20  STDER-HEX-CODE-X  REDEFINES STDER-HEX-CODE   00790012
+                                                            PIC  X(02). 00800012
+                       20  STDER-CODE-ACCEPT                PIC  X(01). 00810012
+                       20  STDER-CODE-RETOUR                PIC  X(12). 00820012

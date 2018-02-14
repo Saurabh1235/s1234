@@ -1,0 +1,46 @@
+       01  ZTBORCOL .
+           02  FILLER.
+               04 FILLER             PIC X(09)  VALUE 'TCOLCUSER'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLCUSER          PIC X(008) VALUE SPACES.
+           02  FILLER.
+               04 FILLER             PIC X(08)  VALUE 'TCOLNOID'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLNOID           PIC 9(005) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(13)  VALUE 'TCOLLBASEUSER'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLLBASEUSER      PIC X(008) VALUE SPACES.
+           02  FILLER.
+               04 FILLER             PIC X(12)  VALUE 'TCOLNCONFAGC'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLNCONFAGC       PIC 9(003) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(13)  VALUE 'TCOLLINITUSER'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLLINITUSER      PIC X(003) VALUE SPACES.
+           02  FILLER.
+               04 FILLER             PIC X(12)  VALUE 'TCOLNOIDELEG'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLNOIDELEG       PIC 9(005) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(14)  VALUE 'TCOLCSOCAPPART'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLCSOCAPPART     PIC X(002) VALUE SPACES.
+           02  FILLER.
+               04 FILLER             PIC X(12)  VALUE 'TCOLCCOMPTER'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLCCOMPTER       PIC 9(003) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(12)  VALUE 'TCOLCCOMPZON'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLCCOMPZON       PIC 9(003) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(15)  VALUE 'TCOLCNIVEAUHIER'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLCNIVEAUHIER    PIC 9(003) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(11)  VALUE 'TCOLCOCTROI'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZCOLCOCTROI        PIC 9(003) VALUE ZERO.
+               04 FILLER             PIC X      VALUE '§'.

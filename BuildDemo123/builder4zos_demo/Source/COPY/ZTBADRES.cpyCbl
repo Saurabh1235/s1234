@@ -1,0 +1,10 @@
+       01  ZTBADRES .
+           02  FILLER.
+               04 FILLER             PIC X(08)  VALUE 'TADRNFOY'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZADRNFOY           PIC 9(011) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(09)  VALUE 'TADRCTYPE'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZADRCTYPE          PIC X(002) VALUE SPACES.
+               04 FILLER             PIC X      VALUE '§'.

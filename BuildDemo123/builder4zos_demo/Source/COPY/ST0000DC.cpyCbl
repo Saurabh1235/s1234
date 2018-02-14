@@ -1,0 +1,162 @@
+      *--------------------------------------------------------------*  00010007
+      *  MAPPING DATA    PHYSICAL MESSAGE <--> INTERNAL MESSAGE      *  00020015
+      *--------------------------------------------------------------*  00030007
+      *        NIV.05 DOIVENT ETRE ALIGNES SUR FRONTIERE MOT            00040007
+      *                                                                 00050007
+       01  STDMSP-DATA.                                                 00060007
+      *                                                                 00070007
+           05  STDMSP-IN               VALUE 'ST5001T'     PIC  X(08).  00080007
+           05  STDMSP-OUT              VALUE 'ST5002T'     PIC  X(08).  00090007
+      *                                                                 00100007
+      *----PHYSICAL RECEIVE/SEND MESSAGE                                00110017
+      *                                                                 00120007
+           05  STDMSP-MSP.                                              00130007
+               10  STDMSP-MSP-LL                      COMP PIC S9(04).  00140007
+               10  STDMSP-MSP-MSG.                                      00150007
+                   15  STDMSP-MSP-AID                      PIC  X(01).  00160007
+                   15  STDMSP-MSP-DATA OCCURS 6000         PIC  X(01).  00170007
+      *                                                                 00180007
+      *----MAPPING WORK AREA                                            00190016
+      *                                                                 00200007
+           05  STDMSP-ZTRAV.                                            00210007
+               10  STDMSP-Z-SAUV1                          PIC X(820).  00220014
+               10  STDMSP-Z-NBAFF      VALUE '1'           PIC  X(01).  00230007
+               10  STDMSP-Z-CLE-VS.                                     00240007
+                   15  FILLER          VALUE SPACE         PIC  X(04).  00250007
+                   15  STDMSP-Z-IDENT.                                  00260007
+                     18  STDMSP-Z-NOMVE.                                00270007
+                       20  STDMSP-Z-NOMFONC                PIC  X(04).  00280007
+                       20  STDMSP-Z-NOECRAN                PIC  X(02).  00290007
+                     18  FILLER        VALUE SPACE         PIC  X(06).  00300007
+                   15  FILLER          VALUE SPACE         PIC  X(04).  00310007
+                   15  STDMSP-Z-NOMUS                      PIC  X(08).  00320007
+               10  STDMSP-Z-NOMFICH    VALUE SPACE         PIC  X(44).  00330007
+      *                                 BLANC -> ATT.ETENDU TOLERES     00340007
+               10  STDMSP-Z-ATTE       VALUE SPACE         PIC  X(01).  00350007
+               10  FILLER                                  PIC X(706).  00360007
+      *                                                                 00370007
+      *                                                                 00380007
+      *----VARIABLES FOR DISPLAY ($) OR FOR INPUT SAVE (£)              00390016
+      *                                                                 00400007
+           05  STDMSP-VARIABLES.                                        00410007
+      *$DATE-J---------------------------DATE-J (YYYYMMDD)              00420016
+               10  STDMSP-V-A-TYPE        PIC  X(01)       VALUE 'A'.   00430007
+               10  STDMSP-V-A-MAJ         PIC  X(01)       VALUE SPACE. 00440007
+               10  STDMSP-V-A-LGTOT       PIC S9(04)  COMP VALUE +12.   00450007
+               10  STDMSP-V-A-VALEUR      PIC  X(08).                   00460007
+      *$DATE-Q---------------------------DATE-Q (YYYYDDD)               00470016
+               10  STDMSP-V-B-TYPE        PIC  X(01)       VALUE 'B'.   00480007
+               10  STDMSP-V-B-MAJ         PIC  X(01)       VALUE SPACE. 00490007
+               10  STDMSP-V-B-LGTOT       PIC S9(04)  COMP VALUE +11.   00500007
+               10  STDMSP-V-B-VALEUR      PIC  X(07).                   00510007
+      *$HEURE----------------------------TIME   (HHMNSS)                00520016
+               10  STDMSP-V-C-TYPE        PIC  X(01)       VALUE 'C'.   00530007
+               10  STDMSP-V-C-MAJ         PIC  X(01)       VALUE SPACE. 00540007
+               10  STDMSP-V-C-LGTOT       PIC S9(04)  COMP VALUE +10.   00550007
+               10  STDMSP-V-C-VALEUR      PIC  X(06).                   00560007
+      *$XXXX-NOM DU CLIENT---------------VAR1 USER (STD-ECR)            00570016
+               10  STDMSP-V-D-TYPE        PIC  X(01)       VALUE 'D'.   00580007
+               10  STDMSP-V-D-MAJ         PIC  X(01)       VALUE SPACE. 00590007
+               10  STDMSP-V-D-LGTOT       PIC S9(04)  COMP VALUE +44.   00600007
+               10  STDMSP-V-D-VALEUR      PIC  X(40).                   00610007
+      *$XXXX-NOM-CIE---------------------VAR2 USER (STD-ECR)            00620007
+               10  STDMSP-V-E-TYPE        PIC  X(01)       VALUE 'E'.   00630007
+               10  STDMSP-V-E-MAJ         PIC  X(01)       VALUE SPACE. 00640007
+               10  STDMSP-V-E-LGTOT       PIC S9(04)  COMP VALUE +44.   00650007
+               10  STDMSP-V-E-VALEUR      PIC  X(40).                   00660007
+      *$XXXX-CODE-CIE--------------------VAR3 USER (STD-ECR)            00670007
+               10  STDMSP-V-F-TYPE        PIC  X(01)       VALUE 'F'.   00680007
+               10  STDMSP-V-F-MAJ         PIC  X(01)       VALUE SPACE. 00690007
+               10  STDMSP-V-F-LGTOT       PIC S9(04)  COMP VALUE +44.   00700007
+               10  STDMSP-V-F-VALEUR      PIC  X(40).                   00710007
+      *$USER-ID--------------------------USER-ID                        00720007
+               10  STDMSP-V-G-TYPE        PIC  X(01)       VALUE 'G'.   00730007
+               10  STDMSP-V-G-MAJ         PIC  X(01)       VALUE SPACE. 00740007
+               10  STDMSP-V-G-LGTOT       PIC S9(04)  COMP VALUE +14.   00750007
+               10  STDMSP-V-G-VALEUR      PIC  X(10).                   00760007
+      *$USER-INI-------------------------USER-INITIAL                   00770017
+               10  STDMSP-V-H-TYPE        PIC  X(01)       VALUE 'H'.   00780007
+               10  STDMSP-V-H-MAJ         PIC  X(01)       VALUE SPACE. 00790007
+               10  STDMSP-V-H-LGTOT       PIC S9(04)  COMP VALUE +8.    00800007
+               10  STDMSP-V-H-VALEUR      PIC  X(04).                   00810007
+      *$USER-NOM-------------------------USER-NAME                      00820017
+               10  STDMSP-V-I-TYPE        PIC  X(01)       VALUE 'I'.   00830007
+               10  STDMSP-V-I-MAJ         PIC  X(01)       VALUE SPACE. 00840007
+               10  STDMSP-V-I-LGTOT       PIC S9(04)  COMP VALUE +24.   00850007
+               10  STDMSP-V-I-VALEUR      PIC  X(20).                   00860007
+      *$USER-SER-------------------------USER-SERVICE                   00870007
+               10  STDMSP-V-J-TYPE        PIC  X(01)       VALUE 'J'.   00880007
+               10  STDMSP-V-J-MAJ         PIC  X(01)       VALUE SPACE. 00890007
+               10  STDMSP-V-J-LGTOT       PIC S9(04)  COMP VALUE +12.   00900007
+               10  STDMSP-V-J-VALEUR      PIC  X(08).                   00910007
+      *$ECR-LIB--------------------------SCREEN-DESCRIPTION             00920017
+               10  STDMSP-V-M-TYPE        PIC  X(01)       VALUE 'M'.   00930007
+               10  STDMSP-V-M-MAJ         PIC  X(01)       VALUE SPACE. 00940007
+               10  STDMSP-V-M-LGTOT       PIC S9(04)  COMP VALUE +44.   00950007
+               10  STDMSP-V-M-VALEUR      PIC  X(40).                   00960007
+      *$ECR-ID---------------------------SCREEN-ID                      00970017
+               10  STDMSP-V-N-TYPE        PIC  X(01)       VALUE 'N'.   00980007
+               10  STDMSP-V-N-MAJ         PIC  X(01)       VALUE SPACE. 00990007
+               10  STDMSP-V-N-LGTOT       PIC S9(04)  COMP VALUE +12.   01000007
+               10  STDMSP-V-N-VALEUR.                                   01010007
+                   15  STDMSP-V-N-VAL-F   PIC  X(04).                   01020007
+                   15  STDMSP-V-N-VAL-E   PIC  X(02).                   01030007
+                   15  FILLER             PIC  X(02).                   01040007
+      *$TERM-ID--------------------------TERM-ID                        01050007
+               10  STDMSP-V-O-TYPE        PIC  X(01)       VALUE 'O'.   01060007
+               10  STDMSP-V-O-MAJ         PIC  X(01)       VALUE SPACE. 01070007
+               10  STDMSP-V-O-LGTOT       PIC S9(04)  COMP VALUE +12.   01080007
+               10  STDMSP-V-O-VALEUR      PIC  X(08).                   01090007
+      *$IMPR-ID--------------------------PRINT-ID                       01100017
+               10  STDMSP-V-P-TYPE        PIC  X(01)       VALUE 'P'.   01110007
+               10  STDMSP-V-P-MAJ         PIC  X(01)       VALUE SPACE. 01120007
+               10  STDMSP-V-P-LGTOT       PIC S9(04)  COMP VALUE +12.   01130007
+               10  STDMSP-V-P-VALEUR      PIC  X(08).                   01140007
+      *$LIB-DOM--------------------------DOMAIN DESCRIPTION             01150017
+               10  STDMSP-V-S-TYPE        PIC  X(01)       VALUE 'S'.   01160007
+               10  STDMSP-V-S-MAJ         PIC  X(01)       VALUE SPACE. 01170007
+               10  STDMSP-V-S-LGTOT       PIC S9(04)  COMP VALUE +44.   01180007
+               10  STDMSP-V-S-VALEUR      PIC  X(40).                   01190007
+      *$LIB-PRO--------------------------PROCESS DESCRIPTION            01200017
+               10  STDMSP-V-T-TYPE        PIC  X(01)       VALUE 'T'.   01210007
+               10  STDMSP-V-T-MAJ         PIC  X(01)       VALUE SPACE. 01220007
+               10  STDMSP-V-T-LGTOT       PIC S9(04)  COMP VALUE +44.   01230007
+               10  STDMSP-V-T-VALEUR      PIC  X(40).                   01240007
+      *$LIB-PRF--------------------------PROCEDURE DESCRIPTION          01250017
+               10  STDMSP-V-U-TYPE        PIC  X(01)       VALUE 'U'.   01260007
+               10  STDMSP-V-U-MAJ         PIC  X(01)       VALUE SPACE. 01270007
+               10  STDMSP-V-U-LGTOT       PIC S9(04)  COMP VALUE +44.   01280007
+               10  STDMSP-V-U-VALEUR      PIC  X(40).                   01290007
+      *$LIG-MSG--------------------------MESSAGE LINE (ERROR-INFO)      01300017
+               10  STDMSP-V-X-TYPE        PIC  X(01)       VALUE 'X'.   01310007
+               10  STDMSP-V-X-MAJ         PIC  X(01)       VALUE SPACE. 01320007
+               10  STDMSP-V-X-LGTOT       PIC S9(04)  COMP VALUE +83.   01330007
+               10  STDMSP-V-X-VALEUR.                                   01340007
+                   15  STDMSP-V-X-VAL-A   PIC  X(06).                   01350007
+                   15  STDMSP-V-X-VAL-B   PIC  X(01).                   01360007
+                   15  STDMSP-V-X-VAL-C   PIC  X(72).                   01370007
+      *$LIG-ACT--------------------------LINE FOR POSSIBLE ACTIONS      01380017
+               10  STDMSP-V-Y-TYPE        PIC  X(01)       VALUE 'Y'.   01390007
+               10  STDMSP-V-Y-MAJ         PIC  X(01)       VALUE SPACE. 01400007
+               10  STDMSP-V-Y-LGTOT       PIC S9(04)  COMP VALUE +83.   01410007
+               10  STDMSP-V-Y-VALEUR      PIC  X(79).                   01420007
+      *£CMD-INT--------------------------INPUT FIELD FOR INTERNAL CMD   01430017
+               10  STDMSP-V-1-TYPE        PIC  X(01)       VALUE '1'.   01440007
+               10  STDMSP-V-1-MAJ         PIC  X(01)       VALUE SPACE. 01450007
+               10  STDMSP-V-1-LGTOT       PIC S9(04)  COMP VALUE +24.   01460007
+               10  STDMSP-V-1-VALEUR.                                   01470007
+                   15  STDMSP-V-1-NOECR   PIC  X(02).                   01480007
+                   15  STDMSP-V-1-NOETA   PIC  X(02).                   01490007
+                   15  STDMSP-V-1-FILL    PIC  X(16).                   01500007
+      *£CMD-EXT--------------------------INPUT FIELD FOR EXTERNAL CMD   01510017
+               10  STDMSP-V-2-TYPE        PIC  X(01)       VALUE '2'.   01520007
+               10  STDMSP-V-2-MAJ         PIC  X(01)       VALUE SPACE. 01530007
+               10  STDMSP-V-2-LGTOT       PIC S9(04)  COMP VALUE +24.   01540007
+               10  STDMSP-V-2-VALEUR      PIC  X(20).                   01550007
+      *----------------------------------END OF VARIABLES TABLE         01560017
+               10  STDMSP-V-FIN           PIC  X(01)       VALUE '$'.   01570007
+      *                                                                 01580007
+           05  MDSC-IND-CHP               PIC S9(04)  COMP.             01590007
+      *                                                                 01600007
+      *----------------------------------END OF PARAMETERS              01610017
+       01  STDMSP-FINPARM                 PIC X(01).                    01620004

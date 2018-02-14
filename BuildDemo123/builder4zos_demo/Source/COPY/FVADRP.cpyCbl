@@ -1,0 +1,98 @@
+      * CLEANED            98/09/17
+      *================================================================*
+      * TRAITEMENT LOGICIEL OU PROGRAMME OU SOUS PROGRAMME FVADR
+      * VALIDATION D'UNE ADRESSE
+      * TRAITEMENT PRINCIPAL                                           *
+      *================================================================*
+      * CODE RETOUR                                                    *
+      *================================================================*
+      *   DATE     * AUTEUR  * DESCRIPTION                             *
+      * --/--/---- * ------- * -----------                             *MD----
+      * 30/05/2014 * EISENST * EXTRA BILLING LANGUAGES                 *MD1373
+      *================================================================*
+      *                                                                *
+      *================================================================*
+       22200-REGLE-FVADR             SECTION.
+
+           INITIALIZE  ZCOM-ADR-CRET
+                       ZCOM-ADR-REJET.
+
+           IF    UGEO-CPTT > SPACES
+               PERFORM  60000-INITIAL-ARMIDE
+
+      * UPDATED FOR TBEN BY MT 14.07.2000
+      *        MOVE UGEO-CPTT           TO SDT-RB-CPTT
+      *                                           OF SDT-SD-TVILLE
+               MOVE UGEO-CPTT           TO SDT-RB-CPTT
+                                                  OF SDT-SD-TVILLEBE
+
+               MOVE 'DE'                TO ARM-FONCTION
+               MOVE 'TA'                TO ARM-TYPE-OBJ
+      *        MOVE 'TVILLE'            TO ARM-NOM-OBJ
+               MOVE 'TVILLEBE'          TO ARM-NOM-OBJ
+      *        MOVE 'TVILLE'            TO ARM-NOM-SDT
+               MOVE 'TVILLEBE'          TO ARM-NOM-SDT
+      *        MOVE SDT-SD-TVILLE       TO ARM-SDT
+               MOVE SDT-SD-TVILLEBE     TO ARM-SDT
+
+               EXEC CICS HANDLE ABEND
+                         CANCEL
+               END-EXEC
+
+               CALL ARM-NOMSPRGTP USING DFHEIBLK
+                                        DFHCOMMAREA
+                                        ARM-COMMAREA
+
+               EXEC CICS HANDLE ABEND
+                         RESET
+               END-EXEC
+
+               IF  ARM-ABEND OR ARM-PROBLEME
+                   MOVE SPACE           TO STDER-TYPE-ERREUR
+                   MOVE 'AB'            TO WS-SORTIE
+                   PERFORM 30000-TRAIT-SORTIE
+               END-IF
+
+               IF  ARM-NON-TROUVE
+                  SET  ADRESSE-KO          TO TRUE
+                  SET  ADR-REJ-CPTT        TO TRUE
+               ELSE
+
+      *           MOVE ARM-SDT             TO SDT-SD-TVILLE
+                  MOVE ARM-SDT             TO SDT-SD-TVILLEBE
+
+      *           IF  UGEO-VILL  =  SPACES
+      *                    MOVE SDT-RB-VILLEB       TO UGEO-VILL
+      *                    SET  ADRESSE-OK          TO TRUE
+
+                  IF  UGEO-VILL  =  SPACES
+      *               IF UGEO-LANGUE = ('N' OR 'D') AND           MD1373
+                      IF UGEO-LANGUE = ('N' OR 'D' OR 'E') AND          MD1373
+                         SDT-RB-VILLEB  NOT = SPACE
+                           MOVE SDT-RB-VILLEB       TO UGEO-VILL
+                           SET  ADRESSE-OK          TO TRUE
+                      ELSE
+                         MOVE SDT-RB-VILLE        TO UGEO-VILL
+                         SET  ADRESSE-OK          TO TRUE
+                      END-IF
+                  ELSE
+      *               IF  UGEO-VILL  =  SDT-RB-VILLE
+                      IF  UGEO-VILL  =  SDT-RB-VILLE   OR
+                          UGEO-VILL  =  SDT-RB-VILLEB
+                          SET   ADRESSE-OK        TO TRUE
+                      ELSE
+                          SET   ADRESSE-KO        TO TRUE
+                          SET   ADR-REJ-VILL      TO TRUE
+                      END-IF
+                  END-IF
+               END-IF
+           ELSE
+               SET   ADRESSE-KO         TO TRUE
+               SET   ADR-REJ-CPTT       TO TRUE
+           END-IF.
+
+      * END OF UPDATE BY MT
+
+       22200-REGLE-FVADR-FIN.
+           EXIT.
+      *================================================================*

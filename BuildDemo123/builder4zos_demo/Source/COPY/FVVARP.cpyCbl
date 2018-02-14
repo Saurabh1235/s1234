@@ -1,0 +1,107 @@
+      * CLEANED            98/09/18
+      * XX                 XX
+      *  XX               XX  XXXXXX  XXXXXX  X    X  X  X    X  XXXXXX
+      *   XX     XXX     XX   X    X  X    X  XX   X  X  XX   X  X
+      *    XX   XX XX   XX    X    X  X    X  X X  X  X  X X  X  X
+      *     XX XX   XX XX     XXXXXX  XXXXXX  X  X X  X  X  X X  X  XXX
+      *      XXX     XXX      X    X  X   X   X   XX  X  X   XX  X    X
+      *       X       X       X    X  X    X  X    X  X  X    X  XXXXXX
+      *
+      *
+      *  ATTENTION : TOUTES MODIFICATIONS FAITES DANS FVVAR DOIVENT
+      *              ETRE REPORTéES DANS :
+      *
+      *              --->  'AGL.NEUGES.DB2COPY(PVARBLO)'
+      *
+      *              VOIR EGALEMENT SI :
+      *              --->  'AGL.NEUGES.DB2COPY(WVARBLO)'
+      *              N EST PAS CONCERNE PAR CES MODIFICATIONS
+      *
+      * XX                 XX
+      *  XX               XX  XXXXXX  XXXXXX  X    X  X  X    X  XXXXXX
+      *   XX     XXX     XX   X    X  X    X  XX   X  X  XX   X  X
+      *    XX   XX XX   XX    X    X  X    X  X X  X  X  X X  X  X
+      *     XX XX   XX XX     XXXXXX  XXXXXX  X  X X  X  X  X X  X  XXX
+      *      XXX     XXX      X    X  X  X    X   XX  X  X   XX  X    X
+      *       X       X       X    X  X    X  X    X  X  X    X  XXXXXX
+      *
+      *================================================================*
+      * TRAITEMENT LOGICIEL OU PROGRAMME OU SOUS PROGRAMME FVVAR
+      * INSERTION VARIABLES DB2
+      * TRAITEMENT PRINCIPAL                                           *
+      *================================================================*
+      * PETROVI  31/05/2013  INDEPENDENCE DONNéS ET TRAITEMENTS        *MD1043
+      *================================================================*
+       22200-REGLE-FVVAR             SECTION.
+
+
+      *       ->  -------------------  <-
+      *       ->  INSERT VARIABLES TP  <-
+      *       ->  -------------------  <-
+
+
+      * ---------------------------------------*  INSERTION BLOC  *---*
+
+
+           MOVE    ZVAR-CLECLI      TO        IBLONFOY.
+           MOVE    ZVAR-CLESTE      TO        IBLONSOC.
+
+           IF  ZVAR-CLDOS =  'D'
+              MOVE    ZVAR-CLENCONT  TO       IBLONCONT
+              MOVE    ZVAR-CLENCARTE TO       IBLONCARTE
+              MOVE    ZVAR-CLENDT    TO       IBLONDT
+           ELSE
+              MOVE    ZERO           TO       IBLONCONT
+                                              IBLONCARTE
+                                              IBLONDT
+           END-IF.
+
+           MOVE    ZVAR-USERID      TO        IBLOLIDENT.
+           MOVE    ZVAR-DOMAINE     TO        IBLOLDOM.
+           MOVE    ZVAR-NATURE      TO        IBLONNAT.
+           MOVE    ZVAR-LENGTH      TO        IBLOLMSG-LEN.
+           MOVE    ZVAR-VARDB2      TO        IBLOLMSG-TEXT.
+
+
+           EXEC SQL
+                INSERT INTO TBBLOCN
+                       (                                                MD1043
+                         TBLONFOY                                       MD1043
+                      ,  TBLOTIMESTAMP                                  MD1043
+                      ,  TBLONCONT                                      MD1043
+                      ,  TBLONCARTE                                     MD1043
+                      ,  TBLONDT                                        MD1043
+                      ,  TBLONSOC                                       MD1043
+                      ,  TBLOLIDENT                                     MD1043
+                      ,  TBLOLDOM                                       MD1043
+                      ,  TBLONNAT                                       MD1043
+                      ,  TBLOLMSG                                       MD1043
+                       )                                                MD1043
+                       VALUES ( :IBLONFOY           ,
+                                 CURRENT TIMESTAMP  ,
+                                :IBLONCONT          ,
+                                :IBLONCARTE         ,
+                                :IBLONDT            ,
+                                :IBLONSOC           ,
+                                :IBLOLIDENT         ,
+                                :IBLOLDOM           ,
+                                :IBLONNAT           ,
+                                :IBLOLMSG           )
+           END-EXEC.
+
+           EVALUATE TRUE
+               WHEN SQLCODE < ZERO
+                    MOVE 'INSERT TBBLOCN'    TO STDER-MESSAGE
+                    MOVE 'FVVARP'            TO STDER-BOITE
+                    MOVE IBLONFOY            TO ZBLONFOY
+                    MOVE TBLOTIMESTAMP       TO ZBLOTIMESTAMP
+                    MOVE ZTBBLOCN            TO STDER-DB2-CLE
+                    MOVE 'TBBLOCN'           TO STDER-DB2-TABLE
+                    MOVE 'DB2 '              TO STDER-TYPE-ERREUR
+                    PERFORM 30000-TRAIT-SORTIE
+           END-EVALUATE.
+
+
+
+       22200-REGLE-FVVAR-FIN.
+           EXIT.

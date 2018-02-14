@@ -1,0 +1,217 @@
+      * *============================================================*  00010000
+      * *============================================================*  00020000
+      * *============================================================*  00030000
+      * *============================================================*  00040000
+      * *============================================================*  00050000
+      * *============================================================*  00060000
+      * * PENSER A TRANSLATER !!!  PENSER A TRANSLATER !!!!          *  00070000
+      * *------------------------------------------------------------*  00080000
+      * *                                                            *  00090000
+      * *  - ATTENTION : CE MODULE DOIT ETRE TRANSLATE POUR ETRE     *  00100000
+      * *    UTILISABLE EN COPY DANS LES SOUS PROGRAMMES             *  00110000
+      * *    NOM DU MODULE SOURCE    ---> ST9000PA                   *  00120000
+      * *    NOM DU MODULE TRANSLATE ---> ST9000TR                   *  00130000
+      * *    MODIFIER UNIQUEMENT ST9000PA !!!!!!!!!!!!               *  00140000
+      * *    UTILISER ---> COB2TRN                                   *  00150000
+      * *                                                            *  00160000
+      * *============================================================*  00170000
+      * *============================================================*  00180000
+      * *============================================================*  00190000
+      * *============================================================*  00200000
+      * *============================================================*  00210000
+      * *============================================================*  00220000
+      * *============================================================*  00230000
+      * * 90000     I GESTION DES CODES RETOUR ET ERREURS CICS       *  00240000
+      * *------------------------------------------------------------*  00250000
+      * *                                                            *  00260000
+      * *  - TEST TYPE ERREUR ET POSITIONNEMENT FLAG SI              *  00270000
+      * *    CONDITIONS INTERCEPTEES PAR LE DEMANDEUR.               *  00280000
+      * *  - INITIALISATION DE LA HANDLE CONDITION ERROR             *  00290000
+      * *                                                            *  00300000
+      * *============================================================*  00310000
+       90000-CONDERR-TEST      SECTION.                                 00320000
+      *                                                                 00330000
+      * *-----------------------TEST ERREUR ET MAJ COND-ERREUR          00340000
+           MOVE  DFHEIBLK                TO  STDER-EIB-BLOC.            00350000
+           IF  EIBRESP = 00  OR  06                                     00360000
+               MOVE 'NORESP'             TO STDER-EXEC-RETOUR           00370000
+           ELSE                                                         00380000
+               PERFORM 90000-CONDERR-RECHRC                             00390000
+           END-IF.                                                      00400000
+      *                                                                 00410000
+           PERFORM 90000-CONDERR-INIT.                                  00420000
+                                                                        00430000
+      * *-----------------------MAJ CODE ERREUR                         00440000
+       90000-CONDERR-RECHRC    SECTION.                                 00450000
+           SET  STDER-HEX-I          TO 1.                              00460000
+           SEARCH STDER-HEX-POSTE                                       00470000
+            AT END PERFORM 90000-ERROR-CICS                             00480000
+            WHEN STDER-HEX-CODE    (STDER-HEX-I) = EIBRESP        AND   00490000
+                 STDER-CODE-ACCEPT (STDER-HEX-I) = ACCEPT-ERR-OUI       00500000
+                 MOVE STDER-CODE-RETOUR (STDER-HEX-I)                   00510000
+                                     TO STDER-EXEC-RETOUR.              00520000
+      *                                                                 00530000
+       90000-CONDERR-INIT      SECTION.                                 00540000
+      *                                                                 00550000
+      * *-----------------------HANDLE CONDITION CICS                   00560000
+      *EXEC CICS HANDLE CONDITION                                       00570012
+      *          ERROR (90000-ERROR-CICS)                               00580012
+      *END-EXEC.                                                        00590012
+            MOVE 'úÿ                 00057   ' TO DFHEIV0            00600000
+           CALL 'DFHEI1' USING DFHEIV0                                  00610012
+            SERVICE LABEL                                               00620012
+            GO TO  90000-ERROR-CICS DEPENDING ON DFHEIGDI.              00630012
+      *                                                                 00640000
+      * *-----------------------INIT FLAGS ACCEPT-ERR A "NON"           00650000
+           PERFORM 90000-CONDERR-REFUS                                  00660000
+                   VARYING STDER-HEX-I FROM 1 BY 1                      00670000
+                   UNTIL STDER-HEX-I > STDER-HEX-CTR.                   00680000
+      *                                                                 00690000
+       90000-CONDERR-REFUS     SECTION.                                 00700000
+           MOVE ACCEPT-ERR-NON       TO STDER-CODE-ACCEPT (STDER-HEX-I).00710000
+      *                                                                 00720000
+      * *============================================================*  00730000
+      * * 90000     I INTERCEPTION DES ERREURS CICS                  *  00740000
+      * *------------------------------------------------------------*  00750000
+      * *                                                            *  00760000
+      * *  PRISE EN CHARGE DES ERREURS SUR LES ORDRES CICS DETECTEES *  00770000
+      * *  PAR LE HANDLE CONDITION.                                  *  00780000
+      * *                                                            *  00790000
+      * *============================================================*  00800000
+       90000-ERROR-CICS  SECTION.                                       00810000
+           MOVE  'CICS' TO STDER-TYPE-ERREUR.                           00820000
+           MOVE  'AB'   TO WS-SORTIE.                                   00830000
+           PERFORM 90000-ENREG-ERROR.                                   00840000
+           PERFORM 90000-TRAIT-ERROR.                                   00850000
+           EJECT                                                        00860000
+      * *============================================================*  00870000
+      * * 90000     I INTERCEPTION DES ABEND PROGRAMMES              *  00880000
+      * *------------------------------------------------------------*  00890000
+      * *                                                            *  00900000
+      * *  PRISE EN CHARGE DES ABEND PROGRAMMES.                     *  00910000
+      * *                                                            *  00920000
+      * *============================================================*  00930000
+       90000-ERROR-ABEND  SECTION.                                      00940000
+      * *-----------------------RECHERCHE DU CODE ABEND                 00950000
+      *EXEC CICS ASSIGN                                                 00960012
+      *          ABCODE (STDER-ABCODE)                                  00970012
+      *END-EXEC.                                                        00980012
+            MOVE 'óÿ                 00092   ' TO DFHEIV0            00990000
+           CALL 'DFHEI1' USING DFHEIV0  STDER-ABCODE.                   01000012
+                                                                        01010012
+      *                                                                 01020000
+           MOVE 'AB'                      TO  WS-SORTIE                 01030000
+           EVALUATE STDER-ABCODE-1                                      01040000
+               WHEN 'DH'                                                01050000
+                    MOVE 'DL1 '           TO  STDER-TYPE-ERREUR         01060000
+               WHEN OTHER                                               01070000
+                    MOVE 'ABEN'           TO  STDER-TYPE-ERREUR         01080000
+           END-EVALUATE.                                                01090000
+      *                                                                 01100000
+           IF (STDER-ABCODE NOT = 'ADCI' AND NOT = 'ADLD'               01110000
+                        AND NOT = 'AEIK' AND NOT = 'AEIS'               01120000
+                        AND NOT = 'APCT' AND NOT = 'ABMS'               01130000
+                        AND NOT = 'ADCA' AND NOT = 'AEY9'               01140000
+                        AND NOT = 'AEI0'                                01150000
+                        AND NOT = 'DHAI' AND NOT = 'DHOI'               01160000
+                        AND NOT = 'DHTA' AND NOT = 'DHTE'               01170000
+                        AND NOT = 'DHDJ' AND NOT = 'DHTP'               01180000
+                        AND NOT = 'DHAM' AND NOT = 'DHTJ')              01190000
+      *EXEC CICS ASKTIME                                                01200012
+      *          ABSTIME(STDER-ABSTIME-FIN)                             01210012
+      *END-EXEC                                                         01220012
+                MOVE '∞ÿ ÿ       00113   ' TO DFHEIV0                 01230000
+               CALL 'DFHEI1' USING DFHEIV0  STDER-ABSTIME-FIN           01240012
+                                                                        01250012
+      *EXEC CICS DUMP DUMPCODE (STDER-ABCODE)                           01260012
+      *               NOHANDLE                                          01270012
+      *END-EXEC                                                         01280012
+                MOVE 'ÿ   ⁄ 00116   ' TO DFHEIV0                     01290000
+               CALL 'DFHEI1' USING DFHEIV0  STDER-ABCODE                01300012
+                                                                        01310012
+               MOVE 'O'                   TO  STDER-DUMP                01320000
+           END-IF.                                                      01330000
+      *                                                                 01340000
+      *EXEC CICS HANDLE ABEND                                           01350012
+      *                 CANCEL                                          01360012
+      *END-EXEC.                                                        01370012
+            MOVE '    Ä 00122   ' TO DFHEIV0                         01380000
+           CALL 'DFHEI1' USING DFHEIV0.                                 01390012
+                                                                        01400012
+      *                                                                 01410000
+           PERFORM 90000-ENREG-ERROR.                                   01420000
+           PERFORM 90000-TRAIT-ERROR.                                   01430000
+           EJECT                                                        01440000
+      * *============================================================*  01450000
+      * * 90000     I HISTORISATION DES ERREURS PROGRAMMES           *  01460000
+      * *------------------------------------------------------------*  01470000
+      * *                                                            *  01480000
+      * *  ENREGISTREMENT DANS DES TABLES DB2 DES ERREURS DL1,DB2,   *  01490000
+      * *  ARMIDE,PRINCIPIA,APPLICATIVES,CICS ET ABEND.              *  01500000
+      * *                                                            *  01510000
+      * *============================================================*  01520000
+       90000-ENREG-ERROR SECTION.                                       01530000
+           IF  STDER-TYPE-ERREUR = SPACES                               01540000
+               GO TO 90000-ENREG-ERROR-FIN                              01550000
+           END-IF.                                                      01560000
+      *                                                                 01570000
+           MOVE EIBTASKN                TO STDER-TACHE.                 01580000
+           MOVE EIBTRNID                TO STDER-CODE-TRANS.            01590000
+           MOVE EIBTRMID                TO STDER-TERM-PHYS.             01600000
+           MOVE WS-USER-ID              TO STDER-USER.                  01610000
+           MOVE WHEN-COMPILED           TO STDER-DATE-COMPILE.          01620000
+           MOVE WS-SESS-ID              TO STDER-ENVIRONNEMENT.         01630000
+           MOVE MSTD-MESS               TO STDER-LS-MESS.               01640000
+      *                                                                 01650000
+           IF    WS-SORTIE = 'AB'                                       01660000
+      *EXEC CICS                                                        01670012
+      *    SYNCPOINT ROLLBACK                                           01680012
+      *END-EXEC                                                         01690012
+                  MOVE '    ç 00153   ' TO DFHEIV0                   01700000
+                 CALL 'DFHEI1' USING DFHEIV0                            01710012
+                                                                        01720012
+                 MOVE 'O'       TO STDER-BACKOUT                        01730000
+           ELSE                                                         01740000
+      *EXEC CICS                                                        01750012
+      *    SYNCPOINT                                                    01760012
+      *END-EXEC                                                         01770012
+                  MOVE '     00158   ' TO DFHEIV0                   01780000
+                 CALL 'DFHEI1' USING DFHEIV0                            01790012
+                                                                        01800012
+           END-IF.                                                      01810000
+      *                                                                 01820000
+           PERFORM 90000-EVALUATE-TYPE-ERREUR.                          01830000
+      *                                                                 01840000
+           PERFORM 90000-SPECIF-ERROR.                                  01850000
+      *                                                                 01860000
+           IF  STDER-ABCODE          = SPACE                            01870000
+      *EXEC CICS HANDLE ABEND                                           01880012
+      *          CANCEL                                                 01890012
+      *END-EXEC                                                         01900012
+                MOVE '    Ä 00168   ' TO DFHEIV0                     01910000
+               CALL 'DFHEI1' USING DFHEIV0                              01920012
+                                                                        01930012
+           END-IF.                                                      01940000
+      *                                                                 01950000
+      *EXEC CICS LINK PROGRAM  (WS-STERROR-PGM)                         01960012
+      *               COMMAREA (STDER-ERREUR)                           01970012
+      *               LENGTH(LENGTH OF STDER-ERREUR)                    01980012
+      *               NOHANDLE                                          01990012
+      *END-EXEC.                                                        02000012
+            MOVE 'Á    00173   ' TO DFHEIV0                         02010000
+            MOVE LENGTH OF STDER-ERREUR TO DFHB0020                     02020012
+           CALL 'DFHEI1' USING DFHEIV0  WS-STERROR-PGM STDER-ERREUR     02030012
+           DFHB0020.                                                    02040012
+                                                                        02050012
+      *                                                                 02060000
+           IF  STDER-ABCODE          = SPACE                            02070000
+      *EXEC CICS HANDLE ABEND                                           02080012
+      *          RESET                                                  02090012
+      *END-EXEC                                                         02100012
+                MOVE '    Äó00180   ' TO DFHEIV0                     02110000
+               CALL 'DFHEI1' USING DFHEIV0                              02120012
+                                                                        02130012
+           END-IF.                                                      02140000
+      *                                                                 02150000
+       90000-ENREG-ERROR-FIN.                                           02160000
+           EXIT.                                                        02170000

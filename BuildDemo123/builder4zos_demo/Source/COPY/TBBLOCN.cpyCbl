@@ -1,0 +1,39 @@
+      ******************************************************************
+      * DCLGEN TABLE(TBBLOCN)                                          *
+      *        LIBRARY(PBEN.DB2.DCLGEN(TBBLOCN))                       *
+      *        ACTION(REPLACE)                                         *
+      *        LANGUAGE(COBOL)                                         *
+      *        APOST                                                   *
+      * ... IS THE DCLGEN COMMAND THAT MADE THE FOLLOWING STATEMENTS   *
+      ******************************************************************
+           EXEC SQL DECLARE TBBLOCN TABLE
+           ( TBLONFOY                       DECIMAL(11, 0) NOT NULL,
+             TBLOTIMESTAMP                  TIMESTAMP NOT NULL,
+             TBLONCONT                      DECIMAL(1, 0) NOT NULL,
+             TBLONCARTE                     DECIMAL(1, 0) NOT NULL,
+             TBLONDT                        DECIMAL(3, 0) NOT NULL,
+             TBLONSOC                       DECIMAL(3, 0) NOT NULL,
+             TBLOLIDENT                     CHAR(5) NOT NULL,
+             TBLOLDOM                       CHAR(1) NOT NULL,
+             TBLONNAT                       DECIMAL(5, 0) NOT NULL,
+             TBLOLMSG                       VARCHAR(180) NOT NULL
+           ) END-EXEC.
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE TBBLOCN                            *
+      ******************************************************************
+       01  DCLTBBLOCN.
+           10 TBLONFOY             PIC S9(11)V USAGE COMP-3.
+           10 TBLOTIMESTAMP        PIC X(26).
+           10 TBLONCONT            PIC S9(1)V USAGE COMP-3.
+           10 TBLONCARTE           PIC S9(1)V USAGE COMP-3.
+           10 TBLONDT              PIC S9(3)V USAGE COMP-3.
+           10 TBLONSOC             PIC S9(3)V USAGE COMP-3.
+           10 TBLOLIDENT           PIC X(5).
+           10 TBLOLDOM             PIC X(1).
+           10 TBLONNAT             PIC S9(5)V USAGE COMP-3.
+           10 TBLOLMSG.
+              49 TBLOLMSG-LEN      PIC S9(4) USAGE COMP.
+              49 TBLOLMSG-TEXT     PIC X(180).
+      ******************************************************************
+      * THE NUMBER OF COLUMNS DESCRIBED BY THIS DECLARATION IS 10      *
+      ******************************************************************

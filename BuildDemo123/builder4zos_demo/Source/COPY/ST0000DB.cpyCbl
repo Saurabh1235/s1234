@@ -1,0 +1,36 @@
+      *--------------------------------------------------------------*  00010001
+      *  PARAMETERS FOR MESSAGES'MANAGEMENT                          *  00020009
+      *--------------------------------------------------------------*  00030001
+           05  MSTD-LG                                COMP PIC S9(04).  00040001
+           05  MSTD-RETOUR                                 PIC  X(02).  00050004
+      *                                                                 00060001
+      *----MESSAGE DESCRIPTION                                          00070009
+      *                                                                 00080001
+           05  MSTD-MESSAGE.                                            00090001
+               10  MSTD-NOM-FONC                           PIC  X(04).  00100001
+               10  MSTD-MESS.                                           00110001
+                   15  MSTD-NOMESS.                                     00120001
+                       20  MSTD-NOMESS-FONC                PIC  X(04).  00130001
+                       20  MSTD-NOMESS-NUM-F               PIC  X(02).  00140001
+                   15  MSTD-NOMESS-ST   REDEFINES MSTD-NOMESS.          00150001
+                       20  MSTD-NOMESS-PREF                PIC  X(02).  00160001
+                       20  MSTD-NOMESS-NUM                 PIC  X(04).  00170001
+                   15  MSTD-FIL                            PIC  X(01).  00180002
+                   15  MSTD-LIBMESS                        PIC  X(71).  00190005
+                   15  MSTD-LIBMESS-DET REDEFINES MSTD-LIBMESS.         00200001
+                       20  MSTD-CLIB    OCCURS 71                       00210005
+                                        INDEXED BY CLIB-X.              00220001
+                           25  MSTD-CLIB-9                 PIC  9(01).  00230001
+      *                                                                 00240001
+      *----PARAMETERS (3 MAXIMUM) TO INSERT IN THE MESSAGE              00250009
+      *                                                                 00260001
+           05  MSTD-PMESS-TABLE.                                        00270001
+               10  MSTD-PMESS           OCCURS 3                        00280001
+                                        INDEXED BY PMES-X.              00290001
+                   15  MSTD-PMES-PARM   OCCURS 20                       00300002
+                                        INDEXED BY CPMES-X              00310002
+                                                   CPMES-Y.             00320003
+                       20  MSTD-CPMES                      PIC  X(01).  00330002
+      *                                                                 00340001
+           05  FILLER                                      PIC  X(07).  00350001
+      *                                                                 00360001

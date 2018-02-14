@@ -1,0 +1,185 @@
+      *--------------------------------------------------------------*  00010000
+      *  STANDARD VARIABLES OF THE SUBROUTINE                        *  00020050
+      *--------------------------------------------------------------*  00030000
+       01  WS-STD.                                                      00040000
+      *----PGM MANAGING USER'S AUTHORIZATIONS                           00050050
+           05  WS-PIAUTO-PGM       VALUE 'PIAUTO'          PIC  X(08).  00060021
+      *----PGM MANAGING MESSAGES                                        00070050
+           05  WS-STDMSG-SUBR      VALUE 'ST1000T'         PIC  X(08).  00080001
+           05  WS-STDMSG-MSG                               PIC  X(71)   00090001
+                                       VALUE                            00100000
+                 'PROGRAMME ST1000T NON OPERATIONNEL OU INDISPONIBLE'.  00110000
+      *----PGM LOGGING ERRORS                                           00120050
+           05  WS-STERROR-PGM      VALUE 'STER01T'         PIC  X(08).  00130043
+      *----NAME OF TS CONTAINING USER'S AUTHORIZATIONS                  00140050
+           05  WS-TS-AUTO-NOM      VALUE '£AUT'            PIC  X(04).  00150023
+      *----NAME BY DEFAULT OF CICS USER                                 00160050
+           05  WS-CICSUSER-NOM     VALUE 'CICSUSER'        PIC  X(08).  00170001
+      *----INFORMATIONS ON EXIT VALUE                                   00180050
+           05  WS-SORTIE                                   PIC  X(02).  00190000
+      *----DC SESSION IDENT.                                            00200050
+           05  WS-SESS-ID                                  PIC  X(08).  00210001
+      *----USER-ID                                                      00220000
+           05  WS-USER-ID                                  PIC  X(08).  00230001
+      *----IDENTIFICATION OF TS / TERMINAL                              00240050
+           05  WS-TS-ID.                                                00250015
+               10  WS-TS-TRMID                             PIC  X(04).  00260015
+               10  WS-TS-NOM                               PIC  X(04).  00270015
+      *----PRINTERS ASSOCIATED TO TERMINAL                              00280050
+           05  WS-TERM-PRINTER                             PIC  X(04).  00290043
+           05  WS-TERM-ALTPRINTER                          PIC  X(04).  00300043
+      *----FUNCTION'S NAME                                              00310050
+           05  STDP-NOM-FONC       VALUE SPACE             PIC  X(04).  00320004
+      *----MAXI NO. OF FUNCTION'S RELATIVE MESSAGES                     00330050
+           05  MESR-NBMAX          VALUE ZERO       COMP   PIC S9(04).  00340004
+      *                                                                 00350012
+      *----INDEXES FOR TABLES' MANIPULATION                             00360050
+           05  WS-IND1                              COMP   PIC S9(04).  00370013
+           05  WS-IND2                              COMP   PIC S9(04).  00380013
+           05  WS-IND3                              COMP   PIC S9(04).  00390013
+      *                                                                 00400005
+      *----DIRECT ENTRY IN FUNCTION : RECEPTION AREA                    00410050
+      *----  (TRANSACTION CODE + OPTIONAL DATA)                         00420050
+           05  WS-ZONLECT.                                              00430005
+               10  WS-ZLECT-LONG                    COMP   PIC S9(04).  00440014
+               10  WS-ZLECT.                                            00450005
+                   15  WS-ZLECT-TRNID                      PIC  X(04).  00460005
+                   15  WS-ZLECT-IDENT                      PIC  X(300). 00470043
+                   15  WS-ZLECT-IDENT-C REDEFINES WS-ZLECT-IDENT        00480005
+                                               OCCURS 300  PIC  X(01).  00490043
+      *                                                                 00500039
+      *---SQLCODE AREA IN CHAR  FOR DUMP AADF DB2                       00510050
+           05  WS-SQLCODEX            VALUE ZERO           PIC  ++++.   00520039
+      *                                                                 00530039
+      *---DIBSTAT AREA          FOR DUMP AADF DL1                       00540050
+           05  WS-DIBSTAT.                                              00550039
+               10  FILLER             VALUE 'DH'           PIC  X(02).  00560039
+               10  WS-DIBSTAT2                             PIC  X(02).  00570039
+      *                                                                 00580039
+           05  WS-LGAUTO                              COMP PIC S9(04).  00590024
+           05  WS-AUTO-ITEM                           COMP PIC S9(04).  00600024
+           05  WS-AUTO-TOP            VALUE SPACE          PIC  X(01).  00610045
+      *                                                                 00620020
+      *----CPU DATE AND PROCESSING DATE                                 00630050
+           05  WS-TRAVAIL.                                              00640010
+               10  WS-TABDATE                              PIC  X(24)   00650009
+                       VALUE  '312831303130313130313031'.               00660009
+               10  WS-TABDATE-JJ  REDEFINES  WS-TABDATE                 00670009
+                                               OCCURS  12  PIC  9(02).  00680009
+      *                                                                 00690009
+               10  WS-DAT-AAMMJJ                           PIC  9(06).  00700009
+               10  WS-DAT-AAMMJJ-R  REDEFINES  WS-DAT-AAMMJJ.           00710009
+                   15  WS-DAT-AA                           PIC  9(02).  00720009
+                   15  WS-DAT-MM                           PIC  9(02).  00730009
+                   15  WS-DAT-JJ                           PIC  9(02).  00740009
+      *                                                                 00750009
+               10  WS-DAT-AAQQQ                            PIC  9(05).  00760009
+               10  WS-DAT-AAQQQ-R  REDEFINES  WS-DAT-AAQQQ.             00770009
+                   15  WS-DAT-Q-AA                         PIC  9(02).  00780009
+                   15  WS-DAT-Q-JJ                         PIC  9(03).  00790009
+      *                                                                 00800009
+               10  WS-CPT                    COMP-3        PIC  S9(05). 00810009
+               10  WS-RESTE                  COMP-3        PIC  S9(05). 00820009
+                                                                        00821048
+      *----CPU DATE    DB2 FORMAT                                       00823050
+               10  WS-DTCPU-DB2.                                        00824048
+                   15  WS-DTCPU-DB2-JJ                     PIC  9(02).  00825048
+                   15  WS-DTCPU-DB2-POINT1                 PIC  X(01).  00826048
+                   15  WS-DTCPU-DB2-MM                     PIC  9(02).  00827048
+                   15  WS-DTCPU-DB2-POINT2                 PIC  X(01).  00828048
+                   15  WS-DTCPU-DB2-AAAA                   PIC  9(04).  00829048
+                   15  FILLER  REDEFINES  WS-DTCPU-DB2-AAAA.            00829148
+                       20  WS-DTCPU-DB2-SS                 PIC  9(02).  00829248
+                       20  WS-DTCPU-DB2-AA                 PIC  9(02).  00829348
+                                                                        00829448
+      *----CPU DATE    CCYYMMDD FORMAT                                  00830050
+               10  WS-DTCPU                                PIC  9(08).  00840009
+               10  WS-DTCPU-X           REDEFINES WS-DTCPU.             00850009
+                   15  WS-DTCPU-S                          PIC  9(02).  00860009
+                   15  WS-DTCPU-S-X     REDEFINES WS-DTCPU-S            00870009
+                                                           PIC  X(02).  00880009
+                   15  WS-DTCPU-AMJ                        PIC  9(06).  00890009
+                   15  WS-DTCPU-AMJ-X   REDEFINES WS-DTCPU-AMJ.         00900009
+                       20  WS-DTCPU-AA                     PIC  9(02).  00910009
+                       20  WS-DTCPU-AA-X REDEFINES WS-DTCPU-AA          00920009
+                                                           PIC  X(02).  00930009
+                       20  WS-DTCPU-MM                     PIC  9(02).  00940009
+                       20  WS-DTCPU-MM-X REDEFINES WS-DTCPU-MM          00950009
+                                                           PIC  X(02).  00960009
+                       20  WS-DTCPU-JJ                     PIC  9(02).  00970009
+                       20  WS-DTCPU-JJ-X REDEFINES WS-DTCPU-JJ          00980009
+                                                           PIC  X(02).  00990009
+      *----CPU DATE    CCYYDDD FORMAT                                   01000050
+               10  WS-DQCPU                                PIC  9(07).  01010009
+               10  WS-DQCPU-X REDEFINES WS-DQCPU.                       01020009
+                   15  WS-DQCPU-S                          PIC  9(02).  01030009
+                   15  WS-DQCPU-S-X     REDEFINES WS-DQCPU-S            01040009
+                                                           PIC  X(02).  01050009
+                   15  WS-DQCPU-AQ                         PIC  9(05).  01060009
+                   15  WS-DQCPU-AQ-X    REDEFINES WS-DQCPU-AQ.          01070009
+                       20  WS-DQCPU-AA                     PIC  9(02).  01080009
+                       20  WS-DQCPU-AA-X REDEFINES WS-DQCPU-AA          01090009
+                                                           PIC  X(02).  01100009
+                       20  WS-DQCPU-QQ                     PIC  9(03).  01110009
+                       20  WS-DQCPU-QQ-X REDEFINES WS-DQCPU-QQ          01120009
+                                                           PIC  X(03).  01130009
+      *----PROCESSING DATE   CCYYDDD FORMAT                             01140050
+               10  WS-DQTRT                                PIC  9(07).  01150009
+               10  WS-DQTRT-X REDEFINES WS-DQTRT.                       01160009
+                   15  WS-DQTRT-S                          PIC  9(02).  01170009
+                   15  WS-DQTRT-S-X     REDEFINES WS-DQTRT-S            01180009
+                                                           PIC  X(02).  01190009
+                   15  WS-DQTRT-AQ                         PIC  9(05).  01200009
+                   15  WS-DQTRT-AQ-X    REDEFINES WS-DQTRT-AQ.          01210009
+                       20  WS-DQTRT-AA                     PIC  9(02).  01220009
+                       20  WS-DQTRT-AA-X REDEFINES WS-DQTRT-AA          01230009
+                                                           PIC  X(02).  01240009
+                       20  WS-DQTRT-QQ                     PIC  9(03).  01250009
+                       20  WS-DQTRT-QQ-X REDEFINES WS-DQTRT-QQ          01260009
+                                                           PIC  X(03).  01270009
+      *----AREA FOR DATE TRANSFORMATION IN DB2 FORMAT                   01280050
+               10  WS-DB2-DATE.                                         01290009
+                   15  WS-DB2-JJ                           PIC  9(02).  01300009
+                   15  WS-DB2-JJ-POINT                     PIC X        01310047
+                                                    VALUE         '.'.  01320009
+                   15  WS-DB2-MM                           PIC  9(02).  01330009
+                   15  WS-DB2-MM-POINT                     PIC X        01340047
+                                                    VALUE         '.'.  01350009
+                   15  WS-DB2-SSAA                         PIC  9(04).  01360009
+                   15  FILLER REDEFINES WS-DB2-SSAA.                    01361049
+                       20  WS-DB2-SS                       PIC  9(02).  01362049
+                       20  WS-DB2-AA                       PIC  9(02).  01363049
+      *----AREA FOR DATE TRANSFORMATION IN CCYYMMDD FORMAT              01370050
+               10  WS-AFFICH-DATE.                                      01380009
+                   15  WS-AFFICH-SSAA                      PIC  9(04).  01390009
+                   15  WS-AFFICH-MM                        PIC  9(02).  01400009
+                   15  WS-AFFICH-JJ                        PIC  9(02).  01410009
+               10  WS-AFFICH-DATE-X REDEFINES WS-AFFICH-DATE            01420009
+                                                           PIC  9(08).  01430009
+      *----AREA FOR TIME TRANSFORMATION IN DB2 FORMAT                   01440050
+               10  WS-DB2-TIME.                                         01450009
+                   15  WS-DB2-TIMHH                        PIC  9(02).  01460009
+                   15  FILLER                              PIC  X       01470009
+                                                    VALUE         '.'.  01480009
+                   15  WS-DB2-TIMMM                        PIC  9(02).  01490009
+                   15  FILLER                              PIC X        01500009
+                                                    VALUE         '.'.  01510009
+                   15  WS-DB2-TIMSS                        PIC  9(02).  01520009
+      *----AREA FOR TIME TRANSFORMATION IN HHMMSS FORMAT                01530050
+               10  WS-AFFICH-TIME.                                      01540009
+                   15  WS-AFFICH-TIMHH                     PIC  9(02).  01550009
+                   15  WS-AFFICH-TIMMM                     PIC  9(02).  01560009
+                   15  WS-AFFICH-TIMSS                     PIC  9(02).  01570009
+               10  WS-AFFICH-TIME-X REDEFINES WS-AFFICH-TIME            01580009
+                                                           PIC  9(06).  01590009
+      *                                                                 01600016
+      *----WORKAREAS TO INQUIRE TRANSACTION/PROGRAM                     01610050
+           05  WS-ZINQUIRE.                                             01620037
+               10  WS-ZINQUIRE-TRANID                      PIC  X(04).  01630037
+               10  WS-ZINQUIRE-PGRMID                      PIC  X(08).  01640016
+               10  WS-ZINQUIRE-STATUST               COMP  PIC S9(09).  01650016
+               10  WS-ZINQUIRE-STATUSP               COMP  PIC S9(09).  01660016
+      *                                                                 01670013
+      *----COMMAREA EXCHANGED WITH CALLING PROGRAM                      01680050
+       01  WS-TRAIT-PARM.                                               01690013
+           05  WS-TRAIT-PARM-C                  OCCURS 300 PIC  X(01).  01700043

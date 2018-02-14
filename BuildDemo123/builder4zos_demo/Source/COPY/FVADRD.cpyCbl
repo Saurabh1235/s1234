@@ -1,0 +1,33 @@
+      * CLEANED            98/09/17
+      *----------------------------------------------------------------*
+      * TRAITEMENT LOGICIEL OU PROGRAMME OU SOUS PROGRAMME FVADR
+      * VALIDATION D'UNE ADRESSE
+      * PARAMETRE DE COMMUNICATION E/S                                 *
+      *----------------------------------------------------------------*
+
+       01  ZCOM-FVADR-DATA.
+
+           03  ZCOM-ADR-CRET         PIC X(2).
+               88  ADRESSE-OK         VALUE 'OK'.
+               88  ADRESSE-KO         VALUE 'KO'.
+
+           03  ZCOM-ADR-REJET        PIC X(3).
+               88  ADR-REJ-VILL           VALUE 'VIL'.
+               88  ADR-REJ-RUE            VALUE 'RUE'.
+               88  ADR-REJ-INSEE          VALUE 'INC'.
+               88  ADR-REJ-CPTT           VALUE 'PTT'.
+
+           03  ZCOM-ADRES.
+               05  UGEO-CPTT         PIC X(5).
+               05  UGEO-VILL         PIC X(32).
+
+      * UPDATED FOR TBEN BY MT 140.7.2000
+      * IF CODE LANGUE NOT CHANGED - DEFOLT : FIRST COLON FROM ARMIDE
+
+           03  ZCOM-LANGUE.
+               05  UGEO-LANGUE       PIC X(1)  VALUE 'F'.
+
+      * COPY TVILLE.
+        COPY TVILLEBE.
+      * END OF UPDATE BY MT
+

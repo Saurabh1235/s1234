@@ -1,0 +1,119 @@
+000100*------------------------------------------------------------
+000200*------------------------------------------------------------
+000300*---- EN CAS DE MODIFICATION DE CE COPY METTRE A JOUR LE ----
+000400*----  SOUS PROGRAMME PIARMI QUI CONTIENT CE COPY          --
+000500*----     PREFIXE PAR SPA- AU LIEU DE ARM-                 --
+000600*------------------------------------------------------------
+000700*------------------------------------------------------------
+000800 01 ARM-COMMAREA.
+000900
+001000*---------------------- ZONE COMMUNICATION INTERFACE ARMIDE
+001100    04  ARM-ARMIDE.
+001200
+001300       06  ARM-FONCTION            PIC XX.
+001400       06  ARM-MODE-TRAITMT        PIC XX.
+001500       06  ARM-IDOBJET.
+001600          08  ARM-TYPE-OBJ         PIC XX.
+001700          08  ARM-SITE-OBJ         PIC X(4).
+001800          08  ARM-NOM-OBJ          PIC X(8).
+001900          08  ARM-VERSION          PIC X.
+002000       06  ARM-DATE-REFERENCE      PIC X(8).
+002100       06  FILLER REDEFINES ARM-DATE-REFERENCE.
+002200          08  ARM-DREFSS           PIC XX.
+002300          08  ARM-DREFAAMMJJ         PIC 9(6).
+002400          08  FILLER  REDEFINES ARM-DREFAAMMJJ.
+002500              09  ARM-DRAA             PIC 99.
+002600              09  ARM-DRMM             PIC 99.
+002700              09  ARM-DRJJ             PIC 99.
+002800       06  ARM-MEX.
+002900          08  ARM-MEX-DATE         PIC X(8).
+003000          08  ARM-MEX-HEURE        PIC X(4).
+003100       06  ARM-IDSDT.
+003200          08  ARM-SITE-SDT         PIC X(4).
+003300          08  ARM-NOM-SDT          PIC X(8).
+003400       06  ARM-CODE-COHERENCE      PIC X.
+003500       06  ARM-IDVUE.
+003600          08  ARM-SITEVUE          PIC X(4).
+003700          08  ARM-COOBJVUE         PIC X(8).
+003800       06  ARM-CODE-QLQSOIT        PIC X.
+003900       06  ARM-VALEUR-MINI         PIC X(30).
+004000       06  ARM-VALEUR-MAXI         PIC X(30).
+004100       06  ARM-CSYSTEME            PIC XX.
+004200       06  ARM-CSOUS-SYSTEME.
+004300          08  ARM-CODESS           PIC X OCCURS 10.
+004400       06  ARM-NBPOSTES            PIC X(4).
+004500       06  ARM-NBPOSTES9 REDEFINES ARM-NBPOSTES PIC 9(4).
+004600       06  ARM-TAILLEPOSTE         PIC X(4).
+004610       06  ARM-TAILLEPOSTE9 REDEFINES ARM-TAILLEPOSTE PIC 9(4).
+004700       06  ARM-CODERETOUR          PIC 99.
+004710       06  ARM-CODERETOURX  REDEFINES ARM-CODERETOUR PIC XX.
+004800          88  ARM-ACCES-OK         VALUE  '00' '  '.
+004900          88  ARM-PROBLEME         VALUE  '01'  THRU '90'.
+005000          88  ARM-FIN-PTE          VALUE  '48'.
+005100          88  ARM-FIN-DE-LISTE     VALUE  '92' '94' '97'.
+005200          88  ARM-ENCORE-A-LIRE    VALUE  '93' '95'.
+005300       06  ARM-CODERESULTAT        PIC 9.
+005310       06  ARM-CODERESULTATX   REDEFINES ARM-CODERESULTAT  PIC X.
+005400          88  ARM-PTE-STOPPEE      VALUE  '0' ' '.
+005500          88  ARM-NON-TROUVE       VALUE  '0' ' '.
+005600          88  ARM-TROUVE           VALUE  '1'.
+005700       06  ARM-MESSAGE             PIC X(60).
+005800       06  ARM-ACTEUR              PIC X(8).
+005900       06  ARM-BLOCAGE             PIC X.
+006000          88  ARM-ARRET-PTE            VALUE 'S'.
+006100          88  ARM-POURSUITE-PTE        VALUE 'W' SPACE.
+006200          88  ARM-MAJ-AVANT-SUITE-PTE  VALUE 'E' .
+006300          88  ARM-DERNIER-STEP-PTE     VALUE 'F' .
+006400          88  ARM-INCOHERENCE-PTE      VALUE 'T' .
+006500       06  ARM-PREFIXE             PIC X(4).
+006600       06  ARM-FILLER27              PIC X(27).
+006700       06  ARM-ZTECH                  PIC X(8).
+006800
+006900*------------------------ ZONE ENTREE SORTIE APPLICATIVE
+007000
+007100   04  ARM-SDT                    PIC X(7744).
+007200   04   FILLER  REDEFINES    ARM-SDT.
+007300       06  ARM-DEBUT-SDT           PIC X(130).
+007400       06  FILLER                  PIC X(7614).
+007500   04  ARM-VALEUR-DE-RUBRIQUE    REDEFINES ARM-SDT.
+007600       06  ARM-LIGNE-VALEUR     OCCURS  39.
+007700           08  ARM-VALEUR-RUBRIQUE          PIC X(30).
+007800           08  ARM-LIBELLE1-RUBRIQUE        PIC X(60).
+007900           08  ARM-LIBELLE2-RUBRIQUE        PIC X(60).
+008000           08  ARM-LIBELLE3-RUBRIQUE        PIC X(20).
+008100           08  FILLER                 PIC X(12).
+008200       06  FILLER                     PIC X(646).                  ARMIDE
+008300   04  ARM-POSTES-ASSOCIATIFS    REDEFINES ARM-SDT.
+008400       06  ARM-TABLE-AS-70-LIGNES.
+008410           08  ARM-LIGNE-TABLE-AS   OCCURS  70.
+008500               10  ARM-POSTE-CSYSTEME           PIC X(10).
+008600               10  ARM-CLE-ET-LIBELLE           PIC X(100).
+008700       06  FILLER                     PIC X(44).                        E
+008800                                                                   ARMIDE
+008900*------------------------ ZONE UTILES AU SOUS PROGRAMME
+009000    04  ARM-SOUS-PROG.
+009100       06  ARM-NOMSPRGTP           PIC X(6) VALUE 'PIARMI'.
+009200       06  ARM-NOMSPRGBA           PIC X(6) VALUE 'SPARMI'.
+009300       06  ARM-DATEJOUR.
+009400           08  FILLER                  PIC 99    VALUE ZERO.
+009500           08  ARM-DATEJAAMMJJ         PIC 9(6)  VALUE ZERO.
+009600       06  ARM-DATEREFER.
+009700           08  FILLER                  PIC 99    VALUE ZERO.
+009800           08  ARM-DREFERAAMMJJ        PIC 9(6)  VALUE ZERO.
+009800           08  FILLER  REDEFINES ARM-DREFERAAMMJJ.
+009800               10  ARM-DREFERAA99      PIC 99.
+009800               10  ARM-DREFERMMJJ      PIC 9(4).
+009900       06  ARM-CONTROLE.
+010000           08  ARM-USERCICS            PIC X(8)  VALUE SPACE.
+010100           08  ARM-PROGRAMM            PIC X(8)  VALUE SPACE.
+010200           08  ARM-TILT                PIC XX.
+010300               88  ARM-ABEND           VALUE 'AB'.
+010400           08  ARM-TILTCODE            PIC X(4).
+010500           08  ARM-NOM-FONCTION        PIC X(4).
+010600           08  ARM-ACCES-ARMIDE        PIC X.
+010700               88  ARM-DELETE-TS       VALUE 'O'.
+010800           08  ARM-ALTER-SDT           PIC X.
+010900               88  ARM-VALIDATION-ECRAN VALUE 'V'.
+AR1108           08  ARM-DEVISE              PIC X(3) VALUE SPACE.
+AR1108*          08  FILLER                  PIC X(88).
+AR1108           08  FILLER                  PIC X(85).

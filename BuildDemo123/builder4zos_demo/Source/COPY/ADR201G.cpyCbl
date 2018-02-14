@@ -1,0 +1,757 @@
+       01  ADR201-MDSC.
+      *--------------------------------------------------------------*
+      * MESSAGE DESCRIPTOR (SCREEN)             GENERATED : 21-08-00 *
+      *--------------------------------------------------------------*
+      *
+      *   HEADING OF MESSAGE DESCRIPTOR
+      *
+           05  DSC-MSG-ENTETE.
+               10  DSC-EN-LGNEN           PIC  S9(04) COMP VALUE +38.
+               10  DSC-EN-LGNPC           PIC  S9(04) COMP VALUE +72.
+               10  DSC-EN-NBCHPS          PIC  S9(04) COMP VALUE +19.
+               10  DSC-EN-SYSTDC          PIC  X(01)       VALUE 'C'.
+               10  DSC-EN-ENMSGL          PIC  X(01)       VALUE '1'.
+               10  DSC-EN-DESTIN          PIC  X(01)       VALUE 'E'.
+               10  DSC-EN-TYPATT          PIC  X(01)       VALUE 'N'.
+      *
+      *       STANDARD FORMATS
+               10  DSC-EN-STANDARDS.
+                   15  DSC-STD-SEPDEC     PIC  X(01)       VALUE ','.
+                   15  DSC-STD-SEPMIL     PIC  X(01)       VALUE '.'.
+                   15  DSC-STD-FORDAT     PIC  X(01)       VALUE '2'.
+                   15  DSC-STD-SEPDAT     PIC  X(01)       VALUE '/'.
+                   15  DSC-STD-FORTEM     PIC  X(01)       VALUE '1'.
+                   15  DSC-STD-SEPTEM     PIC  X(01)       VALUE '.'.
+      *
+      *       CURSOR POSITION WHEN RECEPTION
+               10  DSC-EN-CURSEUR.
+                   15  DSC-CSR-LIGNE      PIC  S9(04) COMP.
+                   15  DSC-CSR-COLONNE    PIC  S9(04) COMP.
+      *
+      *       NUMBER OF MODIFIED FIELDS
+               10  DSC-EN-NBCHM           PIC  S9(04) COMP.
+      *
+      *       NUMBER OF ERROR FIELDS
+               10  DSC-EN-NBCHERR         PIC  S9(04) COMP.
+      *       FILLING CHARACTER FOR DISPLAYING
+               10  DSC-STD-CARREMP        PIC  X(01)       VALUE ' '.
+      *     FREE BYTE FOR FUTURE USE
+               10  FILLER                 PIC   X(01)      VALUE SPACE.
+      *       INITIAL CURSOR ADDRESS
+               10  DSC-STD-LIGCINI        PIC S9(04) COMP  VALUE +000.
+               10  DSC-STD-COLCINI        PIC S9(04) COMP  VALUE +000.
+      *  2000 TEST YEAR TO GENER. CENTURY
+               10  DSC-STD-ANPIVOT        PIC  9(02)       VALUE  ZERO.
+      *  PROCESS. CODE OF 2000 TEST YEAR
+               10  DSC-STD-TRPIVOT        PIC  X(01)       VALUE  '1'.
+      * PROCESS. CODE FOR VALIDATION (ENT,FILL)
+               10  DSC-STD-TRVALID        PIC  X(01)       VALUE  '1'.
+      *       MAP'S BEGINNING POSITION
+               10  DSC-DBM-LIGNE          PIC S9(04) COMP  VALUE +001.
+               10  DSC-DBM-COLONNE        PIC S9(04) COMP  VALUE +001.
+      *
+      *   FIELDS DESCRIPTION
+      *
+           05  DSC-MSG-CHAMPS.
+      *
+               10  DSC-LIG2.
+                   15  DSC-SESS-ID-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'SESS-ID'.
+                       20  FILLER    PIC S9(04) COMP VALUE +4.
+                       20  FILLER    PIC S9(04) COMP VALUE +1.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X                              8    '.
+                   15  DSC-SESS-ID-INPUT.
+                       20  SESS-ID-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  SESS-ID-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  SESS-ID-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  SESS-ID-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  SESS-ID-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-SESS-ID-OUTPUT.
+                       20  SESS-ID-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  SESS-ID-COULEUR    PIC  X VALUE SPACE.
+                       20  SESS-ID-SYMBPRG    PIC  X VALUE SPACE.
+                       20  SESS-ID-HILIGHT    PIC  X VALUE SPACE.
+                       20  SESS-ID-VALIDATION PIC  X VALUE SPACE.
+                       20  SESS-ID-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-SESS-ID-TYPVAR     PIC  X(01)      VALUE 'S'.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  DSC-SESS-ID-TYPCHP.
+                       20  SESS-ID-TYPCHP     PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-SESS-ID-PARAMETRE.
+                       20  SESS-ID-PARAM1     PIC  X VALUE SPACE.
+                       20  SESS-ID-PARAM2     PIC  X VALUE SPACE.
+                       20  SESS-ID-PARAM3     PIC  X VALUE SPACE.
+                       20  SESS-ID-PARAM4     PIC  X VALUE SPACE.
+      *
+                   15  DSC-USER-ID-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'USER-ID'.
+                       20  FILLER    PIC S9(04) COMP VALUE +8.
+                       20  FILLER    PIC S9(04) COMP VALUE +5.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X                              0    '.
+                   15  DSC-USER-ID-INPUT.
+                       20  USER-ID-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  USER-ID-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  USER-ID-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  USER-ID-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  USER-ID-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-USER-ID-OUTPUT.
+                       20  USER-ID-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  USER-ID-COULEUR    PIC  X VALUE SPACE.
+                       20  USER-ID-SYMBPRG    PIC  X VALUE SPACE.
+                       20  USER-ID-HILIGHT    PIC  X VALUE SPACE.
+                       20  USER-ID-VALIDATION PIC  X VALUE SPACE.
+                       20  USER-ID-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-USER-ID-TYPVAR     PIC  X(01)      VALUE 'G'.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  FILLER                 PIC S9(04) COMP VALUE +7.
+                   15  DSC-USER-ID-TYPCHP.
+                       20  USER-ID-TYPCHP     PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-USER-ID-PARAMETRE.
+                       20  USER-ID-PARAM1     PIC  X VALUE SPACE.
+                       20  USER-ID-PARAM2     PIC  X VALUE SPACE.
+                       20  USER-ID-PARAM3     PIC  X VALUE SPACE.
+                       20  USER-ID-PARAM4     PIC  X VALUE SPACE.
+      *
+                   15  DSC-ECR-LIBC-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'ECR-LIBC'.
+                       20  FILLER    PIC S9(04) COMP VALUE +40.
+                       20  FILLER    PIC S9(04) COMP VALUE +13.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X C                            8    '.
+                   15  DSC-ECR-LIBC-INPUT.
+                       20  ECR-LIBC-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ECR-LIBC-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ECR-LIBC-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ECR-LIBC-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  ECR-LIBC-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-ECR-LIBC-OUTPUT.
+                       20  ECR-LIBC-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  ECR-LIBC-COULEUR   PIC  X VALUE SPACE.
+                       20  ECR-LIBC-SYMBPRG   PIC  X VALUE SPACE.
+                       20  ECR-LIBC-HILIGHT   PIC  X VALUE SPACE.
+                       20  ECR-LIBC-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ECR-LIBC-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-ECR-LIBC-TYPVAR    PIC  X(01)      VALUE 'M'.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  FILLER                 PIC S9(04) COMP VALUE +21.
+                   15  DSC-ECR-LIBC-TYPCHP.
+                       20  ECR-LIBC-TYPCHP    PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ECR-LIBC-PARAMETRE.
+                       20  ECR-LIBC-PARAM1    PIC  X VALUE SPACE.
+                       20  ECR-LIBC-PARAM2    PIC  X VALUE SPACE.
+                       20  ECR-LIBC-PARAM3    PIC  X VALUE SPACE.
+                       20  ECR-LIBC-PARAM4    PIC  X VALUE SPACE.
+      *
+                   15  DSC-DATEJ-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'DATEJ'.
+                       20  FILLER    PIC S9(04) COMP VALUE +8.
+                       20  FILLER    PIC S9(04) COMP VALUE +53.
+                       20  FILLER    PIC X(36)       VALUE
+                           'D                              0    '.
+                   15  DSC-DATEJ-INPUT.
+                       20  DATEJ-TYPE-SAISIE  PIC  X      VALUE SPACE.
+                       20  DATEJ-LGN-SAISIE   PIC S9(4) COMP VALUE ZERO.
+                       20  DATEJ-CURSEUR-IN   PIC  X      VALUE SPACE.
+                       20  DATEJ-ERREUR       PIC  X(02)  VALUE SPACE.
+                       20  DATEJ-CODIF        PIC  X      VALUE SPACE.
+                   15  DSC-DATEJ-OUTPUT.
+                       20  DATEJ-ATTRIBUT     PIC  X VALUE SPACE.
+                       20  DATEJ-COULEUR      PIC  X VALUE SPACE.
+                       20  DATEJ-SYMBPRG      PIC  X VALUE SPACE.
+                       20  DATEJ-HILIGHT      PIC  X VALUE SPACE.
+                       20  DATEJ-VALIDATION   PIC  X VALUE SPACE.
+                       20  DATEJ-CURSEUR      PIC  X VALUE SPACE.
+                   15  DSC-DATEJ-TYPVAR       PIC  X(01)      VALUE 'A'.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  FILLER                 PIC S9(04) COMP VALUE +71.
+                   15  DSC-DATEJ-TYPCHP.
+                       20  DATEJ-TYPCHP       PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-DATEJ-PARAMETRE.
+                       20  DATEJ-PARAM1       PIC  X VALUE SPACE.
+                       20  DATEJ-PARAM2       PIC  X VALUE SPACE.
+                       20  DATEJ-PARAM3       PIC  X VALUE SPACE.
+                       20  DATEJ-PARAM4       PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG4.
+                   15  DSC-DPRNSOC-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'STE'.
+                       20  FILLER    PIC S9(04) COMP VALUE +3.
+                       20  FILLER    PIC S9(04) COMP VALUE +61.
+                       20  FILLER    PIC X(36)       VALUE
+                           'N                     O        8    '.
+                   15  DSC-DPRNSOC-INPUT.
+                       20  DPRNSOC-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  DPRNSOC-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  DPRNSOC-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  DPRNSOC-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  DPRNSOC-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-DPRNSOC-OUTPUT.
+                       20  DPRNSOC-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  DPRNSOC-COULEUR    PIC  X VALUE SPACE.
+                       20  DPRNSOC-SYMBPRG    PIC  X VALUE SPACE.
+                       20  DPRNSOC-HILIGHT    PIC  X VALUE SPACE.
+                       20  DPRNSOC-VALIDATION PIC  X VALUE SPACE.
+                       20  DPRNSOC-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-DPRNSOC-TYPVAR     PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +4.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  DSC-DPRNSOC-TYPCHP.
+                       20  DPRNSOC-TYPCHP     PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-DPRNSOC-PARAMETRE.
+                       20  DPRNSOC-PARAM1     PIC  X VALUE SPACE.
+                       20  DPRNSOC-PARAM2     PIC  X VALUE SPACE.
+                       20  DPRNSOC-PARAM3     PIC  X VALUE SPACE.
+                       20  DPRNSOC-PARAM4     PIC  X VALUE SPACE.
+      *
+                   15  DSC-CLINFOY-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'NUMFOY'.
+                       20  FILLER    PIC S9(04) COMP VALUE +10.
+                       20  FILLER    PIC S9(04) COMP VALUE +64.
+                       20  FILLER    PIC X(36)       VALUE
+                           'N                     O        8    '.
+                   15  DSC-CLINFOY-INPUT.
+                       20  CLINFOY-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  CLINFOY-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  CLINFOY-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  CLINFOY-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  CLINFOY-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-CLINFOY-OUTPUT.
+                       20  CLINFOY-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  CLINFOY-COULEUR    PIC  X VALUE SPACE.
+                       20  CLINFOY-SYMBPRG    PIC  X VALUE SPACE.
+                       20  CLINFOY-HILIGHT    PIC  X VALUE SPACE.
+                       20  CLINFOY-VALIDATION PIC  X VALUE SPACE.
+                       20  CLINFOY-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-CLINFOY-TYPVAR     PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +4.
+                   15  FILLER                 PIC S9(04) COMP VALUE +28.
+                   15  DSC-CLINFOY-TYPCHP.
+                       20  CLINFOY-TYPCHP     PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-CLINFOY-PARAMETRE.
+                       20  CLINFOY-PARAM1     PIC  X VALUE SPACE.
+                       20  CLINFOY-PARAM2     PIC  X VALUE SPACE.
+                       20  CLINFOY-PARAM3     PIC  X VALUE SPACE.
+                       20  CLINFOY-PARAM4     PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG6.
+                   15  DSC-CLILNOMPREN-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'NOMFOY'.
+                       20  FILLER    PIC S9(04) COMP VALUE +28.
+                       20  FILLER    PIC S9(04) COMP VALUE +74.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            8    '.
+                   15  DSC-CLILNOMPREN-INPUT.
+                       20  CLILNOMPREN-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  CLILNOMPREN-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  CLILNOMPREN-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  CLILNOMPREN-ERREUR PIC  X(02)  VALUE SPACE.
+                       20  CLILNOMPREN-CODIF  PIC  X      VALUE SPACE.
+                   15  DSC-CLILNOMPREN-OUTPUT.
+                       20  CLILNOMPREN-ATTRIBUT
+                                              PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-COULEUR
+                                              PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-SYMBPRG
+                                              PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-HILIGHT
+                                              PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-CURSEUR
+                                              PIC  X VALUE SPACE.
+                   15  DSC-CLILNOMPREN-TYPVAR PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +6.
+                   15  FILLER                 PIC S9(04) COMP VALUE +7.
+                   15  DSC-CLILNOMPREN-TYPCHP.
+                       20  CLILNOMPREN-TYPCHP PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-CLILNOMPREN-PARAMETRE.
+                       20  CLILNOMPREN-PARAM1 PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-PARAM2 PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-PARAM3 PIC  X VALUE SPACE.
+                       20  CLILNOMPREN-PARAM4 PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG9.
+                   15  DSC-ADRLADRE-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'RUE'.
+                       20  FILLER    PIC S9(04) COMP VALUE +32.
+                       20  FILLER    PIC S9(04) COMP VALUE +102.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-ADRLADRE-INPUT.
+                       20  ADRLADRE-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLADRE-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ADRLADRE-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLADRE-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  ADRLADRE-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-ADRLADRE-OUTPUT.
+                       20  ADRLADRE-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  ADRLADRE-COULEUR   PIC  X VALUE SPACE.
+                       20  ADRLADRE-SYMBPRG   PIC  X VALUE SPACE.
+                       20  ADRLADRE-HILIGHT   PIC  X VALUE SPACE.
+                       20  ADRLADRE-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ADRLADRE-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-ADRLADRE-TYPVAR    PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +9.
+                   15  FILLER                 PIC S9(04) COMP VALUE +7.
+                   15  DSC-ADRLADRE-TYPCHP.
+                       20  ADRLADRE-TYPCHP    PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRLADRE-PARAMETRE.
+                       20  ADRLADRE-PARAM1    PIC  X VALUE SPACE.
+                       20  ADRLADRE-PARAM2    PIC  X VALUE SPACE.
+                       20  ADRLADRE-PARAM3    PIC  X VALUE SPACE.
+                       20  ADRLADRE-PARAM4    PIC  X VALUE SPACE.
+      *
+                   15  DSC-ADRLVBEA-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'CPLTADR'.
+                       20  FILLER    PIC S9(04) COMP VALUE +32.
+                       20  FILLER    PIC S9(04) COMP VALUE +134.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-ADRLVBEA-INPUT.
+                       20  ADRLVBEA-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLVBEA-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ADRLVBEA-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLVBEA-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  ADRLVBEA-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-ADRLVBEA-OUTPUT.
+                       20  ADRLVBEA-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  ADRLVBEA-COULEUR   PIC  X VALUE SPACE.
+                       20  ADRLVBEA-SYMBPRG   PIC  X VALUE SPACE.
+                       20  ADRLVBEA-HILIGHT   PIC  X VALUE SPACE.
+                       20  ADRLVBEA-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ADRLVBEA-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-ADRLVBEA-TYPVAR    PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +9.
+                   15  FILLER                 PIC S9(04) COMP VALUE +47.
+                   15  DSC-ADRLVBEA-TYPCHP.
+                       20  ADRLVBEA-TYPCHP    PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRLVBEA-PARAMETRE.
+                       20  ADRLVBEA-PARAM1    PIC  X VALUE SPACE.
+                       20  ADRLVBEA-PARAM2    PIC  X VALUE SPACE.
+                       20  ADRLVBEA-PARAM3    PIC  X VALUE SPACE.
+                       20  ADRLVBEA-PARAM4    PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG11.
+                   15  DSC-CPAYSBEN-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'CPAYSBEN'.
+                       20  FILLER    PIC S9(04) COMP VALUE +2.
+                       20  FILLER    PIC S9(04) COMP VALUE +166.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-CPAYSBEN-INPUT.
+                       20  CPAYSBEN-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  CPAYSBEN-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  CPAYSBEN-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  CPAYSBEN-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  CPAYSBEN-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-CPAYSBEN-OUTPUT.
+                       20  CPAYSBEN-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  CPAYSBEN-COULEUR   PIC  X VALUE SPACE.
+                       20  CPAYSBEN-SYMBPRG   PIC  X VALUE SPACE.
+                       20  CPAYSBEN-HILIGHT   PIC  X VALUE SPACE.
+                       20  CPAYSBEN-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  CPAYSBEN-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-CPAYSBEN-TYPVAR    PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  FILLER                 PIC S9(04) COMP VALUE +8.
+                   15  DSC-CPAYSBEN-TYPCHP.
+                       20  CPAYSBEN-TYPCHP    PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-CPAYSBEN-PARAMETRE.
+                       20  CPAYSBEN-PARAM1    PIC  X VALUE SPACE.
+                       20  CPAYSBEN-PARAM2    PIC  X VALUE SPACE.
+                       20  CPAYSBEN-PARAM3    PIC  X VALUE SPACE.
+                       20  CPAYSBEN-PARAM4    PIC  X VALUE SPACE.
+      *
+                   15  DSC-ADRCPTT-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'ADRCPTT'.
+                       20  FILLER    PIC S9(04) COMP VALUE +4.
+                       20  FILLER    PIC S9(04) COMP VALUE +168.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-ADRCPTT-INPUT.
+                       20  ADRCPTT-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRCPTT-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  ADRCPTT-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  ADRCPTT-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  ADRCPTT-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-ADRCPTT-OUTPUT.
+                       20  ADRCPTT-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  ADRCPTT-COULEUR    PIC  X VALUE SPACE.
+                       20  ADRCPTT-SYMBPRG    PIC  X VALUE SPACE.
+                       20  ADRCPTT-HILIGHT    PIC  X VALUE SPACE.
+                       20  ADRCPTT-VALIDATION PIC  X VALUE SPACE.
+                       20  ADRCPTT-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-ADRCPTT-TYPVAR     PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  DSC-ADRCPTT-TYPCHP.
+                       20  ADRCPTT-TYPCHP     PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRCPTT-PARAMETRE.
+                       20  ADRCPTT-PARAM1     PIC  X VALUE SPACE.
+                       20  ADRCPTT-PARAM2     PIC  X VALUE SPACE.
+                       20  ADRCPTT-PARAM3     PIC  X VALUE SPACE.
+                       20  ADRCPTT-PARAM4     PIC  X VALUE SPACE.
+      *
+                   15  DSC-CQUART-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'CQUART'.
+                       20  FILLER    PIC S9(04) COMP VALUE +2.
+                       20  FILLER    PIC S9(04) COMP VALUE +172.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G        $QUARTIE            H    '.
+                   15  DSC-CQUART-INPUT.
+                       20  CQUART-TYPE-SAISIE PIC  X      VALUE SPACE.
+                       20  CQUART-LGN-SAISIE  PIC S9(4) COMP VALUE ZERO.
+                       20  CQUART-CURSEUR-IN  PIC  X      VALUE SPACE.
+                       20  CQUART-ERREUR      PIC  X(02)  VALUE SPACE.
+                       20  CQUART-CODIF       PIC  X      VALUE SPACE.
+                   15  DSC-CQUART-OUTPUT.
+                       20  CQUART-ATTRIBUT    PIC  X VALUE SPACE.
+                       20  CQUART-COULEUR     PIC  X VALUE SPACE.
+                       20  CQUART-SYMBPRG     PIC  X VALUE SPACE.
+                       20  CQUART-HILIGHT     PIC  X VALUE SPACE.
+                       20  CQUART-VALIDATION  PIC  X VALUE SPACE.
+                       20  CQUART-CURSEUR     PIC  X VALUE SPACE.
+                   15  DSC-CQUART-TYPVAR      PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  FILLER                 PIC S9(04) COMP VALUE +16.
+                   15  DSC-CQUART-TYPCHP.
+                       20  CQUART-TYPCHP      PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-CQUART-PARAMETRE.
+                       20  CQUART-PARAM1      PIC  X VALUE SPACE.
+                       20  CQUART-PARAM2      PIC  X VALUE SPACE.
+                       20  CQUART-PARAM3      PIC  X VALUE SPACE.
+                       20  CQUART-PARAM4      PIC  X VALUE SPACE.
+      *
+                   15  DSC-ADRLVILL-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'ADRLVILL'.
+                       20  FILLER    PIC S9(04) COMP VALUE +28.
+                       20  FILLER    PIC S9(04) COMP VALUE +174.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-ADRLVILL-INPUT.
+                       20  ADRLVILL-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLVILL-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ADRLVILL-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLVILL-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  ADRLVILL-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-ADRLVILL-OUTPUT.
+                       20  ADRLVILL-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  ADRLVILL-COULEUR   PIC  X VALUE SPACE.
+                       20  ADRLVILL-SYMBPRG   PIC  X VALUE SPACE.
+                       20  ADRLVILL-HILIGHT   PIC  X VALUE SPACE.
+                       20  ADRLVILL-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ADRLVILL-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-ADRLVILL-TYPVAR    PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  FILLER                 PIC S9(04) COMP VALUE +26.
+                   15  DSC-ADRLVILL-TYPCHP.
+                       20  ADRLVILL-TYPCHP    PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRLVILL-PARAMETRE.
+                       20  ADRLVILL-PARAM1    PIC  X VALUE SPACE.
+                       20  ADRLVILL-PARAM2    PIC  X VALUE SPACE.
+                       20  ADRLVILL-PARAM3    PIC  X VALUE SPACE.
+                       20  ADRLVILL-PARAM4    PIC  X VALUE SPACE.
+      *
+                   15  DSC-ADRLLOCACH-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'LOCACH'.
+                       20  FILLER    PIC S9(04) COMP VALUE +23.
+                       20  FILLER    PIC S9(04) COMP VALUE +202.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            8    '.
+                   15  DSC-ADRLLOCACH-INPUT.
+                       20  ADRLLOCACH-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLLOCACH-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ADRLLOCACH-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLLOCACH-ERREUR  PIC  X(02)  VALUE SPACE.
+                       20  ADRLLOCACH-CODIF   PIC  X      VALUE SPACE.
+                   15  DSC-ADRLLOCACH-OUTPUT.
+                       20  ADRLLOCACH-ATTRIBUT
+                                              PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-COULEUR PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-SYMBPRG PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-HILIGHT PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-CURSEUR PIC  X VALUE SPACE.
+                   15  DSC-ADRLLOCACH-TYPVAR  PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +11.
+                   15  FILLER                 PIC S9(04) COMP VALUE +56.
+                   15  DSC-ADRLLOCACH-TYPCHP.
+                       20  ADRLLOCACH-TYPCHP  PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRLLOCACH-PARAMETRE.
+                       20  ADRLLOCACH-PARAM1  PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-PARAM2  PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-PARAM3  PIC  X VALUE SPACE.
+                       20  ADRLLOCACH-PARAM4  PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG13.
+                   15  DSC-ADRCPAYS-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'ADR'.
+                       20  FILLER    PIC S9(04) COMP VALUE +3.
+                       20  FILLER    PIC S9(04) COMP VALUE +225.
+                       20  FILLER    PIC X(36)       VALUE
+                           'N                              H    '.
+                   15  DSC-ADRCPAYS-INPUT.
+                       20  ADRCPAYS-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRCPAYS-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ADRCPAYS-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ADRCPAYS-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  ADRCPAYS-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-ADRCPAYS-OUTPUT.
+                       20  ADRCPAYS-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  ADRCPAYS-COULEUR   PIC  X VALUE SPACE.
+                       20  ADRCPAYS-SYMBPRG   PIC  X VALUE SPACE.
+                       20  ADRCPAYS-HILIGHT   PIC  X VALUE SPACE.
+                       20  ADRCPAYS-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ADRCPAYS-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-ADRCPAYS-TYPVAR    PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +13.
+                   15  FILLER                 PIC S9(04) COMP VALUE +13.
+                   15  DSC-ADRCPAYS-TYPCHP.
+                       20  ADRCPAYS-TYPCHP    PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRCPAYS-PARAMETRE.
+                       20  ADRCPAYS-PARAM1    PIC  X VALUE SPACE.
+                       20  ADRCPAYS-PARAM2    PIC  X VALUE SPACE.
+                       20  ADRCPAYS-PARAM3    PIC  X VALUE SPACE.
+                       20  ADRCPAYS-PARAM4    PIC  X VALUE SPACE.
+      *
+                   15  DSC-ADRLPAYS-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'ADRPAYS'.
+                       20  FILLER    PIC S9(04) COMP VALUE +25.
+                       20  FILLER    PIC S9(04) COMP VALUE +228.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-ADRLPAYS-INPUT.
+                       20  ADRLPAYS-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLPAYS-LGN-SAISIE
+                                              PIC S9(4) COMP VALUE ZERO.
+                       20  ADRLPAYS-CURSEUR-IN
+                                              PIC  X      VALUE SPACE.
+                       20  ADRLPAYS-ERREUR    PIC  X(02)  VALUE SPACE.
+                       20  ADRLPAYS-CODIF     PIC  X      VALUE SPACE.
+                   15  DSC-ADRLPAYS-OUTPUT.
+                       20  ADRLPAYS-ATTRIBUT  PIC  X VALUE SPACE.
+                       20  ADRLPAYS-COULEUR   PIC  X VALUE SPACE.
+                       20  ADRLPAYS-SYMBPRG   PIC  X VALUE SPACE.
+                       20  ADRLPAYS-HILIGHT   PIC  X VALUE SPACE.
+                       20  ADRLPAYS-VALIDATION
+                                              PIC  X VALUE SPACE.
+                       20  ADRLPAYS-CURSEUR   PIC  X VALUE SPACE.
+                   15  DSC-ADRLPAYS-TYPVAR    PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +13.
+                   15  FILLER                 PIC S9(04) COMP VALUE +35.
+                   15  DSC-ADRLPAYS-TYPCHP.
+                       20  ADRLPAYS-TYPCHP    PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ADRLPAYS-PARAMETRE.
+                       20  ADRLPAYS-PARAM1    PIC  X VALUE SPACE.
+                       20  ADRLPAYS-PARAM2    PIC  X VALUE SPACE.
+                       20  ADRLPAYS-PARAM3    PIC  X VALUE SPACE.
+                       20  ADRLPAYS-PARAM4    PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG17.
+                   15  DSC-ACTION-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'ACTION'.
+                       20  FILLER    PIC S9(04) COMP VALUE +1.
+                       20  FILLER    PIC S9(04) COMP VALUE +253.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X G                            H    '.
+                   15  DSC-ACTION-INPUT.
+                       20  ACTION-TYPE-SAISIE PIC  X      VALUE SPACE.
+                       20  ACTION-LGN-SAISIE  PIC S9(4) COMP VALUE ZERO.
+                       20  ACTION-CURSEUR-IN  PIC  X      VALUE SPACE.
+                       20  ACTION-ERREUR      PIC  X(02)  VALUE SPACE.
+                       20  ACTION-CODIF       PIC  X      VALUE SPACE.
+                   15  DSC-ACTION-OUTPUT.
+                       20  ACTION-ATTRIBUT    PIC  X VALUE SPACE.
+                       20  ACTION-COULEUR     PIC  X VALUE SPACE.
+                       20  ACTION-SYMBPRG     PIC  X VALUE SPACE.
+                       20  ACTION-HILIGHT     PIC  X VALUE SPACE.
+                       20  ACTION-VALIDATION  PIC  X VALUE SPACE.
+                       20  ACTION-CURSEUR     PIC  X VALUE SPACE.
+                   15  DSC-ACTION-TYPVAR      PIC  X(01)      VALUE ' '.
+                   15  FILLER                 PIC S9(04) COMP VALUE +17.
+                   15  FILLER                 PIC S9(04) COMP VALUE +12.
+                   15  DSC-ACTION-TYPCHP.
+                       20  ACTION-TYPCHP      PIC  X(01) VALUE 'T'.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-ACTION-PARAMETRE.
+                       20  ACTION-PARAM1      PIC  X VALUE SPACE.
+                       20  ACTION-PARAM2      PIC  X VALUE SPACE.
+                       20  ACTION-PARAM3      PIC  X VALUE SPACE.
+                       20  ACTION-PARAM4      PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG23.
+                   15  DSC-LIG-ACT-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'LIG-ACT'.
+                       20  FILLER    PIC S9(04) COMP VALUE +78.
+                       20  FILLER    PIC S9(04) COMP VALUE +254.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X                              8    '.
+                   15  DSC-LIG-ACT-INPUT.
+                       20  LIG-ACT-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  LIG-ACT-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  LIG-ACT-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  LIG-ACT-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  LIG-ACT-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-LIG-ACT-OUTPUT.
+                       20  LIG-ACT-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  LIG-ACT-COULEUR    PIC  X VALUE SPACE.
+                       20  LIG-ACT-SYMBPRG    PIC  X VALUE SPACE.
+                       20  LIG-ACT-HILIGHT    PIC  X VALUE SPACE.
+                       20  LIG-ACT-VALIDATION PIC  X VALUE SPACE.
+                       20  LIG-ACT-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-LIG-ACT-TYPVAR     PIC  X(01)      VALUE 'Y'.
+                   15  FILLER                 PIC S9(04) COMP VALUE +23.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  DSC-LIG-ACT-TYPCHP.
+                       20  LIG-ACT-TYPCHP     PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-LIG-ACT-PARAMETRE.
+                       20  LIG-ACT-PARAM1     PIC  X VALUE SPACE.
+                       20  LIG-ACT-PARAM2     PIC  X VALUE SPACE.
+                       20  LIG-ACT-PARAM3     PIC  X VALUE SPACE.
+                       20  LIG-ACT-PARAM4     PIC  X VALUE SPACE.
+      *
+               10  DSC-LIG24.
+                   15  DSC-LIG-MSG-DESCRIP.
+                       20  FILLER    PIC X(08)       VALUE 'LIG-MSG'.
+                       20  FILLER    PIC S9(04) COMP VALUE +78.
+                       20  FILLER    PIC S9(04) COMP VALUE +332.
+                       20  FILLER    PIC X(36)       VALUE
+                           'X                              8    '.
+                   15  DSC-LIG-MSG-INPUT.
+                       20  LIG-MSG-TYPE-SAISIE
+                                              PIC  X      VALUE SPACE.
+                       20  LIG-MSG-LGN-SAISIE PIC S9(4) COMP VALUE ZERO.
+                       20  LIG-MSG-CURSEUR-IN PIC  X      VALUE SPACE.
+                       20  LIG-MSG-ERREUR     PIC  X(02)  VALUE SPACE.
+                       20  LIG-MSG-CODIF      PIC  X      VALUE SPACE.
+                   15  DSC-LIG-MSG-OUTPUT.
+                       20  LIG-MSG-ATTRIBUT   PIC  X VALUE SPACE.
+                       20  LIG-MSG-COULEUR    PIC  X VALUE SPACE.
+                       20  LIG-MSG-SYMBPRG    PIC  X VALUE SPACE.
+                       20  LIG-MSG-HILIGHT    PIC  X VALUE SPACE.
+                       20  LIG-MSG-VALIDATION PIC  X VALUE SPACE.
+                       20  LIG-MSG-CURSEUR    PIC  X VALUE SPACE.
+                   15  DSC-LIG-MSG-TYPVAR     PIC  X(01)      VALUE 'X'.
+                   15  FILLER                 PIC S9(04) COMP VALUE +24.
+                   15  FILLER                 PIC S9(04) COMP VALUE +2.
+                   15  DSC-LIG-MSG-TYPCHP.
+                       20  LIG-MSG-TYPCHP     PIC  X(01) VALUE SPACE.
+                   15  FILLER                 PIC  X(01) VALUE SPACE.
+                   15  DSC-LIG-MSG-PARAMETRE.
+                       20  LIG-MSG-PARAM1     PIC  X VALUE SPACE.
+                       20  LIG-MSG-PARAM2     PIC  X VALUE SPACE.
+                       20  LIG-MSG-PARAM3     PIC  X VALUE SPACE.
+                       20  LIG-MSG-PARAM4     PIC  X VALUE SPACE.
+      *
+      *   REDEFINITION OF FIELD SET
+      *
+           05  DSC-RDF-CHAMPS   REDEFINES  DSC-MSG-CHAMPS.
+      *
+               10  DSC-RDF-CHAMP    OCCURS 19.
+      *
+      *           FIELD DESCRIPTION
+                   15  DSC-RDF-DESCRIPTION.
+                       20  DSC-RDF-NOM            PIC  X(08).
+                       20  DSC-RDF-LGN            PIC  S9(04) COMP.
+                       20  DSC-RDF-POS            PIC  S9(04) COMP.
+                       20  DSC-RDF-CLASSE         PIC  X(01).
+                       20  DSC-RDF-EXT            PIC  X(01).
+                       20  DSC-RDF-CADRAGE        PIC  X(01).
+                       20  DSC-RDF-CTRROUT        PIC  X(08).
+                       20  DSC-RDF-TABCTRL        PIC  X(08).
+                       20  DSC-RDF-SIGNE          PIC  X(01).
+                       20  DSC-RDF-SEPMIL         PIC  X(01).
+                       20  DSC-RDF-PADDING        PIC  X(01).
+                       20  DSC-RDF-BLWZ           PIC  X(01).
+                       20  DSC-RDF-EDTROUT        PIC  X(08).
+                       20  DSC-RDF-ATTRIBUT       PIC  X(01).
+                       20  DSC-RDF-COULEUR        PIC  X(01).
+                       20  DSC-RDF-SYMBPRG        PIC  X(01).
+                       20  DSC-RDF-HILIGHT        PIC  X(01).
+                       20  DSC-RDF-VALIDATION     PIC  X(01).
+      *
+      *           INPUT DATA
+                   15  DSC-RDF-INPUT.
+                       20  DSC-RDF-TYPE-SAISIE    PIC  X(01).
+                       20  DSC-RDF-LGN-SAISIE     PIC  S9(04) COMP.
+                       20  DSC-RDF-CURSEUR-IN     PIC  X(01).
+                       20  DSC-RDF-ERREUR         PIC  X(02).
+                       20  DSC-RDF-CODIF          PIC  X(01).
+      *
+      *           OUTPUT DATA
+                   15  DSC-RDF-OUTPUT.
+                       20  DSC-RDF-ATTRIBUT       PIC  X(01).
+                       20  DSC-RDF-COULEUR        PIC  X(01).
+                       20  DSC-RDF-SYMBPRG        PIC  X(01).
+                       20  DSC-RDF-HILIGHT        PIC  X(01).
+                       20  DSC-RDF-VALIDATION     PIC  X(01).
+                       20  DSC-RDF-CURSEUR        PIC  X(01).
+                   15  DSC-RDF-TYPVAR             PIC  X(01).
+                   15  DSC-RDF-NOLIG              PIC S9(04) COMP.
+                   15  DSC-RDF-NOCOL              PIC S9(04) COMP.
+                   15  DSC-RDF-TYPCHP             PIC  X(01).
+                   15  FILLER                     PIC  X(01).
+                   15  DSC-RDF-PARAMETRE.
+                       20  DSC-RDF-PARAM1         PIC  X(01).
+                       20  DSC-RDF-PARAM2         PIC  X(01).
+                       20  DSC-RDF-PARAM3         PIC  X(01).
+                       20  DSC-RDF-PARAM4         PIC  X(01).
+      *

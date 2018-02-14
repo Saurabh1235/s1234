@@ -1,0 +1,102 @@
+      * *============================================================*  00010000
+      * *============================================================*  00020000
+      * *============================================================*  00030000
+      * *============================================================*  00040000
+      * *============================================================*  00050000
+      * *============================================================*  00060000
+      * *            DON'T FORGET PRECOMPILATION  !!!!               *  00070010
+      * *------------------------------------------------------------*  00080000
+      * *                                                            *  00090000
+      * *  - WARNING : THIS MUST BE PRECOMPILED TO BE USED AS A      *  00100010
+      * *    COPY IN SUBROUTINES.                                    *  00110011
+      * *    NAME OF PRECOMPILED MODULE ---> ST3100TR                *  00120010
+      * *    USE  ---> COB2TRN                                       *  00130010
+      * *                                                            *  00140000
+      * *============================================================*  00150000
+      * *============================================================*  00160000
+      * *============================================================*  00170000
+      * *============================================================*  00180000
+      * *============================================================*  00190000
+      * *============================================================*  00200000
+      * *============================================================*  00210000
+      * * 31000     I PREPARATION OF ERROR MESSAGE                   *  00220011
+      * *------------------------------------------------------------*  00230000
+      * *                                                            *  00240000
+      * *  IF A NO. OF ERROR MESSAGE WAS REFERENCED DURING THE       *  00250011
+      * *  PROCESSING, THE PROGRAM MANAGING MESSAGES IS CALLED       *  00260011
+      * *  TO :                                                      *  00270011
+      * *                                                            *  00280000
+      * *  - SEARCH MESSAGE'S DESCRIPTION                            *  00290011
+      * *  - INSERT PARAMETERS                                       *  00300011
+      * *                                                            *  00310000
+      * *============================================================*  00320000
+       31000-PREP-MSGERR               SECTION.                         00330000
+      *                                                                 00340000
+      * *------------------------BLANK IN MESSAGE'S DESCRIPTION         00350011
+           IF  MSTD-LIBMESS NOT = SPACE                                 00360000
+               MOVE SPACE       TO MSTD-LIBMESS                         00370000
+           END-IF.                                                      00380000
+      *                                                                 00390000
+      * *------------------------NO PRODUCED MESSAGE                    00400011
+           IF  MSTD-NOMESS      = SPACE                                 00410000
+               GO TO 31000-PREP-MSGERR-SUITE                            00420000
+           END-IF.                                                      00430000
+      *                                                                 00440000
+      * *---------------------NO. OF MESSAGE PRODUCED BY PROCESSING     00450011
+           COMPUTE MSTD-LG       = (MESR-NBMAX * 80) + 157.             00460000
+           MOVE STDP-NOM-FONC   TO MSTD-NOM-FONC.                       00470000
+           MOVE ACCEPT-ERR-OUI  TO ACCEPT-PGMIDERR.                     00480000
+      *                                                                 00490000
+      *EXEC CICS HANDLE ABEND                                           00500007
+      *          CANCEL                                                 00510007
+      *END-EXEC.                                                        00520007
+            MOVE '    € 00050   ' TO DFHEIV0                         00530000
+           CALL 'DFHEI1' USING DFHEIV0.                                 00540007
+                                                                        00550007
+      *                                                                 00560000
+      *EXEC CICS LINK PROGRAM  (WS-STDMSG-SUBR)                         00570007
+      *               COMMAREA (MSTD-DATA)                              00580007
+      *               LENGTH   (MSTD-LG)                                00590007
+      *               NOHANDLE                                          00600007
+      *END-EXEC.                                                        00610007
+            MOVE 'ç    00054   ' TO DFHEIV0                         00620000
+           CALL 'DFHEI1' USING DFHEIV0  WS-STDMSG-SUBR MSTD-DATA        00630007
+           MSTD-LG.                                                     00640007
+                                                                        00650007
+                                                                        00660007
+      *                                                                 00670000
+           PERFORM 90000-CONDERR-TEST.                                  00680000
+      *                                                                 00690000
+      *EXEC CICS HANDLE ABEND                                           00700007
+      *          RESET                                                  00710007
+      *END-EXEC.                                                        00720007
+            MOVE '    €—00062   ' TO DFHEIV0                         00730000
+           CALL 'DFHEI1' USING DFHEIV0.                                 00740007
+                                                                        00750007
+      *                                                                 00760000
+      * *------------------------PROGRAM MANAGING "DISABLE" ERRORS      00770011
+           IF PGMIDERR                                                  00780000
+              MOVE SPACE                 TO MSTD-NOMESS                 00790000
+              MOVE SPACE                 TO MSTD-FIL                    00800000
+              MOVE WS-STDMSG-MSG         TO MSTD-LIBMESS                00810000
+              MOVE 'CICS'                TO STDER-TYPE-ERREUR           00820000
+              GO TO 31000-PREP-MSGERR-SUITE                             00830000
+           END-IF.                                                      00840000
+      *                                                                 00850000
+      * *------------------------PROGRAM ERRORS                         00860011
+           IF MSTD-RETOUR = '08'                                        00870000
+              MOVE 'AB'                  TO WS-SORTIE                   00880000
+              GO TO 31000-PREP-MSGERR-FIN                               00890000
+           END-IF.                                                      00900000
+      *                                                                 00910000
+       31000-PREP-MSGERR-SUITE.                                         00920000
+           IF   STDER-TYPE-ERREUR NOT = SPACE  AND                      00930000
+                STDER-TYPE-ERREUR NOT = 'APPL'                          00940000
+                MOVE 'AB'                TO WS-SORTIE                   00950000
+           END-IF.                                                      00960000
+      *                                                                 00970000
+           PERFORM 90000-ENREG-ERROR.                                   00980000
+      *                                                                 00990000
+       31000-PREP-MSGERR-FIN.                                           01000000
+           EXIT.                                                        01010000
+      *                                                                 01020000

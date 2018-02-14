@@ -1,0 +1,505 @@
+      ******************************************************************
+      * DCLGEN TABLE(TBDOPRN)                                          *
+      *        LIBRARY(TBEN.DB2.DCLGEN(TBDOPRN))                       *
+      *        ACTION(REPLACE)                                         *
+      *        LANGUAGE(COBOL)                                         *
+      *        APOST                                                   *
+      * ... IS THE DCLGEN COMMAND THAT MADE THE FOLLOWING STATEMENTS   *
+      ******************************************************************
+           EXEC SQL DECLARE TBDOPRN TABLE
+           ( TDPRNFOY                       DECIMAL(11, 0) NOT NULL,
+             TDPRNCONT                      DECIMAL(1, 0) NOT NULL,
+             TDPRNCARTE                     DECIMAL(1, 0) NOT NULL,
+             TDPRNDT                        DECIMAL(3, 0) NOT NULL,
+             TDPRNSOC                       DECIMAL(3, 0) NOT NULL,
+             TDPRDCREAT                     DATE NOT NULL,
+             TDPRDMOD                       DATE NOT NULL,
+             TDPRCINACT                     CHAR(1) NOT NULL,
+             TDPRDINACT                     DATE NOT NULL,
+             TDPRCPOSA                      CHAR(3) NOT NULL,
+             TDPRDPOSA                      DATE NOT NULL,
+             TDPRCPOSP                      CHAR(3) NOT NULL,
+             TDPRDPOSP                      DATE NOT NULL,
+             TDPRCPRODCOM                   CHAR(4) NOT NULL,
+             TDPRCPROFPROD                  CHAR(1) NOT NULL,
+             TDPRCGCOMPT                    CHAR(1) NOT NULL,
+             TDPRCPRODVDR                   CHAR(4) NOT NULL,
+             TDPRNSOCCOMMU                  DECIMAL(3, 0) NOT NULL,
+             TDPRCTYPEPROD                  CHAR(3) NOT NULL,
+             TDPRCPRODBASE                  CHAR(4) NOT NULL,
+             TDPRCCPTRAURO                  CHAR(1) NOT NULL,
+             TDPRDTITRI                     DATE NOT NULL,
+             TDPRNLOTTITRI                  DECIMAL(3, 0) NOT NULL,
+             TDPRNCC                        DECIMAL(9, 0) NOT NULL,
+             TDPRNSOCSEP                    DECIMAL(3, 0) NOT NULL,
+             TDPRNSOCFIN                    DECIMAL(3, 0) NOT NULL,
+             TDPRNSOCGEO                    DECIMAL(3, 0) NOT NULL,
+             TDPRNSOCAGRO                   DECIMAL(3, 0) NOT NULL,
+             TDPRNAGRO                      DECIMAL(7, 0) NOT NULL,
+             TDPRNSOCAGR                    DECIMAL(3, 0) NOT NULL,
+             TDPRNAGR                       DECIMAL(7, 0) NOT NULL,
+             TDPRCPORTF                     CHAR(1) NOT NULL,
+             TDPRCBAREME                    DECIMAL(3, 0) NOT NULL,
+             TDPRTBAREME                    DECIMAL(9, 8) NOT NULL,
+             TDPRTNC                        DECIMAL(9, 8) NOT NULL,
+             TDPRTCOEFRES                   DECIMAL(9, 8) NOT NULL,
+             TDPRTVDR                       DECIMAL(9, 8) NOT NULL,
+             TDPRCBARSPEC                   DECIMAL(3, 0) NOT NULL,
+             TDPRTBARSPEC                   DECIMAL(9, 8) NOT NULL,
+             TDPRDFINBARSPEC                DATE NOT NULL,
+             TDPRBMENS                      DECIMAL(3, 0) NOT NULL,
+             TDPRDECH1                      DATE NOT NULL,
+             TDPRCFREQ                      CHAR(1) NOT NULL,
+             TDPRNQUANT                     DECIMAL(3, 0) NOT NULL,
+             TDPRNCHQUANT                   DECIMAL(3, 0) NOT NULL,
+             TDPRBDUREE                     DECIMAL(3, 0) NOT NULL,
+             TDPRBDURREST                   DECIMAL(3, 0) NOT NULL,
+             TDPRTDEG                       DECIMAL(3, 0) NOT NULL,
+             TDPRCTOPDOUBRES                CHAR(1) NOT NULL,
+             TDPRCCHR                       DECIMAL(3, 0) NOT NULL,
+             TDPRBITERCYCLE                 DECIMAL(3, 0) NOT NULL,
+             TDPRCMMMULTI                   CHAR(1) NOT NULL,
+             TDPRCECHEL                     CHAR(1) NOT NULL,
+             TDPRCDURMENS                   CHAR(1) NOT NULL,
+             TDPRCAGIOSDIF                  CHAR(1) NOT NULL,
+             TDPRCPRESKUNI                  CHAR(1) NOT NULL,
+             TDPRTRETROAGIOS                DECIMAL(3, 0) NOT NULL,
+             TDPRCAGIOSFP                   CHAR(1) NOT NULL,
+             TDPRCQUEST                     CHAR(1) NOT NULL,
+             TDPRCOPT                       CHAR(5) NOT NULL,
+             TDPRCBARASS                    DECIMAL(3, 0) NOT NULL,
+             TDPRDVBARASS                   DATE NOT NULL,
+             TDPRCPAIFASS                   CHAR(1) NOT NULL,
+             TDPRCOPTCO                     CHAR(5) NOT NULL,
+             TDPRCBARASSCO                  DECIMAL(3, 0) NOT NULL,
+             TDPRDVBARASSCO                 DATE NOT NULL,
+             TDPRCPAIFASSCO                 CHAR(1) NOT NULL,
+             TDPRMDECO                      DECIMAL(11, 2) NOT NULL,
+             TDPRMDECFIN                    DECIMAL(11, 2) NOT NULL,
+             TDPRMVARDEC                    DECIMAL(11, 2) NOT NULL,
+             TDPRDAUGCRU                    DATE NOT NULL,
+             TDPRMAGIOVDR                   DECIMAL(11, 2) NOT NULL,
+             TDPRMAGIOCLT                   DECIMAL(11, 2) NOT NULL,
+             TDPRMTOTASS                    DECIMAL(11, 2) NOT NULL,
+             TDPRMVARAGIOS                  DECIMAL(11, 2) NOT NULL,
+             TDPRMVARASS                    DECIMAL(11, 2) NOT NULL,
+             TDPRDAVANCEVDR                 DATE NOT NULL,
+             TDPRCAVANCEVDR                 CHAR(1) NOT NULL,
+             TDPRMAVANCEVDR                 DECIMAL(11, 2) NOT NULL,
+             TDPRCPOLEACT                   CHAR(1) NOT NULL,
+             TDPRCDEVISE                    CHAR(3) NOT NULL,
+             TDPRMCAUTION                   DECIMAL(11, 2) NOT NULL,
+             TDPRNFONDCAUT                  DECIMAL(3, 0) NOT NULL,
+             TDPRDAPOMAXI                   DATE NOT NULL,
+             TDPRCFORPO                     CHAR(1) NOT NULL,
+             TDPRCPAIEMENT                  CHAR(1) NOT NULL,
+             TDPRCBQ                        DECIMAL(3, 0) NOT NULL,
+             TDPRCEXPED                     CHAR(1) NOT NULL,
+             TDPRCTITCAR                    DECIMAL(1, 0) NOT NULL,
+             TDPRCCOMANDCA1                 CHAR(1) NOT NULL,
+             TDPRCCOMANDCA2                 CHAR(1) NOT NULL,
+             TDPRCFAUTO                     CHAR(1) NOT NULL,
+             TDPRBPRESCA                    DECIMAL(1, 0) NOT NULL,
+             TDPRMAUTOCA                    DECIMAL(11, 2) NOT NULL,
+             TDPRMAUTOCB                    DECIMAL(11, 2) NOT NULL,
+             TDPRCPROFCB                    CHAR(1) NOT NULL,
+             TDPRBPTCADO                    DECIMAL(9, 0) NOT NULL,
+             TDPRDDEBFIDEL                  DATE NOT NULL,
+             TDPRNOPERFIDEL                 DECIMAL(5, 0) NOT NULL,
+             TDPRCCHEQ                      DECIMAL(1, 0) NOT NULL,
+             TDPRDOUVCHEQ                   DATE NOT NULL,
+             TDPRMCUMASS                    DECIMAL(11, 2) NOT NULL,
+             TDPRCASS                       CHAR(1) NOT NULL,
+             TDPRNAGCFIN                    DECIMAL(3, 0) NOT NULL,
+             TDPRNAGCAPV                    DECIMAL(3, 0) NOT NULL,
+             TDPRCAPVP                      CHAR(1) NOT NULL,
+             TDPRNAGCRCVT                   DECIMAL(3, 0) NOT NULL,
+             TDPRCRCVTP                     CHAR(1) NOT NULL,
+             TDPRCRCVTB                     CHAR(1) NOT NULL,
+             TDPRL2LETNOM                   CHAR(2) NOT NULL,
+             TDPRCPTT                       CHAR(5) NOT NULL,
+             TDPRCPART1                     CHAR(1) NOT NULL,
+             TDPRCPART2                     CHAR(1) NOT NULL,
+             TDPRCPART3                     CHAR(1) NOT NULL,
+             TDPRCPART4                     CHAR(1) NOT NULL,
+             TDPRCPART5                     CHAR(1) NOT NULL,
+             TDPRCTIMBRAGE                  CHAR(1) NOT NULL,
+             TDPRCAUGDMA                    CHAR(1) NOT NULL,
+             TDPRCCHGTMENS                  CHAR(1) NOT NULL,
+             TDPRCMSO                       CHAR(1) NOT NULL,
+             TDPRDMSO                       DATE NOT NULL,
+             TDPRCPRESFINCT                 CHAR(1) NOT NULL,
+             TDPRDPROFINCT                  DATE NOT NULL,
+             TDPRDPAIFD                     DATE NOT NULL,
+             TDPRBRGEAT                     DECIMAL(3, 0) NOT NULL,
+             TDPRDEAT                       DATE NOT NULL,
+             TDPRDMMULT1                    DATE NOT NULL,
+             TDPRCMMULT1                    CHAR(1) NOT NULL,
+             TDPRBJOKERACONS                DECIMAL(3, 0) NOT NULL,
+             TDPRDANNIOPS                   DATE NOT NULL,
+             TDPRDRENOUV                    DATE NOT NULL,
+             TDPRCNRENOUV                   CHAR(1) NOT NULL,
+             TDPRCVERROU                    CHAR(2) NOT NULL,
+             TDPRDVERROU                    DATE NOT NULL,
+             TDPRDCOTISCA                   DATE NOT NULL,
+             TDPRTSTAMPDEBP                 TIMESTAMP NOT NULL,
+             TDPRTSTAMPDBIL                 TIMESTAMP NOT NULL,
+             TDPRCFREQBIL                   CHAR(1) NOT NULL,
+             TDPRCGFREQBIL                  DECIMAL(1, 0) NOT NULL,
+             TDPRCENVBIL                    CHAR(1) NOT NULL,
+             TDPRNQUANTBIL                  DECIMAL(3, 0) NOT NULL,
+             TDPRCIPHASE                    DECIMAL(3, 0) NOT NULL,
+             TDPRDECHP                      DATE NOT NULL,
+             TDPRDDPRE                      DATE NOT NULL,
+             TDPRMDPRE                      DECIMAL(11, 2) NOT NULL,
+             TDPRMMENS                      DECIMAL(11, 2) NOT NULL,
+             TDPRTEGM                       DECIMAL(9, 8) NOT NULL,
+             TDPRMTODD                      DECIMAL(11, 2) NOT NULL,
+             TDPRMAGREPORT                  DECIMAL(11, 2) NOT NULL,
+             TDPRMAGIM                      DECIMAL(11, 2) NOT NULL,
+             TDPRMAGFP                      DECIMAL(11, 2) NOT NULL,
+             TDPRMAGACHATM1                 DECIMAL(11, 2) NOT NULL,
+             TDPRMFINMAGM1                  DECIMAL(11, 2) NOT NULL,
+             TDPRMACHATCHAINE               DECIMAL(11, 2) NOT NULL,
+             TDPRMACHATVDR                  DECIMAL(11, 2) NOT NULL,
+             TDPRMCAPFP                     DECIMAL(11, 2) NOT NULL,
+             TDPRMASSFP                     DECIMAL(11, 2) NOT NULL,
+             TDPRMPCFP                      DECIMAL(11, 2) NOT NULL,
+             TDPRMAGREPORTFP                DECIMAL(11, 2) NOT NULL,
+             TDPRMFDMOFP                    DECIMAL(11, 2) NOT NULL,
+             TDPRMAGIOSFPFM                 DECIMAL(11, 2) NOT NULL,
+             TDPRMCOTIFP                    DECIMAL(11, 2) NOT NULL,
+             TDPRMFASS                      DECIMAL(11, 2) NOT NULL,
+             TDPRTSURPRIMS                  DECIMAL(5, 2) NOT NULL,
+             TDPRMFASSCO                    DECIMAL(11, 2) NOT NULL,
+             TDPRTSURPRIMSC                 DECIMAL(5, 2) NOT NULL,
+             TDPRMFORIG                     DECIMAL(11, 2) NOT NULL,
+             TDPRBFINORIG                   DECIMAL(5, 0) NOT NULL,
+             TDPRMAGAC                      DECIMAL(11, 2) NOT NULL,
+             TDPRMASSREG                    DECIMAL(11, 2) NOT NULL,
+             TDPRMPCDOM                     DECIMAL(11, 2) NOT NULL,
+             TDPRMPCREGLE                   DECIMAL(11, 2) NOT NULL,
+             TDPRMFREPORT                   DECIMAL(11, 2) NOT NULL,
+             TDPRMIR                        DECIMAL(11, 2) NOT NULL,
+             TDPRDDANNINDRET                DATE NOT NULL,
+             TDPRMFRCHQUANT                 DECIMAL(11, 2) NOT NULL,
+             TDPRMCDVERSE                   DECIMAL(11, 2) NOT NULL,
+             TDPRMIANTI                     DECIMAL(11, 2) NOT NULL,
+             TDPRMREGORIG                   DECIMAL(11, 2) NOT NULL,
+             TDPRMFRDIVERS                  DECIMAL(11, 2) NOT NULL,
+             TDPRMPP                        DECIMAL(11, 2) NOT NULL,
+             TDPRDDPP                       DATE NOT NULL,
+             TDPRMPPAGC                     DECIMAL(11, 2) NOT NULL,
+             TDPRCMOTPP                     DECIMAL(3, 0) NOT NULL,
+             TDPRMREMORIG                   DECIMAL(11, 2) NOT NULL,
+             TDPRMREMISE                    DECIMAL(11, 2) NOT NULL,
+             TDPRMTME                       DECIMAL(11, 2) NOT NULL,
+             TDPRMECONT                     DECIMAL(11, 2) NOT NULL,
+             TDPRMAGIOVRES                  DECIMAL(11, 2) NOT NULL,
+             TDPRMCRD                       DECIMAL(11, 2) NOT NULL,
+             TDPRMSREC                      DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECCAP                   DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECASS                   DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECPCAV                  DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECREPORT                DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECRET                   DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECAGIOS                 DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECCOTI                  DECIMAL(11, 2) NOT NULL,
+             TDPRMSRECDIVERS                DECIMAL(11, 2) NOT NULL,
+             TDPRMCOTIS                     DECIMAL(11, 2) NOT NULL,
+             TDPRMVC                        DECIMAL(11, 2) NOT NULL,
+             TDPRCOPTFIN                    CHAR(1) NOT NULL,
+             TDPRC1FINFDMO                  CHAR(1) NOT NULL,
+             TDPRMFDMO                      DECIMAL(11, 2) NOT NULL,
+             TDPRMFDMOPREC                  DECIMAL(11, 2) NOT NULL,
+             TDPRMAGFIM                     DECIMAL(11, 2) NOT NULL,
+             TDPRMTDDBIL                    DECIMAL(11, 2) NOT NULL,
+             TDPRDSORTBIL                   DATE NOT NULL,
+             TDPRMFPERIOD                   DECIMAL(11, 2) NOT NULL,
+             TDPRCRPEDAGO                   DECIMAL(1, 0) NOT NULL,
+             TDPRCGRPEDAGO                  DECIMAL(1, 0) NOT NULL,
+             TDPRCRPEDAGOI                  DECIMAL(1, 0) NOT NULL,
+             TDPRCGRPEDAGOI                 DECIMAL(1, 0) NOT NULL,
+             TDPRMREGM                      DECIMAL(11, 2) NOT NULL,
+             TDPRDMAJMREGM                  DATE NOT NULL,
+             TDPRMDREG                      DECIMAL(11, 2) NOT NULL,
+             TDPRDDREG                      DATE NOT NULL,
+             TDPRCGESREPORT                 CHAR(1) NOT NULL,
+             TDPRMREPORTE                   DECIMAL(11, 2) NOT NULL,
+             TDPRMREPORTACONS               DECIMAL(11, 2) NOT NULL,
+             TDPRMFREPPRE                   DECIMAL(11, 2) NOT NULL,
+             TDPRDDANNINDREP                DATE NOT NULL,
+             TDPRDCHFICOBA                  DATE NOT NULL,
+             TDPRCCOMANDCBL                 CHAR(1) NOT NULL,
+             TDPRNBINDTS                    DECIMAL(3, 0) NOT NULL,
+             TDPRNCARTPHY                   DECIMAL(16, 0) NOT NULL,
+             TDPRDDCALASSU                  DATE NOT NULL,
+             TDPRDSCPTCREDIT                DATE NOT NULL,
+             TDPRCFIDEL                     CHAR(1) NOT NULL,
+             TDPRMCRUANC                    DECIMAL(11, 2) NOT NULL,
+             TDPRCTITCBL                    DECIMAL(1, 0) NOT NULL,
+             TDPRCINFBXVDR                  CHAR(1) NOT NULL,
+             TDPRCADRESCOUR                 CHAR(2) NOT NULL,
+             TDPRCINTERVDR                  CHAR(1) NOT NULL,
+             TDPRCPART6                     CHAR(1) NOT NULL,
+             TDPRCPART7                     CHAR(1) NOT NULL,
+             TDPRCPART8                     CHAR(1) NOT NULL,
+             TDPRCPART9                     CHAR(1) NOT NULL,
+             TDPRCPART10                    CHAR(1) NOT NULL,
+             TDPRDPIVECH1                   DATE NOT NULL,
+             TDPRTAEG                       DECIMAL(5, 3) NOT NULL,
+             TDPRNDOSBNQ                    DECIMAL(12, 0) NOT NULL,
+             TDPRDFINANCABLE                DATE NOT NULL,
+             TDPRMCOTIS2                    DECIMAL(11, 2) NOT NULL
+           ) END-EXEC.
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE TBDOPRN                            *
+      ******************************************************************
+       01  DCLTBDOPRN.
+           10 TDPRNFOY             PIC S9(11)V USAGE COMP-3.
+           10 TDPRNCONT            PIC S9(1)V USAGE COMP-3.
+           10 TDPRNCARTE           PIC S9(1)V USAGE COMP-3.
+           10 TDPRNDT              PIC S9(3)V USAGE COMP-3.
+           10 TDPRNSOC             PIC S9(3)V USAGE COMP-3.
+           10 TDPRDCREAT           PIC X(10).
+           10 TDPRDMOD             PIC X(10).
+           10 TDPRCINACT           PIC X(1).
+           10 TDPRDINACT           PIC X(10).
+           10 TDPRCPOSA            PIC X(3).
+           10 TDPRDPOSA            PIC X(10).
+           10 TDPRCPOSP            PIC X(3).
+           10 TDPRDPOSP            PIC X(10).
+           10 TDPRCPRODCOM         PIC X(4).
+           10 TDPRCPROFPROD        PIC X(1).
+           10 TDPRCGCOMPT          PIC X(1).
+           10 TDPRCPRODVDR         PIC X(4).
+           10 TDPRNSOCCOMMU        PIC S9(3)V USAGE COMP-3.
+           10 TDPRCTYPEPROD        PIC X(3).
+           10 TDPRCPRODBASE        PIC X(4).
+           10 TDPRCCPTRAURO        PIC X(1).
+           10 TDPRDTITRI           PIC X(10).
+           10 TDPRNLOTTITRI        PIC S9(3)V USAGE COMP-3.
+           10 TDPRNCC              PIC S9(9)V USAGE COMP-3.
+           10 TDPRNSOCSEP          PIC S9(3)V USAGE COMP-3.
+           10 TDPRNSOCFIN          PIC S9(3)V USAGE COMP-3.
+           10 TDPRNSOCGEO          PIC S9(3)V USAGE COMP-3.
+           10 TDPRNSOCAGRO         PIC S9(3)V USAGE COMP-3.
+           10 TDPRNAGRO            PIC S9(7)V USAGE COMP-3.
+           10 TDPRNSOCAGR          PIC S9(3)V USAGE COMP-3.
+           10 TDPRNAGR             PIC S9(7)V USAGE COMP-3.
+           10 TDPRCPORTF           PIC X(1).
+           10 TDPRCBAREME          PIC S9(3)V USAGE COMP-3.
+           10 TDPRTBAREME          PIC S9(1)V9(8) USAGE COMP-3.
+           10 TDPRTNC              PIC S9(1)V9(8) USAGE COMP-3.
+           10 TDPRTCOEFRES         PIC S9(1)V9(8) USAGE COMP-3.
+           10 TDPRTVDR             PIC S9(1)V9(8) USAGE COMP-3.
+           10 TDPRCBARSPEC         PIC S9(3)V USAGE COMP-3.
+           10 TDPRTBARSPEC         PIC S9(1)V9(8) USAGE COMP-3.
+           10 TDPRDFINBARSPEC      PIC X(10).
+           10 TDPRBMENS            PIC S9(3)V USAGE COMP-3.
+           10 TDPRDECH1            PIC X(10).
+           10 TDPRCFREQ            PIC X(1).
+           10 TDPRNQUANT           PIC S9(3)V USAGE COMP-3.
+           10 TDPRNCHQUANT         PIC S9(3)V USAGE COMP-3.
+           10 TDPRBDUREE           PIC S9(3)V USAGE COMP-3.
+           10 TDPRBDURREST         PIC S9(3)V USAGE COMP-3.
+           10 TDPRTDEG             PIC S9(3)V USAGE COMP-3.
+           10 TDPRCTOPDOUBRES      PIC X(1).
+           10 TDPRCCHR             PIC S9(3)V USAGE COMP-3.
+           10 TDPRBITERCYCLE       PIC S9(3)V USAGE COMP-3.
+           10 TDPRCMMMULTI         PIC X(1).
+           10 TDPRCECHEL           PIC X(1).
+           10 TDPRCDURMENS         PIC X(1).
+           10 TDPRCAGIOSDIF        PIC X(1).
+           10 TDPRCPRESKUNI        PIC X(1).
+           10 TDPRTRETROAGIOS      PIC S9(3)V USAGE COMP-3.
+           10 TDPRCAGIOSFP         PIC X(1).
+           10 TDPRCQUEST           PIC X(1).
+           10 TDPRCOPT             PIC X(5).
+           10 TDPRCBARASS          PIC S9(3)V USAGE COMP-3.
+           10 TDPRDVBARASS         PIC X(10).
+           10 TDPRCPAIFASS         PIC X(1).
+           10 TDPRCOPTCO           PIC X(5).
+           10 TDPRCBARASSCO        PIC S9(3)V USAGE COMP-3.
+           10 TDPRDVBARASSCO       PIC X(10).
+           10 TDPRCPAIFASSCO       PIC X(1).
+           10 TDPRMDECO            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMDECFIN          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMVARDEC          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDAUGCRU          PIC X(10).
+           10 TDPRMAGIOVDR         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGIOCLT         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMTOTASS          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMVARAGIOS        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMVARASS          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDAVANCEVDR       PIC X(10).
+           10 TDPRCAVANCEVDR       PIC X(1).
+           10 TDPRMAVANCEVDR       PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCPOLEACT         PIC X(1).
+           10 TDPRCDEVISE          PIC X(3).
+           10 TDPRMCAUTION         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRNFONDCAUT        PIC S9(3)V USAGE COMP-3.
+           10 TDPRDAPOMAXI         PIC X(10).
+           10 TDPRCFORPO           PIC X(1).
+           10 TDPRCPAIEMENT        PIC X(1).
+           10 TDPRCBQ              PIC S9(3)V USAGE COMP-3.
+           10 TDPRCEXPED           PIC X(1).
+           10 TDPRCTITCAR          PIC S9(1)V USAGE COMP-3.
+           10 TDPRCCOMANDCA1       PIC X(1).
+           10 TDPRCCOMANDCA2       PIC X(1).
+           10 TDPRCFAUTO           PIC X(1).
+           10 TDPRBPRESCA          PIC S9(1)V USAGE COMP-3.
+           10 TDPRMAUTOCA          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAUTOCB          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCPROFCB          PIC X(1).
+           10 TDPRBPTCADO          PIC S9(9)V USAGE COMP-3.
+           10 TDPRDDEBFIDEL        PIC X(10).
+           10 TDPRNOPERFIDEL       PIC S9(5)V USAGE COMP-3.
+           10 TDPRCCHEQ            PIC S9(1)V USAGE COMP-3.
+           10 TDPRDOUVCHEQ         PIC X(10).
+           10 TDPRMCUMASS          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCASS             PIC X(1).
+           10 TDPRNAGCFIN          PIC S9(3)V USAGE COMP-3.
+           10 TDPRNAGCAPV          PIC S9(3)V USAGE COMP-3.
+           10 TDPRCAPVP            PIC X(1).
+           10 TDPRNAGCRCVT         PIC S9(3)V USAGE COMP-3.
+           10 TDPRCRCVTP           PIC X(1).
+           10 TDPRCRCVTB           PIC X(1).
+           10 TDPRL2LETNOM         PIC X(2).
+           10 TDPRCPTT             PIC X(5).
+           10 TDPRCPART1           PIC X(1).
+           10 TDPRCPART2           PIC X(1).
+           10 TDPRCPART3           PIC X(1).
+           10 TDPRCPART4           PIC X(1).
+           10 TDPRCPART5           PIC X(1).
+           10 TDPRCTIMBRAGE        PIC X(1).
+           10 TDPRCAUGDMA          PIC X(1).
+           10 TDPRCCHGTMENS        PIC X(1).
+           10 TDPRCMSO             PIC X(1).
+           10 TDPRDMSO             PIC X(10).
+           10 TDPRCPRESFINCT       PIC X(1).
+           10 TDPRDPROFINCT        PIC X(10).
+           10 TDPRDPAIFD           PIC X(10).
+           10 TDPRBRGEAT           PIC S9(3)V USAGE COMP-3.
+           10 TDPRDEAT             PIC X(10).
+           10 TDPRDMMULT1          PIC X(10).
+           10 TDPRCMMULT1          PIC X(1).
+           10 TDPRBJOKERACONS      PIC S9(3)V USAGE COMP-3.
+           10 TDPRDANNIOPS         PIC X(10).
+           10 TDPRDRENOUV          PIC X(10).
+           10 TDPRCNRENOUV         PIC X(1).
+           10 TDPRCVERROU          PIC X(2).
+           10 TDPRDVERROU          PIC X(10).
+           10 TDPRDCOTISCA         PIC X(10).
+           10 TDPRTSTAMPDEBP       PIC X(26).
+           10 TDPRTSTAMPDBIL       PIC X(26).
+           10 TDPRCFREQBIL         PIC X(1).
+           10 TDPRCGFREQBIL        PIC S9(1)V USAGE COMP-3.
+           10 TDPRCENVBIL          PIC X(1).
+           10 TDPRNQUANTBIL        PIC S9(3)V USAGE COMP-3.
+           10 TDPRCIPHASE          PIC S9(3)V USAGE COMP-3.
+           10 TDPRDECHP            PIC X(10).
+           10 TDPRDDPRE            PIC X(10).
+           10 TDPRMDPRE            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMMENS            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRTEGM             PIC S9(1)V9(8) USAGE COMP-3.
+           10 TDPRMTODD            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGREPORT        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGIM            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGFP            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGACHATM1       PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFINMAGM1        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMACHATCHAINE     PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMACHATVDR        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMCAPFP           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMASSFP           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMPCFP            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGREPORTFP      PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFDMOFP          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGIOSFPFM       PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMCOTIFP          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFASS            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRTSURPRIMS        PIC S9(3)V9(2) USAGE COMP-3.
+           10 TDPRMFASSCO          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRTSURPRIMSC       PIC S9(3)V9(2) USAGE COMP-3.
+           10 TDPRMFORIG           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRBFINORIG         PIC S9(5)V USAGE COMP-3.
+           10 TDPRMAGAC            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMASSREG          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMPCDOM           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMPCREGLE         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFREPORT         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMIR              PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDDANNINDRET      PIC X(10).
+           10 TDPRMFRCHQUANT       PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMCDVERSE         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMIANTI           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMREGORIG         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFRDIVERS        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMPP              PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDDPP             PIC X(10).
+           10 TDPRMPPAGC           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCMOTPP           PIC S9(3)V USAGE COMP-3.
+           10 TDPRMREMORIG         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMREMISE          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMTME             PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMECONT           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGIOVRES        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMCRD             PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSREC            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECCAP         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECASS         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECPCAV        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECREPORT      PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECRET         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECAGIOS       PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECCOTI        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMSRECDIVERS      PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMCOTIS           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMVC              PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCOPTFIN          PIC X(1).
+           10 TDPRC1FINFDMO        PIC X(1).
+           10 TDPRMFDMO            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFDMOPREC        PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMAGFIM           PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMTDDBIL          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDSORTBIL         PIC X(10).
+           10 TDPRMFPERIOD         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCRPEDAGO         PIC S9(1)V USAGE COMP-3.
+           10 TDPRCGRPEDAGO        PIC S9(1)V USAGE COMP-3.
+           10 TDPRCRPEDAGOI        PIC S9(1)V USAGE COMP-3.
+           10 TDPRCGRPEDAGOI       PIC S9(1)V USAGE COMP-3.
+           10 TDPRMREGM            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDMAJMREGM        PIC X(10).
+           10 TDPRMDREG            PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDDREG            PIC X(10).
+           10 TDPRCGESREPORT       PIC X(1).
+           10 TDPRMREPORTE         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMREPORTACONS     PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRMFREPPRE         PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRDDANNINDREP      PIC X(10).
+           10 TDPRDCHFICOBA        PIC X(10).
+           10 TDPRCCOMANDCBL       PIC X(1).
+           10 TDPRNBINDTS          PIC S9(3)V USAGE COMP-3.
+           10 TDPRNCARTPHY         PIC S9(16)V USAGE COMP-3.
+           10 TDPRDDCALASSU        PIC X(10).
+           10 TDPRDSCPTCREDIT      PIC X(10).
+           10 TDPRCFIDEL           PIC X(1).
+           10 TDPRMCRUANC          PIC S9(9)V9(2) USAGE COMP-3.
+           10 TDPRCTITCBL          PIC S9(1)V USAGE COMP-3.
+           10 TDPRCINFBXVDR        PIC X(1).
+           10 TDPRCADRESCOUR       PIC X(2).
+           10 TDPRCINTERVDR        PIC X(1).
+           10 TDPRCPART6           PIC X(1).
+           10 TDPRCPART7           PIC X(1).
+           10 TDPRCPART8           PIC X(1).
+           10 TDPRCPART9           PIC X(1).
+           10 TDPRCPART10          PIC X(1).
+           10 TDPRDPIVECH1         PIC X(10).
+           10 TDPRTAEG             PIC S9(2)V9(3) USAGE COMP-3.
+           10 TDPRNDOSBNQ          PIC S9(12)V USAGE COMP-3.
+           10 TDPRDFINANCABLE      PIC X(10).
+           10 TDPRMCOTIS2          PIC S9(9)V9(2) USAGE COMP-3.
+      ******************************************************************
+      * THE NUMBER OF COLUMNS DESCRIBED BY THIS DECLARATION IS 244     *
+      ******************************************************************

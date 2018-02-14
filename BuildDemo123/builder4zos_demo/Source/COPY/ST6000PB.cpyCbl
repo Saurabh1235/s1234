@@ -1,0 +1,116 @@
+      *===============================================================* 00010009
+      * 60000       I SERVICE FOR DATE AND TIME TRANSFORMATION        * 00020017
+      *---------------------------------------------------------------* 00030009
+      *    - CPU DATE TRANSFORMATION     YYDDD   --->  CCYYMMDD       * 00040018
+      *    - PROCESS. DATE TRANSFORM.    YYMMDD  --->  CCYYDDD        * 00050018
+      *    - DB2 DATE TRANSFORMATION   CCYYMMDD  --->  DD.MM.CCYY     * 00060018
+      *    -                         DD.MM.CCYY  --->  CCYYMMDD       * 00070018
+      *    - DB2 TIME TRANSFORMATION     HHMMSS  --->  HH.MM.SS       * 00080018
+      *                                HH.MM.SS  --->  HHMMSS         * 00090012
+      *===============================================================* 00100009
+       60000-TRANSF-DATES          SECTION.                             00110009
+      *                                                                 00120009
+      * *--------------- CPU DATE  YYDDD  --->  CCYYMMDD                00130018
+      *                                                                 00140009
+           MOVE EIBDATE           TO WS-DAT-AAQQQ.                      00150011
+           MOVE ZERO              TO WS-DAT-AAMMJJ.                     00160011
+           DIVIDE WS-DAT-Q-AA BY 4 GIVING WS-CPT                        00170011
+                  REMAINDER WS-RESTE.                                   00180011
+           IF  WS-RESTE        = 0                                      00190011
+               MOVE 29            TO WS-TABDATE-JJ (2)                  00200011
+           END-IF.                                                      00210009
+           PERFORM VARYING WS-IND1 FROM 1 BY 1 UNTIL WS-IND1 > 12       00220011
+              IF  WS-DAT-Q-JJ  > WS-TABDATE-JJ (WS-IND1)                00230011
+                  ADD 1           TO WS-DAT-MM                          00240011
+                  SUBTRACT WS-TABDATE-JJ (WS-IND1)                      00250011
+                                  FROM WS-DAT-Q-JJ                      00260011
+              ELSE                                                      00270011
+                  NEXT SENTENCE                                         00280009
+              END-IF                                                    00290009
+           END-PERFORM.                                                 00300009
+           ADD  1                 TO  WS-DAT-MM.                        00310011
+           MOVE WS-DAT-Q-JJ       TO  WS-DAT-JJ.                        00320011
+           MOVE WS-DAT-Q-AA       TO  WS-DAT-AA.                        00330011
+           MOVE WS-DAT-AAMMJJ     TO  WS-DTCPU-AMJ.                     00340011
+      *                                                                 00350009
+      * *--------------- PROCESS. DATE    YYMMDD  --->  CCYYDDD         00360018
+      *                                                                 00370009
+           MOVE WAAMMJJ           TO  WS-DAT-AAMMJJ.                    00380011
+           MOVE ZERO              TO  WS-DAT-AAQQQ.                     00390011
+           DIVIDE WS-DAT-AA BY 4 GIVING WS-CPT                          00400011
+                  REMAINDER WS-RESTE.                                   00410011
+           IF  WS-RESTE        = 0                                      00420011
+               MOVE 29            TO  WS-TABDATE-JJ (2)                 00430011
+           ELSE                                                         00440011
+               MOVE 28            TO  WS-TABDATE-JJ (2)                 00450011
+           END-IF.                                                      00460009
+           PERFORM VARYING WS-IND1 FROM 1 BY 1 UNTIL WS-IND1 > 12       00470011
+              IF  WS-IND1  NOT > (WS-DAT-MM - 1)                        00480009
+                  ADD WS-TABDATE-JJ (WS-IND1)                           00490011
+                                  TO  WS-DAT-Q-JJ                       00500011
+              ELSE                                                      00510011
+                  NEXT SENTENCE                                         00520009
+              END-IF                                                    00530009
+           END-PERFORM.                                                 00540009
+           ADD  WS-DAT-JJ         TO  WS-DAT-Q-JJ.                      00550011
+           MOVE WS-DAT-AA         TO  WS-DQTRT-AA.                      00560011
+           MOVE WS-DAT-Q-JJ       TO  WS-DQTRT-QQ.                      00570011
+      *                                                                 00580012
+      * *--------------- DATE       CCYYMMDD  --->  DD.MM.CCYY DB2      00590018
+      *                                                                 00600012
+       60000-MEF-DATE-DB2          SECTION.                             00610012
+           IF  WS-AFFICH-DATE  = LOW-VALUE                              00620014
+               MOVE '00010101'    TO  WS-AFFICH-DATE                    00630014
+           END-IF.                                                      00640014
+      *                                                                 00650014
+           IF  WS-AFFICH-SSAA  = 0                                      00660012
+               MOVE 1             TO  WS-AFFICH-SSAA                    00670012
+           END-IF.                                                      00680012
+           MOVE WS-AFFICH-SSAA    TO  WS-DB2-SSAA.                      00690012
+      *                                                                 00700012
+           IF  WS-AFFICH-MM    = 0                                      00710012
+               MOVE 1             TO  WS-AFFICH-MM                      00720012
+           END-IF.                                                      00730012
+           MOVE WS-AFFICH-MM      TO  WS-DB2-MM.                        00740012
+      *                                                                 00750012
+           IF  WS-AFFICH-JJ    = 0                                      00760012
+               MOVE 1             TO  WS-AFFICH-JJ                      00770012
+           END-IF.                                                      00780012
+           MOVE WS-AFFICH-JJ      TO  WS-DB2-JJ.                        00790012
+           MOVE  '.'              TO  WS-DB2-JJ-POINT                   00792016
+                                      WS-DB2-MM-POINT.                  00793016
+      *                                                                 00800012
+      * *--------------- DB2 DATE DD.MM.CCYY  --->  CCYYMMDD            00810018
+      *                                                                 00820012
+       60000-MEF-DATE-AFFICH       SECTION.                             00830012
+           IF  WS-DB2-DATE     = '01.01.0001' OR                        00840015
+                               = SPACE                                  00850015
+               MOVE '00.00.0000'  TO  WS-DB2-DATE                       00860013
+           END-IF.                                                      00870013
+      *                                                                 00880015
+           MOVE  WS-DB2-JJ        TO  WS-AFFICH-JJ.                     00890012
+           MOVE  WS-DB2-MM        TO  WS-AFFICH-MM.                     00900012
+           MOVE  WS-DB2-SSAA      TO  WS-AFFICH-SSAA.                   00910012
+      *                                                                 00920012
+      * *--------------- TIME         HHMMSS  --->  HH.MM.SS DB2        00930018
+      *                                                                 00940012
+       60000-MEF-TIME-DB2          SECTION.                             00950012
+           IF  WS-AFFICH-TIME  = LOW-VALUE                              00960014
+               MOVE 0             TO  WS-AFFICH-TIME                    00970014
+           END-IF.                                                      00980014
+      *                                                                 00990014
+           MOVE WS-AFFICH-TIMHH   TO  WS-DB2-TIMHH.                     01000012
+           MOVE WS-AFFICH-TIMMM   TO  WS-DB2-TIMMM.                     01010012
+           MOVE WS-AFFICH-TIMSS   TO  WS-DB2-TIMSS.                     01020012
+      *                                                                 01030012
+      * *--------------- DB2 TIME    HHMMSS  --->  HH.MM.SS             01040018
+      *                                                                 01050012
+       60000-MEF-TIME-AFFICH       SECTION.                             01060012
+           IF  WS-DB2-TIME     = SPACE                                  01070015
+               MOVE '00.00.00'    TO  WS-DB2-TIME                       01080015
+           END-IF.                                                      01090015
+      *                                                                 01100015
+           MOVE  WS-DB2-TIMHH     TO  WS-AFFICH-TIMHH.                  01110012
+           MOVE  WS-DB2-TIMMM     TO  WS-AFFICH-TIMMM.                  01120012
+           MOVE  WS-DB2-TIMSS     TO  WS-AFFICH-TIMSS.                  01130012
+      *                                                                 01140012

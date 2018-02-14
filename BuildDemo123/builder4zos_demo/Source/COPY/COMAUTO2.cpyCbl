@@ -1,0 +1,113 @@
+000100*           ********************************
+000200*           ** CLEANED     24/08/98      ***
+000300*           ********************************
+000400****************************************************************
+000500*        COMMAREA PIAUTO TABLE ORGANISATION COLLABORATEUR
+000600****************************************************************
+000700 01  COMAUTO2.
+000800*                               CODE RETOUR PIAUTO
+000900     02  COM2-AUTSIGN          PIC S9     COMP-3.
+001000*                                       IDENTIFIANT NUMERIQUE
+001100     02  COM2-AUTNOID          PIC S9(5)  COMP-3.
+001200*                                       INITIALES
+001300     02  COM2-AUTLINITUSER     PIC X(3).
+001400*                                       SECTEUR D' APPARTENANCE
+001500     02  COM2-AUTCSOCAPPART    PIC X(2).
+001600*                                       NIVEAU HIERARCHIQUE
+001700     02  COM2-AUTNIVEAUH       PIC S9(3)  COMP-3.
+001800*                                       FONCTION SOMMAIRE
+001900     02  COM2-AUTCFONCSOMM     PIC X(4).
+002000*                                       FORMAT AFFICHAGE ECHEANCIE
+002100     02  COM2-AUTLAFFICHECH    PIC X(6).
+002200*                                       IDENTIFIANT DU DELEGATAIRE
+002300     02  COM2-AUTNOIDELEG      PIC S9(5)  COMP-3.
+002400*                                       DATE DE DEBUT DELEGATION
+002500     02  COM2-AUTDDELEGDEB     PIC X(10).
+002600*                                       DATE DE FIN DELEGATION
+002700     02  COM2-AUTDDELEGFIN     PIC X(10).
+002800*                                       TYPE DE DELEGATION
+002900     02  COM2-AUTCTYPDELEG     PIC X(2).
+003000*                                       CODE SUIVI DOSSIERS
+003100     02  COM2-AUTCSURVDOS      PIC X(10).
+003200*                                       CODE SUIVI ECOUTES
+003300     02  COM2-AUTCSURVECOUTES  PIC X(10).
+003400*                                       TERRITOIRE
+003500     02  COM2-AUTCOMPTER       PIC S9(3)  COMP-3.
+003600*                                       ZONE
+003700     02  COM2-AUTCOMPZON       PIC S9(3)  COMP-3.
+003800*                                       COMPETENCES AGENCES (11)
+003900     02  AGENCES2.
+004000         05  COM2-AUTAFFECAGC1 PIC S9(3)  COMP-3.
+004100         05  COM2-AUTAFFECAGC2 PIC S9(3)  COMP-3.
+004200         05  COM2-AUTAFFECAGC3 PIC S9(3)  COMP-3.
+004300         05  COM2-AUTDEPAAGC1  PIC S9(3)  COMP-3.
+004400         05  COM2-AUTDEPAAGC2  PIC S9(3)  COMP-3.
+004500         05  COM2-AUTDEPAAGC3  PIC S9(3)  COMP-3.
+004600         05  COM2-AUTDEPAAGC4  PIC S9(3)  COMP-3.
+004700         05  COM2-AUTDEPAAGC5  PIC S9(3)  COMP-3.
+004800         05  COM2-AUTDEPAAGC6  PIC S9(3)  COMP-3.
+004900         05  COM2-AUTDEPAAGC7  PIC S9(3)  COMP-3.
+005000         05  COM2-AUTDEPAAGC8  PIC S9(3)  COMP-3.
+005100     02  FILLER REDEFINES AGENCES2.
+005200         05  COMR2-AGENCES                            OCCURS  11.
+005300             10  COMR2-AUTCOMPAG
+005400                              PIC S9(3)  COMP-3.
+005500*                                       AGENCE DE CONFIGURATION
+005600     02  COM2-AUTNCONFAGC      PIC S9(3)  COMP-3.
+005700*                                       STATS EN AGCE DEPANNEE
+005800     02  COM2-AUTSTAT          PIC X.
+005900*                                       CLASST EN AGCE DEPANNE
+006000     02  COM2-AUTCLAST         PIC X.
+006100*                                       COMPETENCES SOCIETES (11)
+006200     02  SOCIETES2.
+006300         05  COM2-AUTCOMPSOC1  PIC X(3).
+006400         05  COM2-AUTCOMPSOC2  PIC X(3).
+006500         05  COM2-AUTCOMPSOC3  PIC X(3).
+006600         05  COM2-AUTCOMPSOC4  PIC X(3).
+006700         05  COM2-AUTCOMPSOC5  PIC X(3).
+006800         05  COM2-AUTCOMPSOC6  PIC X(3).
+006900         05  COM2-AUTCOMPSOC7  PIC X(3).
+007000         05  COM2-AUTCOMPSOC8  PIC X(3).
+007100         05  COM2-AUTCOMPSOC9  PIC X(3).
+007200         05  COM2-AUTCOMPSOC10 PIC X(3).
+007300         05  COM2-AUTCOMPSOC11 PIC X(3).
+007400     02  FILLER REDEFINES SOCIETES2.
+007500         05  COMR2-SOCIETES                           OCCURS  11.
+007600             10  COMR2-AUTCOMPSOC
+007700                               PIC X(3).
+007800*                                       SOCIETE DE CONFIGURATION
+007900     02  COM2-AUTNCONFSOC      PIC S9(3)  COMP-3.
+008000*                                       CODE VISIBILITE TOTALE
+008100     02  COM2-AUTCVISITOTALE   PIC X(1).
+008200*                                       POLES D'ACTIVITE
+008300     02  COM2-AUTPOLEACTIV     PIC X(2).
+008400*                                       BAC
+008500     02  COM2-AUTCBAC          PIC X.
+008600*                                       COMPETENCE OCTROI (CODE)
+008700     02  COM2-AUTCOCTROI       PIC S9(3)  COMP-3.
+008800*                                       COMPETENCE FINANCEMENT
+008900     02  COM2-AUTCFINCT        PIC S9(3)  COMP-3.
+009000*                                       COMPETENCE APR VENTE
+009100     02  COM2-AUTAPRVT         PIC S9(3)  COMP-3.
+009200*                                       COMPETENCE SSR
+009300     02  COM2-AUTSSR           PIC S9(3)  COMP-3.
+009400*                                       COMPETENCE CONTENTIEUX
+009500     02  COM2-AUTCTX           PIC S9(3)  COMP-3.
+009600*                                       COMPETENCE CONTROLE GENERA
+009700     02  COM2-AUTCTRGAL        PIC S9(3)  COMP-3.
+009800*                                       COMPETENCE COMPTA GENERALE
+009900     02  COM2-AUTCOMPTA        PIC S9(3)  COMP-3.
+010000*                                       COMPETENCE COMPTA SAISIE R
+010100     02  COM2-AUTCOMPTARIB     PIC S9(3)  COMP-3.
+010200*                                       COMPETENCE MAJ HELP
+010300     02  COM2-AUTHELP          PIC S9(3)  COMP-3.
+010400*                                       COMPETENCE SECURITE
+010500     02  COM2-AUTSECURITE      PIC S9(3)  COMP-3.
+010600*                                       COMPETENCE COMMERCIALE
+010700     02  COM2-AUTCOMMERC       PIC S9(3)  COMP-3.
+010800*                                       COMPETENCE COMPTABILITE CL
+010900     02  COM2-AUTCPTCLI        PIC S9(3)  COMP-3.
+011000*                                       IMPRIMANTE DE CONFIG.
+011100     02  COM2-AUTNIMP          PIC X(4).
+011200*                                       FILLER DE RESERVE
+011300     02  COM2-FILLER           PIC X(20).

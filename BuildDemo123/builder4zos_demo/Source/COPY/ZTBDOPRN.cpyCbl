@@ -1,0 +1,22 @@
+       01  ZTBDOPRN .
+           02  FILLER.
+               04 FILLER             PIC X(08)  VALUE 'TDPRNFOY'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZDPRNFOY           PIC 9(011) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(09)  VALUE 'TDPRNCONT'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZDPRNCONT          PIC 9(001) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(10)  VALUE 'TDPRNCARTE'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZDPRNCARTE         PIC 9(001) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(07)  VALUE 'TDPRNDT'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZDPRNDT            PIC 9(003) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(08)  VALUE 'TDPRNSOC'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZDPRNSOC           PIC 9(003) VALUE ZERO.
+               04 FILLER             PIC X      VALUE '§'.

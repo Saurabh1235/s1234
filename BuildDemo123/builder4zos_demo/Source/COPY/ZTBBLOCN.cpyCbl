@@ -1,0 +1,10 @@
+       01  ZTBBLOCN .
+           02  FILLER.
+               04 FILLER             PIC X(08)  VALUE 'TBLONFOY'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZBLONFOY           PIC 9(011) VALUE ZERO.
+           02  FILLER.
+               04 FILLER             PIC X(13)  VALUE 'TBLOTIMESTAMP'.
+               04 FILLER             PIC X(3)   VALUE ' = '.
+               04 ZBLOTIMESTAMP      PIC X(026) VALUE SPACES.
+               04 FILLER             PIC X      VALUE '§'.
